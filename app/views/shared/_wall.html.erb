@@ -1,0 +1,7 @@
+<h2>The Wall</h2>
+<ul>
+ <% wall[0,10].each do |brick| %>
+  <li><%= brick.name %>'s Brick <%= "£#{brick.value}" if brick.show_value? %>
+ <% end %>
+</ul>
+The wall contains <%= wall.size %> bricks.

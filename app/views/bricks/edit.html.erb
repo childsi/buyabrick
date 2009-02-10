@@ -1,0 +1,32 @@
+<h1>Editing brick</h1>
+
+<% form_for(@brick) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :message %><br />
+    <%= f.text_field :message %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @brick %> |
+<%= link_to 'Back', bricks_path %>

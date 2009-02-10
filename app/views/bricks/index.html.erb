@@ -1,0 +1,28 @@
+<h1>Listing bricks</h1>
+
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Url</th>
+    <th>Message</th>
+  </tr>
+
+<% for brick in @bricks %>
+  <tr>
+    <td><%=h brick.value %></td>
+    <td><%=h brick.name %></td>
+    <td><%=h brick.email %></td>
+    <td><%=h brick.url %></td>
+    <td><%=h brick.message %></td>
+    <td><%= link_to 'Show', brick %></td>
+    <td><%= link_to 'Edit', edit_brick_path(brick) %></td>
+    <td><%= link_to 'Destroy', brick, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New brick', new_brick_path %>

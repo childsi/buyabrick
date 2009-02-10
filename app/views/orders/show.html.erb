@@ -1,0 +1,33 @@
+<p>
+  <b>Brick:</b>
+  <%=h @order.brick_id %>
+</p>
+
+<p>
+  <b>Ip address:</b>
+  <%=h @order.ip_address %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @order.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @order.last_name %>
+</p>
+
+<p>
+  <b>Card type:</b>
+  <%=h @order.card_type %>
+</p>
+
+<p>
+  <b>Card expires on:</b>
+  <%=h @order.card_expires_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

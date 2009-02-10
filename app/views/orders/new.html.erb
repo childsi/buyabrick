@@ -1,0 +1,54 @@
+<% @title = 'New brick' %>
+
+<div id="steps">
+  <h2>Step 2 of 4</h2>
+</div>
+<%= render :partial => '/shared/progress' %>
+
+<div id="body">
+  £<%= @brick.value %>
+  <p><%=h @brick.message %></p>
+  
+  <hr>
+  <h3>Payment details</h3>
+  
+  <% form_for(@order) do |f| %>
+    <%= f.error_messages %>
+    <% fields_for(@brick) do |bf| %>
+      <%= bf.hidden_field :value %>
+      <%= bf.hidden_field :name %>
+      <%= bf.hidden_field :email %>
+      <%= bf.hidden_field :url %>
+      <%= bf.hidden_field :message %>
+    <% end %>
+    
+    <p>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :card_type %><br />
+      <%= f.select :card_type, [['Visa', 'visa'], ['MasterCard','master']] %>
+    </p>
+    <p>
+      <%= f.label :card_number %><br />
+      <%= f.text_field :card_number %>
+    </p>
+    <p>
+      <%= f.label :card_verification %><br />
+      <%= f.text_field :card_verification %>
+    </p>
+    <p>
+      <%= f.label :card_expires_on %><br />
+      <%= f.date_select :card_expires_on, :discard_day => :true, :start_year => Date.today.year, :end_date => (Date.today.year+10), :add_month_numbers => :true %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', orders_path %>

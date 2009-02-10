@@ -1,0 +1,45 @@
+<% @title = 'New brick' %>
+
+<div id="steps">
+  <h2>Step 2 of 4</h2>
+</div>
+<%= render :partial => '/shared/progress' %>
+
+<div id="body">
+  <% form_for(@brick) do |f| %>
+    <%= f.error_messages %>
+    
+    <p>
+      <span class="value"><%= @brick.value %>
+      <%= f.hidden_field :value %>
+    </p>
+    <p>
+      <%= f.label :message, "Add a message" %><br />
+      <%= f.text_area :message %>
+    </p>
+    
+    <hr>
+    <h3>Personal details</h3>
+    
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :url, "Website" %><br />
+      <%= f.text_field :url %>
+    </p>
+    <p>
+      <%= f.label :show_value, "Show amount?" %><br />
+      <%= f.check_box :show_value %>
+    </p>
+    
+    <p>
+      <%= f.submit "Continue" %>
+    </p>
+  <% end %>
+</div>

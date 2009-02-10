@@ -1,0 +1,28 @@
+<p>
+  <b>Value:</b>
+  <%=h @brick.value %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @brick.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @brick.email %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @brick.url %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%=h @brick.message %>
+</p>
+
+
+<%= link_to 'Edit', edit_brick_path(@brick) %> |
+<%= link_to 'Back', bricks_path %>
