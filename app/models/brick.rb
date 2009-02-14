@@ -9,9 +9,20 @@ class Brick < ActiveRecord::Base
   end
   
   def valid_email?
-    TMail::Address.parse(email) 
+    TMail::Address.parse(email) unless email.blank?
   rescue
     errors.add_to_base("Must be a valid email")
+  end
+  
+  def protx_hash
+    hash = {
+      'Amount' => value,
+      'VendorTxCode' => "bricks-#{id}",
+      'Currency' => 'GBP',
+      'Description' => "Buy-a-brick: #{message}",
+    }
+    hash['CustomerEMail'] = email unless email.blank?
+    hash
   end
   
   def prepare_order(order_attributes)

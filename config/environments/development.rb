@@ -17,8 +17,6 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :test
-  ActiveMerchant::Billing::ProtxGateway.simulate = true
   gateway_options = YAML.load_file(File.join(RAILS_ROOT, 'config', 'payment_gateway.yml'))
-  ::STANDARD_GATEWAY = ActiveMerchant::Billing::ProtxGateway.new(gateway_options[:development])
+  ::GATEWAY = ProtxForm.new(gateway_options[:development])
 end

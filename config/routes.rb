@@ -5,10 +5,12 @@ ActionController::Routing::Routes.draw do |map|
       :path_prefix => nil, :requirements => { :value => /\d+/ }
   end
   
+  map.failed_payment '/payment_notifications/failed', :controller => 'payment_notifications', :action => 'failed'
+  map.successful_payment '/payment_notifications/success', :controller => 'payment_notifications', :action => 'success'
+  
   map.root :controller => 'pages'
   map.home ':page', :controller => 'pages', :action => 'show', :page => /about|contact/
   
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
