@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :orders
-  map.resources :bricks do |brick|
+  map.resources :bricks, :collection => { :confirm => :get } do |brick|
     brick.new_with_value '/bricks/new/:value', :controller => 'bricks', :action => 'new', 
       :path_prefix => nil, :requirements => { :value => /\d+/ }
   end

@@ -20,7 +20,7 @@ class BricksController < ApplicationController
       format.xml  { render :xml => @brick }
     end
   end
-
+  
   # GET /bricks/new
   # GET /bricks/new.xml
   def new
@@ -42,11 +42,17 @@ class BricksController < ApplicationController
     @brick = Brick.new(params[:brick])
     if @brick.save
       session[:brick_id] = @brick.id
-      redirect_to new_order_path
+      redirect_to confirm_bricks_path
     else
       render :action => "new"
     end
   end
+  
+  def confirm
+    @brick = current_brick
+    return redirect_to root_path if current_brick.nil?
+  end
+  
 
   # PUT /bricks/1
   # PUT /bricks/1.xml
