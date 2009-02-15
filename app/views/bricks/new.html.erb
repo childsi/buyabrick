@@ -1,45 +1,51 @@
-<% @title = 'New brick' %>
+<% content_for :head do %>
+  <% @title = "New brick" %>
+  <%= stylesheet_link_tag 'bricks' %>
+<% end %>
 
-<div id="steps">
-  <h2>Step 2 of 4</h2>
-</div>
-<%= render :partial => '/shared/progress' %>
+<%= render :partial => 'progress', :locals => { :step => 1 } %>
 
-<div id="body">
-  <% form_for(@brick) do |f| %>
-    <%= f.error_messages %>
-    
-    <p>
+<% form_for(@brick) do |f| %>
+  <%= f.error_messages %>
+  
+  <fieldset id="brick_details">
+    <div id="value_in_pounds">
       <%= f.label :value_in_pounds %><br />
-      <%= f.text_field :value_in_pounds %>
-    </p>
-    <p>
+      <span class="currency">£</span><%= f.text_field :value_in_pounds, :size => 5 %>
+    </div>
+    <div>
       <%= f.label :message, "Add a message" %><br />
-      <%= f.text_area :message %>
-    </p>
-    
-    <hr>
-    <h3>Personal details</h3>
-    
-    <p>
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :url, "Website" %><br />
-      <%= f.text_field :url %>
-    </p>
-    <p>
-      <%= f.label :show_value, "Show amount?" %><br />
-      <%= f.check_box :show_value %>
-    </p>
-    
-    <p>
-      <%= f.submit "Continue" %>
-    </p>
-  <% end %>
-</div>
+      <%= f.text_area :message, :rows => 4 %>
+    </div>
+  </fieldset>
+  
+  <fieldset id="personal_details">
+    <div>
+      <h3>Personal details</h3>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :url, "Website" %><br />
+        <%= f.text_field :url %>
+      </p>
+      <p>
+        <%= f.label :show_value, "Show amount?" %><br />
+        <%= f.check_box :show_value %>
+      </p>
+    </div>
+    <div>
+      <h3>Form Help</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
+  </fieldset>
+  
+  <p>
+    <%= f.submit "Continue" %>
+  </p>
+<% end %>

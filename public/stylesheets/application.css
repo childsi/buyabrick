@@ -19,6 +19,10 @@ body {
 	padding-left: 1em;
 }
 
+div#content {
+	padding-top: 0em;
+}
+
 #navigation ul {
 	margin-left: 0.5em;
 }

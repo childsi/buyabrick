@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  protected
+  
   def current_brick
     if session[:brick_id]
       @current_brick ||= Brick.find(session[:brick_id])

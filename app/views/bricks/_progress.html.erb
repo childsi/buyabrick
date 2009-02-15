@@ -1,0 +1,9 @@
+<div id="progress">
+  <h2>Step <%= step %> of 4</h2>
+  <ul>
+    <%- ['Details', 'Confirm', 'Payment', 'Done' ].each_with_index do |text,i| -%>
+    <li class="<%= cycle('odd', 'even') %>"><%= (i+1==step) ? content_tag(:em, text) : text %></li>
+    <%- end -%>
+  </ul>
+</div>
+<div style="clear: both">

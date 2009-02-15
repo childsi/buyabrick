@@ -1,0 +1,45 @@
+/* @override http://localhost:3000/stylesheets/bricks.css */
+
+
+#progress h2 {
+	float: left;
+	font-size: 1.2em;
+	padding-left: 0.5em;
+}
+#progress ul {
+	font-size: 1.2em;
+}
+#progress li {
+	float: left;
+	list-style: none;
+	margin: 0.5em 1em;
+}
+
+#brick_details {
+	border: none;
+}
+#brick_details div {
+	float: left;
+	width: 50%;
+}
+#brick_details #value_in_pounds label {
+	display: none;
+}
+#value_in_pounds span {
+	font-size: 2em;
+}
+#value_in_pounds input {
+	font-size: 2em;	
+}
+
+#personal_details {
+	border: none;
+	border-top: solid 1px;
+	clear: left;
+}
+#personal_details div {
+	float: left;
+	width: 50%;
+}
+
+	
