@@ -1,6 +1,4 @@
 class Brick < ActiveRecord::Base
-  has_one :order
-  
   validates_presence_of :name
   validate :valid_email?
   
@@ -17,20 +15,10 @@ class Brick < ActiveRecord::Base
   def protx_hash
     hash = {
       'Amount' => value,
-      'VendorTxCode' => "bricks-#{id}",
       'Currency' => 'GBP',
       'Description' => "Buy-a-brick: #{message}",
     }
     hash['CustomerEMail'] = email unless email.blank?
     hash
-  end
-  
-  def prepare_order(order_attributes)
-    if order.nil?
-      build_order(order_attributes)
-    else
-      order.attributes = order_attributes
-      order
-    end
   end
 end
