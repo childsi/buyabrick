@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :bricks, :collection => { :confirm => :get } do |brick|
     brick.new_with_value '/bricks/new/:value', :controller => 'bricks', :action => 'new', 
-      :path_prefix => nil, :requirements => { :value => /\d+/ }
+      :path_prefix => nil, :requirements => { :value => /[\d\.]+/ }
   end
   
   map.failed_payment '/payment_notifications/failed', :controller => 'payment_notifications', :action => 'failed'

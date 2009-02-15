@@ -10,8 +10,8 @@
     <%= f.error_messages %>
     
     <p>
-      <span class="value"><%= @brick.value %>
-      <%= f.hidden_field :value %>
+      <%= f.label :value_in_pounds %><br />
+      <%= f.text_field :value_in_pounds %>
     </p>
     <p>
       <%= f.label :message, "Add a message" %><br />
