@@ -1,0 +1,39 @@
+/* @override http://localhost:3000/stylesheets/application.css */
+
+body {
+	width: 800px;
+	margin: auto;
+	font-family: Georgia, serif;
+}
+
+#masthead img {
+	width: 800px;
+	height: 100px;
+}
+
+#navigation {
+	color: white;
+	margin: 0px;
+	background-color: black;
+	height: 1.5em;
+	padding-left: 1em;
+}
+
+#navigation ul {
+	margin-left: 0.5em;
+}
+#navigation li {
+	float: left;
+	margin-right: 1em;
+	line-height: 1.5em;
+	list-style: none;	
+}
+#navigation li a {
+	color: white;
+	text-decoration: none;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: 0.5em;
+}

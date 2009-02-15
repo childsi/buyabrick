@@ -1,7 +1,18 @@
-<h2>The Wall</h2>
-<ul>
- <% wall[0,10].each do |brick| %>
-  <li><%= brick.name %>'s Brick <%= "£#{brick.value}" if brick.show_value? %>
- <% end %>
-</ul>
-The wall contains <%= wall.size %> bricks.
+<div id="wall">
+  <%- wall.bricks.in_groups_of(15).reverse.each do |row| -%>
+  <ul class="<%= cycle('odd', 'even') %>">
+    <%- row.each do |brick| -%>
+    <li>
+    <%- if brick -%>
+      <%= link_to content_tag(:span, brick.name), brick %>
+    <%- else -%>
+      &nbsp;
+    <%- end -%>
+    </li>
+    <%- end -%>
+  </ul>
+  <%- end -%>
+</div>
+<div id="wall-base">
+  <h2><em>Buy a Brick</em> has raised £<%= wall.total %></h2>
+</div>

@@ -1,0 +1,27 @@
+/* @override http://localhost:3000/stylesheets/wall.css */
+
+div#wall {
+	background-color: #bda988;
+	width: 800px;
+}
+
+div#wall li {
+	float: left;
+	list-style-type: none;
+	height: 23px;
+	width: 50px;
+	border: 1px solid white;
+	margin: 1px 0px 1px;
+}
+
+div#wall li a span {
+	display: none;
+}
+
+div#wall-base {
+	clear: left;
+	width: 800px;
+	height: 128px;
+	background: url(/images/wall/base.jpg) no-repeat;
+	padding: 0px;
+}

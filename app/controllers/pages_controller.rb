@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
   def index
-    @wall = Brick.wall
+    @wall = Wall.new
   end
 end

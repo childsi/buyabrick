@@ -1,16 +1,24 @@
-<% @title = "Child's i Foundation" %>
+<% content_for :head do %>
+  <% @title = "Child's i Foundation" %>
+  <%= stylesheet_link_tag 'home' %>
+  <%= stylesheet_link_tag 'wall' %>
+<% end %>
 
-<div id="wall">
-  <%= render :partial => '/shared/wall', :locals => { :wall => @wall } %>
-</div>
+<h1>Child's i Foundation: Buy-a-brick Campaign</h1>
+<%= render :partial => '/shared/wall', :locals => { :wall => @wall } %>
 
-<div>
-  <h2>You can be part</h2>
-  <h3>Select your brick:</h3>
+<div id="brick_select">
+  <h2>You too can be part. Select your brick:</h2>
   <ul>
     <li><%= link_to('£5',  brick_new_with_value_path('5.00')) %></li>
     <li><%= link_to('£10', brick_new_with_value_path('10.00')) %></li>
     <li><%= link_to('£20', brick_new_with_value_path('20.00')) %></li>
     <li><%= link_to('£50', brick_new_with_value_path('50.00')) %></li>
+    <li><%= link_to('£any', new_brick_path) %></li>
   </ul>
-</div>  
+</div>
+<div style="clear: both">&nbsp;</div>
+
+<div id="terms">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>

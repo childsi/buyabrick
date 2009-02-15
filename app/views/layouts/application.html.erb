@@ -1,17 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>Buy a Brick | <%=h @title %></title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     
-    <%= stylesheet_link_tag 'application' %>    
+    <%= stylesheet_link_tag 'application' %>
+    <%= yield :head %>
   </head>
   <body>
     <div id="masthead">
-    MASTHEAD
+      <%= link_to(image_tag('banner.jpg', :alt => "Header image", :title => "Return to front page"), root_path) %>
     </div>
-    <div id="navigation">
-    NAVIGATION
+    <ul id="navigation">
+      <li><%= link_to_unless_current("Home", root_path) %></li>
+      <li><%= link_to_unless_current("About Us", { :controller => 'pages', :action => 'about' }) %></li>
+      <li><%= link_to_unless_current("Contact Us", { :controller => 'pages', :action => 'contact' }) %></li>
+    </ul>
     </div>
     <div id="content">
       <%= yield %>

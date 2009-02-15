@@ -1,0 +1,21 @@
+/* @override http://localhost:3000/stylesheets/home.css */
+
+h1 {
+	display: none;
+}
+
+#brick_select {
+	margin-bottom: 1em;
+}
+#brick_select li {
+	float: left;
+	list-style: none;
+	width: 20%;
+}
+
+#terms {
+	clear: both;
+	border-top: solid 1px;
+	margin-top: 1em;
+	font-size: 0.5em;
+}

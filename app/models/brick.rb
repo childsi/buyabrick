@@ -13,10 +13,6 @@ class Brick < ActiveRecord::Base
     b.errors.add(:value, "The maximum donation is £500.00, please contact us directly...") if b.value > 500_00
   end
   
-  def self.wall
-    Brick.find(:all, :conditions => 'purchased_at IS NOT NULL', :order => 'purchased_at')
-  end
-  
   def valid_email?
     TMail::Address.parse(email) unless email.blank?
   rescue
