@@ -5,7 +5,7 @@ describe Brick do
     @valid_attributes = {
       :value => 1,
       :name => "value for name",
-      :email => "value for email",
+      :email => "foo@bar.com",
       :url => "value for url",
       :message => "value for message"
     }
