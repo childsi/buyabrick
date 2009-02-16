@@ -12,36 +12,14 @@
 ActiveRecord::Schema.define(:version => 20090214010437) do
 
   create_table "bricks", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "url"
     t.string   "message"
     t.integer  "value"
     t.boolean  "show_value",   :default => true
     t.datetime "purchased_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "order_transactions", :force => true do |t|
-    t.integer  "order_id"
-    t.string   "action"
-    t.integer  "amount"
-    t.boolean  "success"
-    t.string   "authorization"
-    t.string   "message"
-    t.text     "params"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "orders", :force => true do |t|
-    t.integer  "brick_id"
-    t.string   "ip_address"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "card_type"
-    t.date     "card_expires_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

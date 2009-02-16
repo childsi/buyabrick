@@ -1,7 +1,9 @@
 class CreateBricks < ActiveRecord::Migration
   def self.up
     create_table :bricks do |t|
-      t.string :name
+      t.string :first_name
+      t.string :last_name
+      
       t.string :email
       t.string :url
       t.string :message

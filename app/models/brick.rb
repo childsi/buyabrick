@@ -1,10 +1,14 @@
 class Brick < ActiveRecord::Base
-  validates_presence_of :name
+  validates_presence_of :first_name, :last_name
   validate :valid_email?
   
   validate do |b|
     b.errors.add(:value_in_pounds, "The minimum donation is £2.00") if b.value < 200
     b.errors.add(:value_in_pounds, "The maximum donation is £500. Please contact us directly at donations@childsifoundation.org if you wish to donate more.") if b.value > 500_00
+  end
+  
+  def name
+    "#{first_name} #{last_name}"
   end
   
   def value_in_pounds

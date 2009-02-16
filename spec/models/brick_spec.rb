@@ -17,7 +17,8 @@ describe Brick do
   before(:each) do
     @valid_attributes = {
       :value => 200,
-      :name => "value for name",
+      :first_name => "first",
+      :last_name => "last",
       :email => "foo@bar.com",
       :url => "value for url",
       :message => "value for message"
