@@ -1,12 +1,11 @@
-<% @title = 'New brick' %>
+<% content_for :head do %>
+  <% @title = "Confirm" %>
+  <%= stylesheet_link_tag 'bricks' %>
+<% end %>
 
-<div id="steps">
-  <h2>Step 2 of 4</h2>
-</div>
-<%= render :partial => '/shared/progress' %>
+<%= render :partial => 'progress', :locals => { :step => 1 } %>
 
-<div id="body">
-  £<%= @brick.value %>
+  <p>£<%= @brick.value_in_pounds %></p>
   <p><%=h @brick.message %></p>
   
   <hr>
@@ -20,4 +19,3 @@
   <% end %>
 
   <%= link_to 'Cancel', root_path %>
-</div>
