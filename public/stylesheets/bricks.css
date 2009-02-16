@@ -15,31 +15,38 @@
 	margin: 0.5em 1em;
 }
 
-#brick_details {
+.fieldWithErrors input {
+	background-color: orange;
+}
+.formError {
+	color: red;
+}
+
+fieldset {
 	border: none;
 }
-#brick_details div {
+fieldset div.panel {
 	float: left;
 	width: 50%;
 }
-#brick_details #value_in_pounds label {
-	display: none;
+
+#value div {
+	float: left;
 }
-#value_in_pounds span {
+#value label {
 	font-size: 2em;
 }
-#value_in_pounds input {
-	font-size: 2em;	
+#value input {
+	font-size: 1.5em;
 }
 
 #personal_details {
-	border: none;
 	border-top: solid 1px;
-	clear: left;
 }
 #personal_details div {
 	float: left;
 	width: 50%;
 }
+
 
 	

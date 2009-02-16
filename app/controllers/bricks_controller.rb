@@ -25,7 +25,6 @@ class BricksController < ApplicationController
   # GET /bricks/new.xml
   def new
     @brick = Brick.new(:value_in_pounds => params[:value])
-    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @brick }
@@ -40,7 +39,6 @@ class BricksController < ApplicationController
   # POST /bricks
   def create
     @brick = Brick.new(params[:brick])
-    p @brick
     if @brick.save
       session[:brick_id] = @brick.id
       redirect_to confirm_bricks_path

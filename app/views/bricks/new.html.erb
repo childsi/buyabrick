@@ -6,14 +6,14 @@
 <%= render :partial => 'progress', :locals => { :step => 1 } %>
 
 <% form_for(@brick) do |f| %>
-  <%= f.error_messages %>
-  
   <fieldset id="brick_details">
-    <div id="value_in_pounds">
-      <%= f.label :value_in_pounds %><br />
-      <span class="currency">£</span><%= f.text_field :value_in_pounds, :size => 5 %>
+    <div class="panel">
+      <%= f.error_message_on(:value_in_pounds) %>
+      <div id="value">
+      <%= f.label :value_in_pounds, "£" %><%= f.text_field :value_in_pounds, :size => 5 %>
+      </div>
     </div>
-    <div>
+    <div class="panel">
       <%= f.label :message, "Add a message" %><br />
       <%= f.text_area :message, :rows => 4 %>
     </div>
