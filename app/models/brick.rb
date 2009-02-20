@@ -7,6 +7,15 @@ class Brick < ActiveRecord::Base
     b.errors.add(:value_in_pounds, "The maximum donation is £500. Please contact us directly at donations@childsifoundation.org if you wish to donate more.") if b.value > 500_00
   end
   
+  def before_save
+    case value
+      when 0..9_99 then self.colour = "#999965"
+      when 10_00..19_99 then self.colour = "#993233"
+      when 20_00..49_99 then self.colour ||= ["#66CDCC", "#FF67D6", "#CD6669"].rand
+      when 50_00..500_00 then self.colour = "#FFFF66"
+    end
+  end
+  
   def name
     "#{first_name} #{last_name}"
   end

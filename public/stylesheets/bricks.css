@@ -1,6 +1,5 @@
 /* @override http://localhost:3000/stylesheets/bricks.css */
 
-
 #progress h2 {
 	float: left;
 	font-size: 1.2em;
@@ -25,10 +24,6 @@
 fieldset {
 	border: none;
 }
-fieldset div.panel {
-	float: left;
-	width: 50%;
-}
 
 #value div {
 	float: left;
@@ -40,10 +35,20 @@ fieldset div.panel {
 	font-size: 1.5em;
 }
 
+div.panel {
+	float: left;
+	width: 40%;
+	padding: 1em;
+}
+
 #personal_details {
+	clear: both;
 	border-top: solid 1px;
 }
 #personal_details div {
 	float: left;
 	width: 50%;
 }
+
+
+	

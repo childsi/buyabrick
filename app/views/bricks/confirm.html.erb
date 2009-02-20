@@ -4,18 +4,28 @@
 <% end %>
 
 <%= render :partial => 'progress', :locals => { :step => 1 } %>
-
-  <p>£<%= @brick.value_in_pounds %></p>
-  <p><%=h @brick.message %></p>
   
-  <hr>
-  <h3>Your details</h3>
+  <div id="brick_details">
+    <div class="panel">
+      <p>£<%= @brick.value_in_pounds %></p>
+      <p style="background-color: <%= @brick.colour %>">&nbsp;</p>
+    </div>
+  
+    <div class="panel">
+      <p>Your message:</p>
+      <p><%=h @brick.message %></p>
+    </div>
+  </div>
+  
+  <div id="personal_details">
+    <h3>Your details</h3>
 
-  <% form_tag GATEWAY.url do %>
-    <% GATEWAY.form_fields(@brick, successful_payment_url, failed_payment_url).each do |key,value| %>
-      <%= hidden_field_tag key, value %>
+    <% form_tag GATEWAY.url do %>
+      <% GATEWAY.form_fields(@brick, successful_payment_url, failed_payment_url).each do |key,value| %>
+        <%= hidden_field_tag key, value %>
+      <% end %>
+      <%= submit_tag('Go to payment') %>
     <% end %>
-    <%= submit_tag('Go to payment') %>
-  <% end %>
 
-  <%= link_to 'Cancel', root_path %>
+    <%= link_to 'Cancel', root_path %>
+  </div>

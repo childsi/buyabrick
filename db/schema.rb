@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090214010437) do
+ActiveRecord::Schema.define(:version => 20090220191459) do
+
+  create_table "brick_types", :force => true do |t|
+    t.string   "name"
+    t.string   "colour"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bricks", :force => true do |t|
     t.string   "first_name"
@@ -18,10 +25,12 @@ ActiveRecord::Schema.define(:version => 20090214010437) do
     t.string   "url"
     t.string   "message"
     t.integer  "value"
-    t.boolean  "show_value",   :default => true
+    t.boolean  "show_value",    :default => true
     t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brick_type_id"
+    t.string   "colour"
   end
 
   create_table "payment_notifications", :force => true do |t|
