@@ -4,9 +4,9 @@
     <%- row.each do |brick| -%>
     <li>
     <%- if brick -%>
-      <%= link_to content_tag(:span, brick.name), brick %>
+      <%= link_to content_tag(:span, brick.name), brick, :class => ['brick', brick.colour].join(' ') %>
     <%- else -%>
-      &nbsp;
+      <span class="brick">&nbsp;</span>
     <%- end -%>
     </li>
     <%- end -%>

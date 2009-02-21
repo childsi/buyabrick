@@ -1,17 +1,30 @@
 /* @override http://localhost:3000/stylesheets/wall.css */
+@import url(/stylesheets/brick_colours.css);
 
 div#wall {
 	background-color: #bda988;
 	width: 800px;
 }
 
+div#wall ul {
+  clear: both;
+}
+
+div#wall ul.odd {
+	margin-left: 20px;
+}
+
 div#wall li {
 	float: left;
 	list-style-type: none;
-	height: 23px;
-	width: 50px;
+	margin: 1px 1px 0px 0px;
+}
+
+div#wall li .brick {
 	border: 1px solid white;
-	margin: 1px 0px 1px;
+	display: block;
+	height: 20px;
+	width: 45px;
 }
 
 div#wall li a span {
@@ -19,7 +32,7 @@ div#wall li a span {
 }
 
 div#wall-base {
-	clear: left;
+	clear: both;
 	width: 800px;
 	height: 128px;
 	background: url(/images/wall/base.jpg) no-repeat;

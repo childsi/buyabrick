@@ -8,9 +8,9 @@
 <% form_for(@brick) do |f| %>
   <fieldset id="brick_details">
     <div class="panel">
-      <%= f.error_message_on(:value_in_pounds) %>
       <div id="value">
       <%= f.label :value_in_pounds, "£" %><%= f.text_field :value_in_pounds, :size => 5 %>
+      <%= f.error_message_on(:value_in_pounds) %>
       </div>
     </div>
     <div class="panel">

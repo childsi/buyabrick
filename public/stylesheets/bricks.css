@@ -1,4 +1,5 @@
 /* @override http://localhost:3000/stylesheets/bricks.css */
+@import url(/stylesheets/brick_colours.css);
 
 #progress h2 {
 	float: left;
@@ -49,6 +50,3 @@ div.panel {
 	float: left;
 	width: 50%;
 }
-
-
-	
