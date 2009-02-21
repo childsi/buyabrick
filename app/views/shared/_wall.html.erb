@@ -1,5 +1,5 @@
 <div id="wall">
-  <%- wall.bricks.in_groups_of(15).reverse.each do |row| -%>
+  <%- wall.bricks.in_groups_of(15).reverse.each do |row| -%>  
   <ul class="<%= cycle('odd', 'even') %>">
     <%- row.each do |brick| -%>
     <li>

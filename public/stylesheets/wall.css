@@ -2,12 +2,15 @@
 @import url(/stylesheets/brick_colours.css);
 
 div#wall {
-	background-color: #bda988;
 	width: 800px;
+	margin-top: 1em;
+	background-color: #bda988;
 }
 
 div#wall ul {
-  clear: both;
+  clear: both;  
+  margin: 0;
+  height: 23px;
 }
 
 div#wall ul.odd {
@@ -32,9 +35,13 @@ div#wall li a span {
 }
 
 div#wall-base {
-	clear: both;
 	width: 800px;
 	height: 128px;
 	background: url(/images/wall/base.jpg) no-repeat;
 	padding: 0px;
+}
+
+div#wall-base h2 {
+	margin: 0;
+	padding: 0;
 }
