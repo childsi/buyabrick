@@ -16,10 +16,5 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.after_initialize do
-  gateway_options = YAML.load_file(File.join(RAILS_ROOT, 'config', 'payment_gateway.yml'))
-  ::GATEWAY = ProtxForm.new(gateway_options[:development])
-end
-
 # disable asset id for use with CSSEdit
 ENV['RAILS_ASSET_ID'] = ''

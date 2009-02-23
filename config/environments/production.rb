@@ -22,8 +22,3 @@ config.action_controller.perform_caching             = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
-
-config.after_initialize do
-  gateway_options = YAML.load_file(File.join(RAILS_ROOT, 'config', 'payment_gateway.yml'))
-  ::GATEWAY = ProtxForm.new(gateway_options[:production])
-end
