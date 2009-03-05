@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  helper_method :admin?
+  
+  filter_parameter_logging :password
+  
   protected
   
   def current_brick
@@ -21,5 +25,17 @@ class ApplicationController < ActionController::Base
       session[:brick_id] = nil if @current_brick.purchased_at
     end
     @current_brick
+  end
+  
+  def authorize
+    unless admin?
+      flash[:notice] = "Unauthorized Access"
+      redirect_to root_path
+      false
+    end
+  end
+  
+  def admin?
+    (session[:user] == 'foo' and session[:password] == 'bar')
   end
 end

@@ -1,4 +1,6 @@
 class BricksController < ApplicationController
+  before_filter :authorize, :only => [:edit, :destroy]
+  
   # GET /bricks
   # GET /bricks.xml
   def index

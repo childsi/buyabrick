@@ -16,7 +16,9 @@
       <li><%= link_to_unless_current("About Us", { :controller => 'pages', :action => 'about' }) %></li>
       <li><%= link_to_unless_current("Contact Us", { :controller => 'pages', :action => 'contact' }) %></li>
     </ul>
-    </div>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
     <div id="content">
       <%= yield %>
     </div>

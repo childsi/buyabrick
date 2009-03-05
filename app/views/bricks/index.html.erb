@@ -12,17 +12,21 @@
 <% for brick in @bricks %>
   <tr>
     <td><%=h brick.value %></td>
-    <td><%=h brick.name %></td>
+    <td><%= link_to h(brick.name), brick %></td>
     <td><%=h brick.email %></td>
     <td><%=h brick.url %></td>
     <td><%=h brick.message %></td>
-    <td><%= link_to 'Show', brick %></td>
-    <td><%= link_to 'Edit', edit_brick_path(brick) %></td>
-    <td><%= link_to 'Destroy', brick, :confirm => 'Are you sure?', :method => :delete %></td>
+    
+    <% if admin? %>
+      <td><%= link_to 'Edit', edit_brick_path(brick) %></td>
+      <td><%= link_to 'Destroy', brick, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New brick', new_brick_path %>
+<% if admin? %>
+  <%= link_to 'New brick', new_brick_path %>
+<% end %>

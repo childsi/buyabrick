@@ -1,12 +1,15 @@
+<% content_for :head do %>
+  <% @title = "#{@brick.name}'s brick" %>
+<% end %>
+
+<h1><%=h @brick.name %>'s brick</h1>
+
+<% if @brick.show_value? %>
 <p>
   <b>Value:</b>
   £<%=h @brick.value_in_pounds %>
 </p>
-
-<p>
-  <b>Name:</b>
-  <%=h @brick.name %>
-</p>
+<% end %>
 
 <p>
   <b>Email:</b>
@@ -23,6 +26,7 @@
   <%=h @brick.message %>
 </p>
 
-
-<%= link_to 'Edit', edit_brick_path(@brick) %> |
-<%= link_to 'Back', bricks_path %>
+<% if admin? %>
+  <%= link_to 'Edit', edit_brick_path(@brick) %> |
+<% end %>
+<%= link_to 'Back', root_path %>
