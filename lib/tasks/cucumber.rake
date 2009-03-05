@@ -6,5 +6,5 @@ begin
     t.cucumber_opts = "--format pretty"
   end
   task :features => 'db:test:prepare'
-rescue
+rescue LoadError
 end
