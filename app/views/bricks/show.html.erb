@@ -11,15 +11,12 @@
 </p>
 <% end %>
 
+<% unless @brick.url.blank? %>
 <p>
-  <b>Email:</b>
-  <%=h @brick.email %>
+  <b>Homepage:</b>
+  <%= link_to(@brick.url, @brick.url) %>
 </p>
-
-<p>
-  <b>Url:</b>
-  <%=h @brick.url %>
-</p>
+<% end %>
 
 <p>
   <b>Message:</b>
