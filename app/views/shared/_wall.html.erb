@@ -1,17 +1,22 @@
 <div id="wall">
-  <%- wall.bricks.in_groups_of(15).reverse.each do |row| -%>  
-  <ul class="<%= cycle('odd', 'even') %>">
-    <%- row.each do |brick| -%>
-    <li>
-    <%- if brick -%>
-      <%= link_to content_tag(:span, brick.name), brick, :class => ['brick', brick.colour].join(' ') %>
-    <%- else -%>
-      <span class="brick">&nbsp;</span>
+  <div id="wall-bricks">
+    <% wall.empty_rows.times do |r| -%>
+    <ul class="empty"></ul>
+    <% end %>
+    <%- wall.rows.each do |row| -%>  
+    <ul class="<%= cycle('odd', 'even') %>">
+      <%- row.each do |brick| -%>
+      <li>
+      <%- if brick -%>
+        <%= link_to content_tag(:span, brick.name), brick, :class => ['brick', brick.colour].join(' ') %>
+      <%- else -%>
+        <span class="brick">&nbsp;</span>
+      <%- end -%>
+      </li>
+      <%- end -%>
+    </ul>
     <%- end -%>
-    </li>
-    <%- end -%>
-  </ul>
-  <%- end -%>
+  </div>
 </div>
 <div id="wall-base">
   <h2><em>Buy a Brick</em> has raised £<%= wall.total %></h2>

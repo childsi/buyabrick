@@ -3,14 +3,24 @@
 
 div#wall {
 	width: 800px;
-	margin-top: 1em;
-	background-color: #bda988;
+	margin: auto;
 }
 
-div#wall ul {
+div#wall-bricks {
+	margin-left: 4px;
+}
+
+div#wall-bricks ul.empty {
+  background-color: white;
+}
+
+div#wall-bricks ul {
   clear: both;  
   margin: 0;
   height: 23px;
+  width: 752px;
+  padding: 0px 0px 0px 1px;
+  background-color: #bda988;
 }
 
 div#wall ul.odd {
@@ -27,7 +37,7 @@ div#wall li .brick {
 	border: 1px solid white;
 	display: block;
 	height: 20px;
-	width: 45px;
+	width: 44px;
 }
 
 div#wall li a span {
