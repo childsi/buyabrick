@@ -4,17 +4,15 @@
   <tr>
     <th>Value</th>
     <th>Name</th>
-    <th>Email</th>
     <th>Url</th>
     <th>Message</th>
   </tr>
 
 <% for brick in @bricks %>
   <tr>
-    <td><%=h brick.value %></td>
+    <td><% if brick.show_value? %>£<%=h brick.value_in_pounds %><% end %></td>
     <td><%= link_to h(brick.name), brick %></td>
-    <td><%=h brick.email %></td>
-    <td><%=h brick.url %></td>
+    <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
     <td><%=h brick.message %></td>
     
     <% if admin? %>
@@ -24,6 +22,8 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @bricks %>
 
 <br />
 

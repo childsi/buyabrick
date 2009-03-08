@@ -4,7 +4,7 @@ class BricksController < ApplicationController
   # GET /bricks
   # GET /bricks.xml
   def index
-    @bricks = Brick.find(:all)
+    @bricks = Brick.paginate :page => params[:page], :order => 'purchased_at DESC', :conditions => 'purchased_at IS NOT NULL'
 
     respond_to do |format|
       format.html # index.html.erb
