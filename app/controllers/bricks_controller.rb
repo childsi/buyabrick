@@ -51,10 +51,10 @@ class BricksController < ApplicationController
   
   def confirm
     @brick = current_brick
+    @payment_notification = PaymentNotification.new(:status => 'OK', :brick => @brick) if admin?
     return redirect_to(root_path) if current_brick.nil?
   end
   
-
   # PUT /bricks/1
   # PUT /bricks/1.xml
   def update
@@ -62,8 +62,6 @@ class BricksController < ApplicationController
     
     respond_to do |format|
       if @brick.update_attributes(params[:brick])
-        @brick.update_admin_fields if admin?
-        
         flash[:notice] = 'Brick was successfully updated.'
         format.html { redirect_to(@brick) }
         format.xml  { head :ok }

@@ -19,8 +19,13 @@
   
   <% if admin? %>
   <div id="personal_details">
-  <% form_for(@brick, :action => 'update') do |f| %>
-    <%= hidden_field_tag 'brick[set_purchased_at]', true %>
+  <% form_for(@payment_notification) do |f| %>
+    <%= f.hidden_field :status %>
+    <%= f.hidden_field :brick_id %>
+    
+    <p><%= f.label :notes %><br />
+    <%= f.text_field :params %>
+
     <%= submit_tag('Confirm brick') %>
   <% end %>
   </div>

@@ -10,11 +10,6 @@ class Brick < ActiveRecord::Base
     b.errors.add(:value_in_pounds, "The maximum donation is £500. Please contact us directly at donations@childsifoundation.org if you wish to donate more.") if b.value > 500_00
   end
   
-  attr_accessor :set_purchased_at
-  def update_admin_fields
-    update_attribute(:purchased_at, Time.now) if set_purchased_at
-  end
-  
   # attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, :billing_city, :billing_post_code
   # validates_presence_of :billing_surname, :billing_firstname, :billing_address1, :billing_city, :billing_post_code, :on => :create
   

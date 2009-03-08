@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
       :path_prefix => nil, :requirements => { :value => /[\d\.]+/ }
   end
   
+  map.resources :payment_notifications
   map.failed_payment '/payment_notifications/failed', :controller => 'payment_notifications', :action => 'failed'
   map.successful_payment '/payment_notifications/success', :controller => 'payment_notifications', :action => 'success'
   
