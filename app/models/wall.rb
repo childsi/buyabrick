@@ -7,7 +7,7 @@ class Wall
   end
   
   def rows
-    @rows ||= bricks.in_groups_of(16).reverse
+    @rows ||= bricks.in_groups_of(16)
   end
   
   def empty_rows

@@ -62,6 +62,8 @@ class BricksController < ApplicationController
     
     respond_to do |format|
       if @brick.update_attributes(params[:brick])
+        @brick.update_admin_fields if admin?
+        
         flash[:notice] = 'Brick was successfully updated.'
         format.html { redirect_to(@brick) }
         format.xml  { head :ok }

@@ -17,15 +17,24 @@
     </div>
   </div>
   
+  <% if admin? %>
+  <div id="personal_details">
+  <% form_for(@brick, :action => 'update') do |f| %>
+    <%= hidden_field_tag 'brick[set_purchased_at]', true %>
+    <%= submit_tag('Confirm brick') %>
+  <% end %>
+  </div>
+  <% else %>
   <div id="personal_details">
     <h3>Your details</h3>
-
+    
     <% form_tag GATEWAY.url do %>
       <% GATEWAY.form_fields(@brick, successful_payment_url, failed_payment_url).each do |key,value| %>
         <%= hidden_field_tag key, value %>
       <% end %>
       <%= submit_tag('Go to payment') %>
     <% end %>
-
+    
     <%= link_to 'Cancel', root_path %>
   </div>
+  <% end %>
