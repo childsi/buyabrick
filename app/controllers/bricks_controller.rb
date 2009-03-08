@@ -35,7 +35,7 @@ class BricksController < ApplicationController
 
   # GET /bricks/1/edit
   def edit
-    @brick = Brick.find(params[:id])
+    @brick = Brick.find_by_url_key!(params[:id])
   end
 
   # POST /bricks
@@ -58,8 +58,8 @@ class BricksController < ApplicationController
   # PUT /bricks/1
   # PUT /bricks/1.xml
   def update
-    @brick = Brick.find(params[:id])
-
+    @brick = Brick.find_by_url_key!(params[:id])
+    
     respond_to do |format|
       if @brick.update_attributes(params[:brick])
         flash[:notice] = 'Brick was successfully updated.'
@@ -75,7 +75,7 @@ class BricksController < ApplicationController
   # DELETE /bricks/1
   # DELETE /bricks/1.xml
   def destroy
-    @brick = Brick.find(params[:id])
+    @brick = Brick.find_by_url_key!(params[:id])
     @brick.destroy
 
     respond_to do |format|
