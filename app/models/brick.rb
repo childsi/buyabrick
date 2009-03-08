@@ -44,7 +44,7 @@ class Brick < ActiveRecord::Base
   
   def protx_hash
     hash = {
-      'Amount' => value,
+      'Amount' => value_in_pounds,
       'Currency' => 'GBP',
       'Description' => "Buy-a-brick: #{message}",
     }
