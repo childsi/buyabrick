@@ -11,25 +11,18 @@
 
 ActiveRecord::Schema.define(:version => 20090220191459) do
 
-  create_table "brick_types", :force => true do |t|
-    t.string   "name"
-    t.string   "colour"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "bricks", :force => true do |t|
+    t.string   "url_key",                        :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "url"
     t.string   "message"
     t.integer  "value"
-    t.boolean  "show_value",    :default => true
+    t.boolean  "show_value",   :default => true
     t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "brick_type_id"
     t.string   "colour"
   end
 

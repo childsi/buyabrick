@@ -1,0 +1,36 @@
+RandomKey
+===============
+
+Plugin to generate a unique random key.
+
+Usage:
+
+  class Operation < ActiveRecord::Base
+    has_random_key :random_key
+  end
+  
+After creating the object the specified attribute will have a value like: "ydCQyK5HpC"
+
+You may also specify the size of the string and whether to use numbers, 
+upcases letters, downcases letters, or all of them.
+
+  class Operation < ActiveRecord::Base
+    has_random_key :key, :size => 20, :include => :numbers
+  end
+
+  class Video < ActiveRecord::Base
+    has_random_key :random_id, :include => [:numbers, :downcases]
+  end
+
+In case you don't want to expose ids and you can't use a named permalink
+because there isn't a descriptive attribute in your model, you can use RandomKey.
+
+Be sure to redefine to_param method and change your find methods if using RandomKey
+as permalink.
+
+Enjoy!
+
+Feedback and bugs report are always welcome.
+
+Emilio Tagua
+miloops@gmail.com

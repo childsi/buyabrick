@@ -1,6 +1,8 @@
 class CreateBricks < ActiveRecord::Migration
   def self.up
     create_table :bricks do |t|
+      t.string :url_key, :size => 4, :null => false
+      
       t.string :first_name
       t.string :last_name
       

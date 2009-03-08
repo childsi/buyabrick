@@ -1,4 +1,7 @@
 class Brick < ActiveRecord::Base
+  has_random_key :url_key, :size => 4
+  validates_uniqueness_of :url_key
+  
   validates_presence_of :first_name, :last_name
   validate :valid_email?
   
@@ -33,6 +36,10 @@ class Brick < ActiveRecord::Base
     TMail::Address.parse(email) unless email.blank?
   rescue
     errors.add_to_base("Must be a valid email")
+  end
+  
+  def to_param
+    url_key
   end
   
   def protx_hash

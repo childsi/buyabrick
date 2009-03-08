@@ -15,7 +15,7 @@ class BricksController < ApplicationController
   # GET /bricks/1
   # GET /bricks/1.xml
   def show
-    @brick = Brick.find(params[:id])
+    @brick = Brick.find_by_url_key!(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
