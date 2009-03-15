@@ -28,6 +28,10 @@
     <%= f.text_field :message %>
   </p>
   <p>
+    <%= f.label :naughty %><br />
+    <%= f.check_box :naughty %>
+  </p>
+  <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>

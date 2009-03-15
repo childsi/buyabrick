@@ -2,7 +2,10 @@ class Wall
   attr_accessor :bricks, :total
   
   def initialize
-    self.bricks = Brick.find(:all, :conditions => 'purchased_at IS NOT NULL', :order => 'purchased_at DESC', :limit => 160)
+    self.bricks = Brick.find(:all,
+      :limit => 160,
+      :order => 'purchased_at DESC', 
+      :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
     self.total = Brick.sum(:value, :conditions => 'purchased_at IS NOT NULL') / 100.0
   end
   

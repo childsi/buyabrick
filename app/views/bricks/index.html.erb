@@ -3,31 +3,7 @@
 <% end %>
 <h1><%= @title %></h1>
 
-<table>
-  <tr>
-    <th>Value</th>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Message</th>
-  </tr>
-
-<% for brick in @bricks %>
-  <tr>
-    <td><% if brick.show_value? %>£<%=h brick.value_in_pounds %><% end %></td>
-    <td><%= link_to h(brick.name), brick %></td>
-    <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
-    <td><%=h brick.message %></td>
-    
-    <% if admin? %>
-      <td><%= link_to 'Edit', edit_brick_path(brick) %></td>
-      <td><%= link_to 'Destroy', brick, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<%= will_paginate @bricks %>
-
+<%= render(:partial => 'bricks')%>
 <br />
 
 <% if admin? %>

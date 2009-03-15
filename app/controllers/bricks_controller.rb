@@ -1,21 +1,32 @@
 class BricksController < ApplicationController
-  before_filter :authorize, :only => [:edit, :destroy]
+  before_filter :authorize, :only => [:edit, :destroy, :naughties]
   
   # GET /bricks
   # GET /bricks.xml
   def index
-    @bricks = Brick.paginate :page => params[:page], :order => 'purchased_at DESC', :conditions => 'purchased_at IS NOT NULL'
+    @bricks = Brick.paginate(
+      :page => params[:page], 
+      :order => 'purchased_at DESC', 
+      :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @bricks }
     end
   end
+  
+  def naughties
+    @bricks = Brick.paginate(
+      :page => params[:page], 
+      :order => 'purchased_at DESC', 
+      :conditions => ["naughty=:naughty", { :naughty => true }])
+  end
 
   # GET /bricks/1
   # GET /bricks/1.xml
   def show
     @brick = Brick.find_by_url_key!(params[:id])
+    raise ActiveRecord::RecordNotFound if (@brick.naughty? and !admin?)
 
     respond_to do |format|
       format.html # show.html.erb
