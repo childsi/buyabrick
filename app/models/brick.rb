@@ -10,7 +10,8 @@ class Brick < ActiveRecord::Base
     b.errors.add(:value_in_pounds, "The maximum donation is £500. Please contact us directly at donations@childsifoundation.org if you wish to donate more.") if b.value > 500_00
   end
   
-  # attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, :billing_city, :billing_post_code
+  attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, 
+    :billing_city, :billing_post_code, :billing_country
   # validates_presence_of :billing_surname, :billing_firstname, :billing_address1, :billing_city, :billing_post_code, :on => :create
   
   def before_save
@@ -51,18 +52,20 @@ class Brick < ActiveRecord::Base
       'Currency' => 'GBP',
       'CustomerName' => name,
       'Description' => "Buy-a-brick: #{message}",
-      # 'BillingSurname' => billing_surname,      
-      # 'BillingFirstnames' => billing_firstnames,
-      # 'BillingAddress1' => billing_address1,
-      # 'BillingAddress2' => billing_address2,
-      # 'BillingCity' => billing_city,
-      # 'BillingPostCode' => billing_post_code,
-      # 'DeliverySurname' => billing_surname,      
-      # 'DeliveryFirstnames' => billing_firstnames,
-      # 'DeliveryAddress1' => billing_address1,
-      # 'DeliveryAddress2' => billing_address2,
-      # 'DeliveryCity' => billing_city,
-      # 'DeliveryPostCode' => billing_post_code,
+      'BillingSurname' => (billing_surname || 'foo'),
+      'BillingFirstnames' => (billing_firstnames || 'foo'),
+      'BillingAddress1' => (billing_address1 || 'foo'),
+      'BillingAddress2' => (billing_address2 || 'foo'),
+      'BillingCity' => (billing_city || 'foo'),
+      'BillingPostCode' => (billing_post_code || 'foo'),
+      'BillingCountry' => (billing_country || 'GB'),
+      'DeliverySurname' => (billing_surname || 'foo'),
+      'DeliveryFirstnames' => (billing_firstnames || 'foo'),
+      'DeliveryAddress1' => (billing_address1 || 'foo'),
+      'DeliveryAddress2' => (billing_address2 || 'foo'),
+      'DeliveryCity' => (billing_city || 'foo'),
+      'DeliveryPostCode' => (billing_post_code || 'foo'),
+      'DeliveryCountry' => (billing_country || 'GB'),
     }
     hash['CustomerEMail'] = email unless email.blank?
     hash
