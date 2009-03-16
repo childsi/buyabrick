@@ -1,9 +1,16 @@
+Given /^I am logged in as an admin$/ do
+  visit login_path
+  fill_in "user", :with => 'foo'
+  fill_in "password", :with => 'bar'
+  click_button
+end
+
 Given /I am on the new bricks page/ do
   visit "/bricks/new"
 end
 
-Given /^the following bricks:$/ do |bricks|
-  Bricks.create!(bricks.hashes)
+Given /^the following bricks:$/ do |brick|
+  Brick.create!(brick.hashes)
 end
 
 When /^I delete the (\d+)(?:st|nd|rd|th) bricks$/ do |pos|

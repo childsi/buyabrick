@@ -3,6 +3,10 @@ def path_to(page_name)
   
   when /the homepage/i
     root_path
+  when /the bricks page/i
+    bricks_path
+  when /the naughty bricks page/i
+    naughties_bricks_path
   
   # Add more page name => path mappings here
   

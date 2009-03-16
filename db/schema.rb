@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090220191459) do
+ActiveRecord::Schema.define(:version => 20090308201234) do
 
   create_table "bricks", :force => true do |t|
-    t.string   "url_key",                        :null => false
+    t.string   "url_key",                         :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20090220191459) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "colour"
+    t.boolean  "naughty",      :default => false
   end
 
   create_table "payment_notifications", :force => true do |t|
