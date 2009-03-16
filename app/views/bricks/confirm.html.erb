@@ -34,7 +34,7 @@
     <h3>Your details</h3>
     
     <% form_tag GATEWAY.url do %>
-      <% GATEWAY.form_fields(@brick, successful_payment_url, failed_payment_url).each do |key,value| %>
+      <% GATEWAY.form_fields(@brick, success_payment_notifications_url, failed_payment_notifications_url).each do |key,value| %>
         <%= hidden_field_tag key, value %>
       <% end %>
       <%= submit_tag('Go to payment') %>
