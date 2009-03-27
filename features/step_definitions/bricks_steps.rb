@@ -13,11 +13,21 @@ Given /^the following bricks:$/ do |brick|
   Brick.create!(brick.hashes)
 end
 
+When /^I fill in the following brick details:$/ do |brick|
+  brick.hashes.each do |line|
+    line.each { |f,v| fill_in("brick[#{f}]", :with => v) }
+  end
+end
+
 When /^I delete the (\d+)(?:st|nd|rd|th) bricks$/ do |pos|
   visit bricks_url
   within("table > tr:nth-child(#{pos.to_i+1})") do
     click_link "Destroy"
   end
+end
+
+Then /^the current brick should be saved$/ do
+  Brick.find(session[:brick_id]).should_not be_new_record
 end
 
 Then /^I should see the following bricks:$/ do |bricks|

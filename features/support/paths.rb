@@ -7,6 +7,8 @@ def path_to(page_name)
     bricks_path
   when /the naughty bricks page/i
     naughties_bricks_path
+  when /the new (.+) brick page/i
+    brick_new_with_value_path($1)
   
   # Add more page name => path mappings here
   
