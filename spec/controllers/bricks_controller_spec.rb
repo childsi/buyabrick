@@ -9,7 +9,15 @@ describe BricksController do
   describe "responding to GET index" do
 
     it "should expose all bricks as @bricks" do
-      Brick.should_receive(:find).with(:all).and_return([mock_brick])
+      Brick.should_receive(:find).with(:all, {
+        :order=>"purchased_at DESC", 
+        :offset=>0, 
+        :limit=>30, 
+        :conditions=>[
+          "purchased_at IS NOT NULL and naughty=:naughty", 
+          {:naughty=>false}
+        ]
+      }).and_return([mock_brick])
       get :index
       assigns[:bricks].should == [mock_brick]
     end
@@ -18,7 +26,15 @@ describe BricksController do
   
       it "should render all bricks as xml" do
         request.env["HTTP_ACCEPT"] = "application/xml"
-        Brick.should_receive(:find).with(:all).and_return(bricks = mock("Array of Bricks"))
+        Brick.should_receive(:find).with(:all, {
+          :order=>"purchased_at DESC", 
+          :offset=>0, 
+          :limit=>30, 
+          :conditions=>[
+            "purchased_at IS NOT NULL and naughty=:naughty", 
+            {:naughty=>false}
+          ]
+        }).and_return(bricks = mock("Array of Bricks"))
         bricks.should_receive(:to_xml).and_return("generated XML")
         get :index
         response.body.should == "generated XML"
@@ -165,7 +181,7 @@ describe BricksController do
     it "should redirect to the bricks list" do
       Brick.stub!(:find).and_return(mock_brick(:destroy => true))
       delete :destroy, :id => "1"
-      response.should redirect_to(bricks_url)
+      response.should redirect_to(root_url)
     end
 
   end
