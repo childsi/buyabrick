@@ -14,9 +14,17 @@ describe Brick do
     end
   end
   
+  describe "twittering" do
+    it "should remove the @ from a username" do
+      @brick.twitter = '@foo'
+      @brick.twitter.should == 'foo'
+      @brick.twitter_message.should == '@foo has just bought a brick'
+    end
+  end
+  
   before(:each) do
     @valid_attributes = {
-      :value => 200,
+      :value => 250,
       :first_name => "first",
       :last_name => "last",
       :email => "foo@bar.com",

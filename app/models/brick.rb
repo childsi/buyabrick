@@ -27,6 +27,15 @@ class Brick < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def twitter=(username)
+    username = $1 if username =~ /@(.*)/
+    super(username)
+  end
+  
+  def twitter_message
+    "#{twitter.blank? ? name : "@#{twitter}"} has just bought a brick"
+  end
+  
   def value_in_pounds
     value.nil? ? nil : format('%.2f', (value/100.0) || 0)
   end
