@@ -3,41 +3,76 @@
 body {
 	width: 800px;
 	margin: auto;
-	font-family: Georgia, serif;
+	font-size: 0.8em;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+body p {
+	margin: 0.5em;
+}
+h1, h2, h3, #navigation {
+	margin: 0.5em;
+	color: #535353;
+	font-size: 1.2em;
+	font-family: "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+h3 {
+	color: #f06b2a;
 }
 
-#masthead img {
+#masthead {
 	width: 800px;
-	height: 100px;
+	height: 118px;
+	background: url(/images/masthead.jpg) repeat-x;
+}
+#masthead img {
+	margin-left: 10px;
+	margin-top: 20px;
 }
 
 #navigation {
-	color: white;
 	margin: 0px;
-	background-color: black;
-	height: 1.5em;
+	margin-left: 20px;
+	height: 2em;
+	padding-top: 0.5em;
 	padding-left: 1em;
+}
+
+#navigation li {
+	font-weight: bold;
+	float: left;
+	margin-right: 2em;
+	line-height: 1.5em;
+	list-style-image: url(/images/navigation_li.gif);
+}
+#navigation li a {
+	text-decoration: none;
+	color: #535353;
+}
+#navigation li#donate {
+	float: right;
+	margin-right: 1em;
+	list-style-image: url(/images/childsi_medium.gif);
+	color: #c25302;
+}
+#navigation li#donate a {
+	color: #c25302;
 }
 
 div#content {
 	padding-top: 0em;
 }
 
-#navigation ul {
-	margin-left: 0.5em;
-}
-#navigation li {
-	float: left;
-	margin-right: 1em;
-	line-height: 1.5em;
-	list-style: none;	
-}
-#navigation li a {
-	color: white;
-	text-decoration: none;
+div#footer {
+	border-top: solid 1px;
+	border-color: #d5d5d5;
 }
 
-h2 {
-	font-size: 1.5em;
-	margin: 0.5em;
+div#footer ul {
+	padding-left: 0.5em;
 }
+div#footer li {
+	float: left;
+	margin-right: 1em;
+	list-style: none;
+}
+

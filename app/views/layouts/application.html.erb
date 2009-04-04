@@ -9,18 +9,28 @@
   </head>
   <body>
     <div id="masthead">
-      <%= link_to(image_tag('banner.jpg', :alt => "Header image", :title => "Return to front page"), root_path) %>
+      <%= link_to(image_tag('banner.jpg', :alt => "Child's i Foundation: our home is the first step"), root_path, :title => "Child's i Foundation") %>
     </div>
     <ul id="navigation">
       <li><%= link_to_unless_current("Home", root_path) %></li>
-      <li><%= link_to_unless_current("About Us", { :controller => 'pages', :action => 'about' }) %></li>
-      <li><%= link_to_unless_current("Contact Us", { :controller => 'pages', :action => 'contact' }) %></li>
+      <li><%= link_to_unless_current("Our charity", { :controller => 'pages', :action => 'about' }) %></li>
+      <li><%= link_to_unless_current("Faqs", { :controller => 'pages', :action => 'faqs' }) %></li>
+      <li><%= link_to_unless_current("Contact", { :controller => 'pages', :action => 'contact' }) %></li>
+      <li id="donate"><%= link_to_unless_current("Donate", { :controller => 'bricks', :action => 'new' }) %></li>
     </ul>
     <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+    <div class="notice"><%= flash[:notice] %></div>
     <% end %>
     <div id="content">
       <%= yield %>
+    </div>
+    <div id="footer">
+      <ul>
+        <li>&copy; 2009 The Child's i Foundation</li>
+        <li><%= link_to "Privacy Policy", { :controller => 'pages', :action => 'privacy' }%></li>
+        <li><%= link_to "Contact us", { :controller => 'pages', :action => 'contact' }%></li>
+        <li><%= link_to "Colophon", { :controller => 'pages', :action => 'colophon' }%></li>
+      </ul>
     </div>
   </body>
 </html>
