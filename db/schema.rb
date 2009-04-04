@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090327162235) do
+ActiveRecord::Schema.define(:version => 20090327165650) do
 
   create_table "bricks", :force => true do |t|
     t.string   "url_key",                         :null => false
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20090327162235) do
     t.string   "colour"
     t.boolean  "naughty",      :default => false
     t.string   "twitter"
+    t.string   "country"
+    t.string   "postcode"
   end
 
   create_table "payment_notifications", :force => true do |t|
