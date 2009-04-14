@@ -1,18 +1,24 @@
 /* @override http://localhost:3000/stylesheets/bricks.css */
 @import url(/stylesheets/brick_colours.css);
 
-#progress h2 {
-	float: left;
-	font-size: 1.2em;
-	padding-left: 0.5em;
-}
 #progress ul {
-	font-size: 1.2em;
+	margin-left: 10px;
+	padding-left: 0em;
+	padding-bottom: 2em;
 }
 #progress li {
+	color: white;
+	text-transform: uppercase;
 	float: left;
 	list-style: none;
-	margin: 0.5em 1em;
+	font-size: 0.8em;
+	width: 5em;
+	margin-right: 3em;
+	padding: 0.7em 3em 0.6em 0.5em;
+	background-color: #000;
+}
+#progress li.selected {
+	background-color: #ce6416;	
 }
 
 .fieldWithErrors input {
@@ -26,20 +32,22 @@ fieldset {
 	border: none;
 }
 
-#value div {
-	float: left;
+#value {
+	padding-top: 0.8em;
 }
 #value label {
-	font-size: 2em;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: #535353;
 }
 #value input {
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 div.panel {
 	float: left;
-	width: 40%;
-	padding: 1em;
+	padding-right: 1em;
 }
 
 #personal_details {

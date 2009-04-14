@@ -7,13 +7,16 @@ body {
 	font-family: Arial, Helvetica, Geneva, sans-serif;
 }
 body p {
-	margin: 0.5em;
+	margin-left: 10px;
 }
 h1, h2, h3, #navigation {
-	margin: 0.5em;
+	margin-left: 10px;
 	color: #535353;
 	font-size: 1.2em;
 	font-family: "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+h1 {
+	font-size: 1.75em;
 }
 h3 {
 	color: #f06b2a;

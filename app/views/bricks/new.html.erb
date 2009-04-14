@@ -4,20 +4,31 @@
 <% end %>
 
 <%= render :partial => 'progress', :locals => { :step => 1 } %>
-
 <% form_for(@brick) do |f| %>
+  <div class="panel">
+    <h1>Step 1 of 4</h1>
+    <%= brick_image_tag(@brick.value_in_pounds) %>
+  </div>
+  
   <fieldset id="brick_details">
     <div class="panel">
       <div id="value">
       <%= f.label :value_in_pounds, "£" %><%= f.text_field :value_in_pounds, :size => 5 %>
       <%= f.error_message_on(:value_in_pounds) %>
       </div>
-    </div>
-    <div class="panel">
-      <%= f.label :message, "Add a message" %><br />
-      <%= f.text_area :message, :rows => 4 %>
+      <%= f.label :message, "Add message here (140 characters limit)" %><br />
+      <%= f.text_area :message, :rows => 6 %>
     </div>
   </fieldset>
+  
+  <div class="panel">
+    <dl id="brick_instructions">
+      <dt>Over £10</dt>
+      <dd>Payment over £10 pounds will allow you to choose a colour for your brick.</dd>
+      <dt>Over £20</dt>
+      <dd>...</dd>
+    </dl>
+  </div>
   
   <fieldset id="personal_details">
     <div>
