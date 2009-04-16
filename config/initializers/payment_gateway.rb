@@ -4,10 +4,10 @@ if File.exists?(config_path)
 else
   gateway_options = {
     :url => ENV['PAYMENT_GATEWAY_URL'],
-    :login: ENV['PAYMENT_GATEWAY_LOGIN'],
-    :protocol: ENV['PAYMENT_GATEWAY_PROTOCOL'],
-    :password: ENV['PAYMENT_GATEWAY_PASSWORD'],
-    :encryption_key: ENV['PAYMENT_GATEWAY_KEY'],
+    :login => ENV['PAYMENT_GATEWAY_LOGIN'],
+    :protocol => ENV['PAYMENT_GATEWAY_PROTOCOL'],
+    :password => ENV['PAYMENT_GATEWAY_PASSWORD'],
+    :encryption_key => ENV['PAYMENT_GATEWAY_KEY'],
   }
 end
 GATEWAY = ProtxForm.new(gateway_options)
