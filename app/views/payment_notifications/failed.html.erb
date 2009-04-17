@@ -1,0 +1,9 @@
+<% if @notification.technical_error? %>
+<p>A technical error has occurred processing your payment.</p>
+<% elsif @notification.payment_error? %>
+<p>Your payment has been refused.</p>
+<% elsif @notification.aborted? %>
+<p>Your payment has been cancelled.</p>
+<% end %>
+
+<p>Please contact us here ... if you require technical assistance.</p>

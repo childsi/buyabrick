@@ -1,5 +1,5 @@
 class PaymentNotificationsController < ApplicationController
-  protect_from_forgery :except => [:success]
+  protect_from_forgery :except => [:success, :failed]
   before_filter :authorize, :only => [:create]
   
   def create
@@ -11,5 +11,10 @@ class PaymentNotificationsController < ApplicationController
     protx_params = GATEWAY.parse_response(CGI.escape(params[:crypt]))
     PaymentNotification.create!(protx_params)
     redirect_to root_path
+  end
+  
+  def failed
+    protx_params = GATEWAY.parse_response(CGI.escape(params[:crypt]))
+    @notification = PaymentNotification.create!(protx_params)
   end
 end

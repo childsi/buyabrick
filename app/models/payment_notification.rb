@@ -3,6 +3,18 @@ class PaymentNotification < ActiveRecord::Base
   serialize :params
   after_create :mark_brick_as_purchased
   
+  def technical_error?
+    (status == 'ERROR' or status == 'MALFORMED' or status == 'INVALID')
+  end
+  
+  def payment_error?
+    (status == 'NOTAUTHED' or status == 'REJECTED')
+  end
+  
+  def aborted?
+    status == 'ABORT'
+  end
+  
   private
   
   def mark_brick_as_purchased
