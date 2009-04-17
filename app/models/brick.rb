@@ -23,9 +23,13 @@ class Brick < ActiveRecord::Base
     case value
       when 0..9_99 then self.colour = 'breeze'
       when 10_00..19_99 then self.colour = 'london'
-      when 20_00..49_99 then self.colour ||= ['custom_a', 'custom_b', 'custom_c'].rand
+      when 20_00..49_99 then self.colour ||= ['custom_a', 'custom_b', 'custom_c', 'custom_d'].rand
       when 50_00..500_00 then self.colour = 'gold'
     end
+  end
+  
+  def can_set_colour?
+    (value >= 20_00 and value < 49_99)
   end
   
   def name

@@ -29,15 +29,31 @@
         <%= f.text_area :message, :rows => 6 %>
       </p>
       
-      <ul>
-      <% for i in 1..6 %>
-        <li>
-          <%= image_tag("/images/bricks/icons/#{i}.jpg") %>
-          <%= f.radio_button(:icon_id, i) %>
-        </li>
-      <% end %>
-      </ul>
+      <% if @brick.can_set_colour? %>
+      <div id="colour_picker">
+        <p>Choose colour:</p>
+        <ul>
+        <% for i in 'a'..'d' %>
+          <li>
+            <div class="<%= "custom_#{i}" %>">&nbsp;</div>
+            <%= f.radio_button(:colour, "custom_#{i}") %>
+          </li>
+        <% end %>
+        </ul>
+        <% end %>
+      </div>
       
+      <div id="icon_picker">
+        <p>Glam up your message with a pretty icon:</p>
+        <ul>
+        <% for i in 1..6 %>
+          <li>
+            <div><%= image_tag("/images/bricks/icons/#{i}.jpg") %></div>
+            <%= f.radio_button(:icon_id, i) %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   </fieldset>
   

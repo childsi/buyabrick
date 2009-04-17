@@ -32,6 +32,26 @@ fieldset {
 	border: none;
 }
 
+div#colour_picker ul li {
+	float: left;
+	list-style: none;
+	margin: 5px;
+	text-align: center;	
+}
+div#colour_picker ul li div {
+	width: 30px;
+}
+
+div#icon_picker {
+	clear: both;
+}
+div#icon_picker li {
+	float: left;
+	list-style: none;
+	margin-right: 5px;
+	text-align: center;	
+}
+
 #value {
 	padding-top: 0.8em;
 }
