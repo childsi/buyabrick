@@ -31,9 +31,14 @@ describe Brick do
       :url => "value for url",
       :message => "value for message"
     }
+    @brick = Brick.create!(@valid_attributes)
   end
 
   it "should create a new instance given valid attributes" do
-    Brick.create!(@valid_attributes)
+    @brick.should_not be_nil
+  end
+  
+  it "should set the default icon_id to 1" do
+    @brick.icon_id.should == 1
   end
 end

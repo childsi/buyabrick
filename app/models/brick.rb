@@ -14,6 +14,11 @@ class Brick < ActiveRecord::Base
     :billing_city, :billing_post_code, :billing_country
   # validates_presence_of :billing_surname, :billing_firstname, :billing_address1, :billing_city, :billing_post_code, :on => :create
   
+  def initialize(attributes = nil)
+    super
+    self.icon_id ||= 1
+  end
+  
   def before_save
     case value
       when 0..9_99 then self.colour = 'breeze'

@@ -3,16 +3,19 @@
   <%= stylesheet_link_tag 'bricks' %>
 <% end %>
 
-<%= render :partial => 'progress', :locals => { :step => 1 } %>
+<%= render :partial => 'progress', :locals => { :step => 2 } %>
   
+  <h1>This is your brick and message:</h1>
   <div id="brick_details">
     <div class="panel">
-      <p>£<%= @brick.value_in_pounds %></p>
-      <p class="brick <%= @brick.colour %>">&nbsp;</p>
+      <%= brick_image_tag(@brick.value_in_pounds) %>
     </div>
-  
+    
     <div class="panel">
-      <p>Your message:</p>
+      <p>
+        <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.first_name %> <%= @brick.last_name %></h3>
+        <% if @brick.show_value %> has donated £<%= @brick.value_in_pounds %> to the wall: <% end %>
+      </p>
       <p><%=h @brick.message %></p>
     </div>
   </div>
@@ -31,8 +34,6 @@
   </div>
   <% else %>
   <div id="personal_details">
-    <h3>Your details</h3>
-    
     <% form_tag GATEWAY.url do %>
       <% GATEWAY.form_fields(@brick, success_payment_notifications_url, failed_payment_notifications_url).each do |key,value| %>
         <%= hidden_field_tag key, value %>
