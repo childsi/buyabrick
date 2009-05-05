@@ -3,21 +3,3 @@
 h1 {
 	display: none;
 }
-
-#brick_select ul {
-	margin-bottom: 1em;
-	border-top: solid 1px;
-	border-color: #d5d5d5;
-}
-#brick_select li {
-	float: left;
-	list-style: none;
-	width: 20%;
-}
-
-#terms {
-	clear: both;
-	border-top: solid 1px;
-	margin-top: 1em;
-	font-size: 0.5em;
-}

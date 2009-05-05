@@ -1,0 +1,23 @@
+<% content_for :head do %>
+  <% @title = "Pick your brick" %>
+  <%= stylesheet_link_tag 'donate' %>
+<% end %>
+<h1><%= @title %>:</h1>
+<%= render :partial => 'bricks/progress', :locals => { :step => 1 } %>
+
+<p>Grab a quick brick for £5, £10, £20 or £50</p>
+<p>Or decide how much you want to pay from £2.50 to £50,000 - we don't mind at all.</p>
+
+<div id="brick_select">
+  <ul>
+    <li><%= link_to(image_tag('bricks/5.jpg', :alt => '£5'),  brick_new_with_value_path('5.00')) %></li>
+    <li><%= link_to(image_tag('bricks/10.jpg', :alt => '£10'), brick_new_with_value_path('10.00')) %></li>
+    <li><%= link_to(image_tag('bricks/20.jpg', :alt => '£20'), brick_new_with_value_path('20.00')) %></li>
+    <li><%= link_to(image_tag('bricks/50.jpg', :alt => '£50'), brick_new_with_value_path('50.00')) %></li>
+    <li><%= link_to(image_tag('bricks/any.jpg', :alt => '£any'), new_brick_path) %></li>
+  </ul>
+  <div style="clear: both">&nbsp;</div>
+</div>
+
+<p>We want to make it clear: these are not real bricks. We won't actually be sending them to Uganda.</p>
+<p>But the money you donate will be used by us to fund our work. Find out more <a href="FIXME">about how your money might be spent</a>.</p>

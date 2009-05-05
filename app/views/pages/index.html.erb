@@ -6,18 +6,3 @@
 
 <h1>Child's i Foundation: our home is the first step</h1>
 <%= render :partial => '/shared/wall', :locals => { :wall => @wall } %>
-
-<div id="brick_select">
-  <h2>You can be a part of it. Choose your brick:</h2>
-  <ul>
-    <li><%= link_to(image_tag('bricks/5.jpg', :alt => '£5'),  brick_new_with_value_path('5.00')) %></li>
-    <li><%= link_to(image_tag('bricks/10.jpg', :alt => '£10'), brick_new_with_value_path('10.00')) %></li>
-    <li><%= link_to(image_tag('bricks/20.jpg', :alt => '£20'), brick_new_with_value_path('20.00')) %></li>
-    <li><%= link_to(image_tag('bricks/50.jpg', :alt => '£50'), brick_new_with_value_path('50.00')) %></li>
-    <li><%= link_to(image_tag('bricks/any.jpg', :alt => '£any'), new_brick_path) %></li>
-  </ul>
-  <div style="clear: both">&nbsp;</div>
-  
-  <h3>How to donate</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>

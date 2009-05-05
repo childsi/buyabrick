@@ -16,7 +16,7 @@
       <li><%= link_to_unless_current("Our charity", { :controller => 'pages', :action => 'about' }) %></li>
       <li><%= link_to_unless_current("Faqs", { :controller => 'pages', :action => 'faqs' }) %></li>
       <li><%= link_to_unless_current("Contact", { :controller => 'pages', :action => 'contact' }) %></li>
-      <li id="donate"><%= link_to_unless_current("Donate", { :controller => 'bricks', :action => 'new' }) %></li>
+      <li id="donate"><%= link_to_unless_current("Donate", donate_path) %></li>
     </ul>
     <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>

@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :payment_notifications, :collection => { :success => :get, :failed => :get }
   
   map.root :controller => 'pages'
+  map.donate '/donate', :controller => 'pages', :action => 'donate'
   map.home ':page', :controller => 'pages', :action => 'show', :page => /about|contact/
   
   map.resources :sessions
