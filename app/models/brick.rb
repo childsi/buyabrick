@@ -21,10 +21,10 @@ class Brick < ActiveRecord::Base
   
   def before_save
     case value
-      when 0..9_99 then self.colour = 'breeze'
-      when 10_00..19_99 then self.colour = 'london'
-      when 20_00..49_99 then self.colour ||= ['custom_a', 'custom_b', 'custom_c', 'custom_d'].rand
-      when 50_00..500_00 then self.colour = 'gold'
+      when 0..9_99 then self.colour = 'a'
+      when 10_00..19_99 then self.colour = 'b'
+      when 20_00..49_99 then self.colour ||= ['c1', 'c2', 'c3', 'c4'].rand
+      when 50_00..500_00 then self.colour = 'd'
     end
   end
   

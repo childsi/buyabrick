@@ -1,9 +1,9 @@
 /* @override http://localhost:3000/stylesheets/brick_colours.css */
 
-.breeze { background-color: #999965; }
-.london { background-color: #d46619; }
-.gold { background-color: #FFFF66; }
-.custom_a { background-color: #319731; }
-.custom_b { background-color: #cb3400; }
-.custom_c { background-color: #3499cd; }
-.custom_d { background-color: #322210; }
+.a { background-color: #999965; }
+.b { background-color: #d46619; }
+.c1 { background-color: #319731; }
+.c2 { background-color: #cb3400; }
+.c3 { background-color: #3499cd; }
+.c4 { background-color: #322210; }
+.d { background-color: #FFFF66; }
