@@ -29,7 +29,7 @@ class Brick < ActiveRecord::Base
   end
   
   def can_set_colour?
-    (value >= 20_00 and value < 49_99)
+    (value and value >= 20_00 and value < 49_99)
   end
   
   def name
