@@ -64,6 +64,25 @@ class Brick < ActiveRecord::Base
     url_key
   end
   
+  def to_xml(options = {})
+    to_hash.to_xml(options)
+  end
+  
+  def to_hash
+    return {} if naughty?
+    hash = {
+      :url_key => url_key,
+      :first_name => first_name,
+      :last_name => last_name, 
+      :colour => colour,
+      :icon_id => icon_id
+    }
+    hash[:value] = value_in_pounds if show_value?
+    hash[:url] = url unless url.blank?
+    hash[:twitter] = twitter unless twitter.blank?
+    hash
+  end
+  
   def protx_hash
     hash = {
       'Amount' => value_in_pounds,

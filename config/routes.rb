@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
     brick.new_with_value '/bricks/new/:value', :controller => 'bricks', :action => 'new', 
       :path_prefix => nil, :requirements => { :value => /[\d\.]+/ }
   end
+  map.resource :wall, :controller => 'wall'
   
   map.resources :payment_notifications, :collection => { :success => :get, :failed => :get }
   
