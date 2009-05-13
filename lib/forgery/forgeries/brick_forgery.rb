@@ -1,7 +1,7 @@
 class BrickForgery < Forgery
   def self.value
     case (rand)
-      when 0..0.5 then MonetaryForgery.money(:min => 200, :max => 9_99)
+      when 0..0.5 then MonetaryForgery.money(:min => 250, :max => 9_99)
       when 0.5..0.7 then MonetaryForgery.money(:min => 10_00, :max => 19_99)
       when 0.7..0.9 then MonetaryForgery.money(:min => 20_00, :max => 49_99)
       else MonetaryForgery.money(:min => 49_99, :max => 499_99)
