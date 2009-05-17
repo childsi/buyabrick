@@ -1,7 +1,7 @@
 class WallController < ApplicationController
   def show
     @bricks = Brick.paginate(
-      :select => 'url_key,first_name,last_name,colour,icon_id,url,twitter,value,show_value,naughty',
+      :select => 'url_key,first_name,last_name,message,colour,icon_id,url,twitter,value,show_value,naughty',
       :per_page => 1000,
       :page => params[:page], 
       :order => 'purchased_at', 

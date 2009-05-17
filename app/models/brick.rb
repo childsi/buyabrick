@@ -75,7 +75,8 @@ class Brick < ActiveRecord::Base
       :first_name => first_name,
       :last_name => last_name, 
       :colour => colour,
-      :icon_id => icon_id
+      :icon_id => icon_id,
+      :message => message,
     }
     hash[:value] = value_in_pounds if show_value?
     hash[:url] = url unless url.blank?
