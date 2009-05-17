@@ -15,3 +15,5 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+require 'rspec_hpricot_matchers'
+include RspecHpricotMatchers

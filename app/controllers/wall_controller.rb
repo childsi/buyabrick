@@ -10,6 +10,9 @@ class WallController < ApplicationController
       :details => {
         :total_pages => @bricks.total_pages,
         :total_bricks => @bricks.total_entries,
+        :total_money => Wall.total_amount,
+        :total_messages => Wall.total_messages,
+        :date => Date.today,
       },
       :bricks => @bricks
     }

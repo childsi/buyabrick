@@ -16,6 +16,8 @@ module NavigationHelpers
       naughties_bricks_path
     when /the new (.+) brick page/i
       brick_new_with_value_path($1)
+    when /the wall (.+) feed/i
+      wall_path(:format => $1)
     
     # Add more mappings here.
     # Here is a more fancy example:
