@@ -4,7 +4,7 @@ class WallController < ApplicationController
       :select => 'url_key,first_name,last_name,colour,icon_id,url,twitter,value,show_value,naughty',
       :per_page => 1000,
       :page => params[:page], 
-      :order => 'purchased_at DESC', 
+      :order => 'purchased_at', 
       :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
     @wall = {
       :details => {
