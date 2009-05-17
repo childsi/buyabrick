@@ -2,6 +2,12 @@
   <% @title = "Child's i Foundation" %>
   <%= stylesheet_link_tag 'home' %>
   <%= stylesheet_link_tag 'wall' %>
+  <%= javascript_include_tag 'swfobject' %> 
+  
+  <script type="text/javascript">
+  var flashvars = { path: "/wall.xml" };
+  swfobject.embedSWF("http://dev.ichilds.rorymacdonald.net/IChildsFoundation.swf", "wall", "500", "443", "9.0.0", "", flashvars);
+  </script>
 <% end %>
 
 <h1>Child's i Foundation: our home is the first step</h1>
