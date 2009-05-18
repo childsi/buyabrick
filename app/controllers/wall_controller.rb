@@ -1,15 +1,13 @@
 class WallController < ApplicationController
   def show
-    @bricks = Brick.paginate(
+    @bricks = Brick.find(:all,
       :select => 'url_key,first_name,last_name,message,colour,icon_id,url,twitter,value,show_value,naughty',
-      :per_page => 1000,
-      :page => params[:page], 
       :order => 'purchased_at', 
       :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
     @wall = {
       :details => {
-        :total_pages => @bricks.total_pages,
-        :total_bricks => @bricks.total_entries,
+        :total_pages => 1,
+        :total_bricks => @bricks.size,
         :total_money => Wall.total_amount,
         :total_messages => Wall.total_messages,
         :date => Date.today,
