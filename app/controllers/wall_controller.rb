@@ -1,5 +1,7 @@
 class WallController < ApplicationController
   def show
+    response.headers['Cache-Control'] = 'public, max-age=300'
+    
     @bricks = Brick.find(:all,
       :select => 'url_key,first_name,last_name,message,colour,icon_id,url,twitter,value,show_value,naughty',
       :order => 'purchased_at', 
