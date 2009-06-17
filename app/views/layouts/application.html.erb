@@ -18,9 +18,6 @@
       <li><%= link_to_unless_current("Contact", { :controller => 'pages', :action => 'contact' }) %></li>
       <li id="donate"><%= link_to_unless_current("Donate", donate_path) %></li>
     </ul>
-    <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
     <div id="content">
       <%= yield %>
     </div>
