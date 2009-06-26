@@ -1,6 +1,5 @@
 :development:
-  :login: CHANGE-ME
-  :password: CHANGE-ME
+  :vendor: CHANGE-ME
 
 :test:
 

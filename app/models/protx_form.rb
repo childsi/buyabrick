@@ -14,11 +14,11 @@ class String
 end
 
 class ProtxForm
-  attr_accessor :encryption_key, :url, :protocol, :vendor_code, :app_key
+  attr_accessor :encryption_key, :url, :protocol, :vendor, :app_key
   
   def initialize(params={})
     self.url = params[:url]
-    self.vendor_code = params[:login]
+    self.vendor = params[:vendor]
     self.protocol = params[:protocol] || '2.23'
     self.encryption_key = params[:encryption_key]
     self.app_key = params[:app_key] || `hostname`.strip
@@ -34,7 +34,7 @@ class ProtxForm
     {
       'TXType' => 'PAYMENT',
       'VPSProtocol' => protocol,
-      'Vendor' => vendor_code,
+      'Vendor' => vendor,
       'Crypt' => encrypt_for_protx(object_details)
     }
   end
