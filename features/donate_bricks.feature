@@ -23,3 +23,13 @@ Feature: Manage bricks
       |show_amount|true|
     And I press "Continue"
     Then the current brick should be saved
+
+  Scenario: Receive an empty successful callback from Protx
+    Given the following successful callback is returned:
+    Then I should be on the home page
+  
+  Scenario: Receive an empty failed callback from Protx
+    Given the following successful callback is returned:
+    Then I should be on the home page
+  
+    

@@ -39,3 +39,11 @@ Then /^I should see the following bricks:$/ do |bricks|
     end
   end
 end
+
+Given /^the following successful callback is returned:$/ do
+  visit success_payment_notifications_path
+end
+
+Given /^the following failed callback is returned:$/ do
+  visit failed_payment_notifications_path
+end
