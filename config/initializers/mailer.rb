@@ -7,7 +7,7 @@ else
     :port => ENV['MAILER_PORT'] || '587',
     :user_name => ENV['MAILER_USER_NAME'],
     :password => ENV['MAILER_PASSWORD'],
-    :authentication => ENV['MAILER_AUTHENTICATION'] || plain
+    :authentication => ENV['MAILER_AUTHENTICATION'] || 'plain',
   }
 end
 ActionMailer::Base.smtp_settings = config
