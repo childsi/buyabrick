@@ -1,3 +1,5 @@
+require "smtp_tls"
+
 config_path = File.join(RAILS_ROOT, 'config', 'mailer.yml')
 if File.exists?(config_path)
   config = YAML.load_file(config_path)
