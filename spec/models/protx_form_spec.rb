@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ProtxForm do
   before(:each) do
-    @protx = ProtxForm.new(:encryption_key => 'foo')
+    @protx = ProtxForm.new(:encryption_key => 'foo', :app_key => 'testapp')
   end
   
   describe 'encrypting/decrypting' do
@@ -25,6 +25,17 @@ describe ProtxForm do
         "PostCodeResult"=>"MATCHED",  "AddressResult"=>"MATCHED"
       }
       perform_encrypt_decrypt(hash).should == hash
+    end
+  end
+  
+  describe "object details for a brick" do
+    before(:each) do
+      @brick = Brick.create(:value => 250, :first_name => 'first', :last_name => 'last')
+      @object_details = @protx.send(:object_details, @brick, 'success', 'failure')
+    end
+    
+    it "should set the vendor tx code to use the brick url key" do
+      @object_details['VendorTxCode'].should == "testapp-bricks-#{@brick.url_key}"
     end
   end
   

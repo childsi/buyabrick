@@ -6,21 +6,15 @@ class ProtxForm
     self.vendor = params[:vendor]
     self.protocol = params[:protocol] || '2.23'
     self.encryption_key = params[:encryption_key]
-    self.app_key = params[:app_key] || `hostname`.strip
+    self.app_key = (params[:app_key] || `hostname`.strip)
   end
   
   def form_fields(object, success_url, failure_url)
-    object_details = object.protx_hash.merge(
-      'VendorTxCode' => "#{app_key}-#{object.class.name.tableize}-#{object.id}",
-      'AllowGiftAid' => '1',
-      'SuccessURL' => success_url,
-      'FailureURL' => failure_url
-    )
     {
       'TXType' => 'PAYMENT',
       'VPSProtocol' => protocol,
       'Vendor' => vendor,
-      'Crypt' => encrypt_for_protx(object_details)
+      'Crypt' => encrypt_for_protx(object_details(object, success_url, failure_url))
     }
   end
   
@@ -36,6 +30,15 @@ class ProtxForm
   end
   
   private
+  
+  def object_details(object, success_url, failure_url)
+    object.protx_hash.merge(
+      'VendorTxCode' => "#{app_key}-#{object.class.name.tableize}-#{object.to_param}",
+      'AllowGiftAid' => '1',
+      'SuccessURL' => success_url,
+      'FailureURL' => failure_url
+    )
+  end
   
   def decrypt_from_protx(crypt)
     string = Base64.decode64(crypt) ^ encryption_key

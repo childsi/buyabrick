@@ -7,6 +7,7 @@ else
     :vendor => ENV['PAYMENT_GATEWAY_LOGIN'],
     :protocol => ENV['PAYMENT_GATEWAY_PROTOCOL'],
     :encryption_key => ENV['PAYMENT_GATEWAY_KEY'],
+    :app_key => ENV['PAYMENT_GATEWAY_APPLICATION'],
   }
 end
 GATEWAY = ProtxForm.new(gateway_options)
