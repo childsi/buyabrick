@@ -35,7 +35,7 @@ describe ProtxForm do
     end
     
     it "should set the vendor tx code to use the brick url key" do
-      @object_details['VendorTxCode'].should == "testapp-bricks-#{@brick.url_key}"
+      @object_details['VendorTxCode'].should == "testapp-bricks-#{@brick.id}"
     end
   end
   

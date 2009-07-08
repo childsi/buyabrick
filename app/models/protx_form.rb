@@ -33,7 +33,7 @@ class ProtxForm
   
   def object_details(object, success_url, failure_url)
     object.protx_hash.merge(
-      'VendorTxCode' => "#{app_key}-#{object.class.name.tableize}-#{object.to_param}",
+      'VendorTxCode' => "#{app_key}-#{object.class.name.tableize}-#{object.id}",
       'AllowGiftAid' => '1',
       'SuccessURL' => success_url,
       'FailureURL' => failure_url
