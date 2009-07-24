@@ -2,4 +2,5 @@
 <!DOCTYPE cross-domain-policySYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
   <allow-access-from domain="dev.ichilds.rorymacdonald.net" />
+  <allow-access-from domain="metade.org" />
 </cross-domain-policy>
