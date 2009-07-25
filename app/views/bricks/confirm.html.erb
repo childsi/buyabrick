@@ -3,21 +3,21 @@
   <%= stylesheet_link_tag 'bricks' %>
 <% end %>
 
-<%= render :partial => 'progress', :locals => { :step => 3 } %>
-  
-  <h1>This is your brick and message:</h1>
-  <div id="brick_details">
-    <div class="panel">
-      <%= brick_image_tag(@brick.value_in_pounds) %>
-    </div>
-    
-    <div class="panel">
-      <p>
-        <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.first_name %> <%= @brick.last_name %></h3>
-        <% if @brick.show_value %> has donated £<%= @brick.value_in_pounds %> to the wall: <% end %>
-      </p>
-      <p><%=h @brick.message %></p>
-    </div>
+<div id="sidebar" class="col_util">
+  <%= render :partial => 'progress', :locals => { :step => 3 } %>
+  <div class="vblock">
+    <h3 class="velement">Your Brick</h3>
+    <%= brick_image_tag(@brick.value_in_pounds) %>
+  </div>
+</div>
+
+<div id="content" class="col_wide">
+  <div class="panel">
+    <p>
+      <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.first_name %> <%= @brick.last_name %></h3>
+      <% if @brick.show_value %> has donated £<%= @brick.value_in_pounds %> to the wall: <% end %>
+    </p>
+    <p><%=h @brick.message %></p>
   </div>
   
   <% if admin? %>
@@ -44,3 +44,4 @@
     <%= link_to 'Cancel', root_path %>
   </div>
   <% end %>
+</div>

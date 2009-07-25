@@ -1,6 +1,14 @@
 /* @override http://localhost:3000/stylesheets/bricks.css */
 @import url(/stylesheets/brick_colours.css);
 
+label {
+  display: block;
+}
+fieldset {
+  border: none;
+  margin-bottom: 1em;
+}
+
 #progress ul {
 	margin-left: 10px;
 	padding-left: 0em;
@@ -21,6 +29,17 @@
 	background-color: #ce6416;	
 }
 
+#brick_name div {
+  float: left;
+}
+label#brick_show_value {
+  display: inline;
+}
+
+#brick_name.fieldWithErrors {
+  float: none;
+}
+
 .fieldWithErrors input {
 	background-color: orange;
 }
@@ -28,24 +47,20 @@
 	color: red;
 }
 
-fieldset {
-	border: none;
-}
-
-div#colour_picker ul li {
+#colour_picker ul li {
 	float: left;
 	list-style: none;
 	margin: 5px;
 	text-align: center;	
 }
-div#colour_picker ul li div {
+#colour_picker ul li div {
 	width: 30px;
 }
 
-div#icon_picker {
+#icon_picker {
 	clear: both;
 }
-div#icon_picker li {
+#icon_picker li {
 	float: left;
 	list-style: none;
 	margin-right: 5px;
@@ -58,7 +73,6 @@ div#icon_picker li {
 #value label {
 	font-size: 1.5em;
 	font-weight: bold;
-	font-family: "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
 	color: #535353;
 }
 #value input {
@@ -77,4 +91,8 @@ div.panel {
 #personal_details div {
 	float: left;
 	width: 50%;
+}
+
+h3 img {
+  display: inline;
 }

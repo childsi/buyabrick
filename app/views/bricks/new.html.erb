@@ -3,89 +3,97 @@
   <%= stylesheet_link_tag 'bricks' %>
 <% end %>
 
-<%= render :partial => 'progress', :locals => { :step => 2 } %>
-<% form_for(@brick) do |f| %>
-  <h2>Brick Message</h2>
-  <p>Please write a message to display on our wall. Dedicate it to a fried, a loved one, to yourself or
-    give Child's i Foundation some love!</p>
-  
-  <div class="panel">
-    <%= brick_image_tag(@brick.value_in_pounds) %>
-    <div id="value">
-    <%= f.label :value_in_pounds, "£" %><%= @brick.value_in_pounds %>
-    <%= f.hidden_field :value_in_pounds %>
-    <%= f.error_message_on(:value_in_pounds) %>
+<div>
+  <% form_for(@brick) do |f| %>
+  <div id="sidebar" class="col_util">
+    <%= render :partial => 'bricks/progress', :locals => { :step => 2 } %>
+    <div class="vblock">
+      <h3 class="velement">Brick Details</h3>
+      
+      <div>
+        <p>Please write a message to display on our wall. Dedicate it to a fried, a loved one, to yourself or
+          give Child's i Foundation some love!</p>
+      </div>
+      
+      <div class="panel">
+        <%= brick_image_tag(@brick.value_in_pounds) %>
+        <div id="value">
+        <%= f.label :value_in_pounds, "£" %><%= @brick.value_in_pounds %>
+        <%= f.hidden_field :value_in_pounds %>
+        <%= f.error_message_on(:value_in_pounds) %>
+        </div>
+      </div>
+      <div class="clear"></div>
     </div>
   </div>
-  
-  <fieldset id="brick_details">
-    <div class="panel">
-      <p>
-        <%= f.check_box :show_value %>
-        <%= f.label :show_value, "Show amount on wall?" %>
-      </p>
-      <p>
-        <%= f.label :message, "Add message here (140 characters limit)" %><br />
-        <%= f.text_area :message, :rows => 6 %>
-      </p>
-      
-      <% if @brick.can_set_colour? %>
-      <div id="colour_picker">
-        <p>Choose colour:</p>
-        <ul>
-        <% for i in 'a'..'d' %>
-          <li>
-            <div class="<%= "custom_#{i}" %>">&nbsp;</div>
-            <%= f.radio_button(:colour, "custom_#{i}") %>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-      <% end %>
-      
-      <div id="icon_picker">
-        <p>Glam up your message with a pretty icon:</p>
-        <ul>
-        <% for i in 1..6 %>
-          <li>
-            <div><%= image_tag("/images/bricks/icons/#{i}.jpg") %></div>
-            <%= f.radio_button(:icon_id, i) %>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  </fieldset>
-  
-  <fieldset id="personal_details">
-    <div>
-      <h2>Details</h2>
-      <span>(fields with * are required)</span>
-      
-      <p>
-        <%= f.label :first_name %><br />
+
+  <div id="content" class="col_wide">
+    <fieldset id="brick_name">
+      <div>
+        <%= f.label :first_name, 'Name' %>
         <%= f.text_field :first_name %>
-      </p>
-      <p>
-        <%= f.label :last_name %><br />
+      </div>
+      <div>
+        <%= f.label :last_name, 'Surname' %>
         <%= f.text_field :last_name %>
-      </p>
-      <p>
-        <%= f.label :email %><br />
-        <%= f.text_field :email %>
-      </p>
-      <p>
-        <%= f.label :url, "Website" %><br />
+      </div>
+    </fieldset>
+      
+    <fieldset id="brick_details">
+      <div>
+        <%= f.label :message, "Add message here (140 characters limit)" %>
+        <%= f.text_area :message, :rows => 3 %>
+      </div>
+      <div>
+        <%= f.label :url, "Website" %>
         <%= f.text_field :url %>
-      </p>
-      <p>
-        <%= f.label :twitter, "Twitter username" %><br />
+      </div>
+      <div>
+        <%= f.label :twitter, "Twitter username" %>
         <%= f.text_field :twitter %>
-      </p>
+      </div>
+    </fieldset>
+          
+    <fieldset id="icon_picker">
+      <p>Glam up your message with a pretty icon:</p>
+      <ul>
+      <% for i in 1..6 %>
+        <li>
+          <div><%= image_tag("/images/bricks/icons/#{i}.jpg") %></div>
+          <%= f.radio_button(:icon_id, i) %>
+        </li>
+      <% end %>
+      </ul>
+    </fieldset>
+          
+    <% if @brick.can_set_colour? %>
+    <fieldset id="colour_picker">
+      <p>Choose colour:</p>
+      <ul>
+      <% for i in 'a'..'d' %>
+        <li>
+          <div class="<%= "custom_#{i}" %>">&nbsp;</div>
+          <%= f.radio_button(:colour, "custom_#{i}") %>
+        </li>
+      <% end %>
+      </ul>
+    </fieldset>
+    <% end %>
+    
+    <fieldset>
+      <div>
+        <%= f.label :email, "Your email address (for payment confirmation)" %>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :show_value, "Make my donation public?", :id => "brick_show_value" %>
+        <%= f.check_box :show_value %>
+      </div>
+    </fieldset>
+    
+    <div>
+      <%= f.submit "Continue" %>
     </div>
-  </fieldset>
-  
-  <p>
-    <%= f.submit "Continue" %>
-  </p>
-<% end %>
+  </div>
+  <% end %>
+</div>
