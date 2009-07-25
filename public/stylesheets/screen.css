@@ -1,0 +1,76 @@
+body { font-family: georgia,serif; font-size: 0.8em; }
+
+
+/* general rules */
+a { color: black; }
+h2 { font-size: 250%; }
+h3 { font-size: 180%; margin-bottom: 10px; }
+h4 { font-size: 150%; }
+
+/* header */
+#header { margin-top: 20px; }
+#header h1 a {	display:block; width: 265px; height: 55px; margin-bottom: 20px;
+				background:url(/images/structure/childsi.gif); background-repeat:no-repeat; 
+			}
+			
+/* nav */
+#nav li a { float: left; width: 119px; height: 40px; border-right: 1px solid #999999; 
+			font-size: 120%; text-decoration:none; padding: 8px; }
+#nav li a:hover, #nav a.selected { background: #ccc; }
+#nav #givetab a { width: 240px; height: 140px; margin-top: -100px;
+				  background-image: url(../images/structure/givingtag.jpg); background-repeat:no-repeat;  background-position: top right;
+				  border: 0;
+				}
+#nav #givetab a:hover { background:white; background-image: url(../images/structure/givingtag.jpg); background-repeat:no-repeat;  background-position: top right; }
+#nav #givetab a div { padding-top: 95px; font-size: 120%; color: #CC6600; }
+
+
+/* homepage hero */
+#hero_element li { padding-bottom: 10px; }
+#hero_element li .hero_head { text-align: right; width: 420px; margin-left: 395px; height: 305px;  }
+#hero_element li h2 { display:inline; background: white; font-size: 400%; }
+#hero_element p { font-size: 85%; width: 50%; font-family: sans-serif; }
+
+#hero_nav { position:absolute; margin-left: 670px; margin-top: 320px; }
+#hero_nav li { float: left; }
+#hero_nav li a { color: #ccc; display: block; font-family: sans-serif; font-size: 150%; text-decoration:none; width: 30px; height: 30px; border-bottom: 1px solid #ccc; margin-right: 2px; text-align:center }
+#hero_nav li a:hover { background: #ccc; color: black; }
+#hero_nav li a.selected { border-bottom: 4px solid #ccc; color: black; }
+
+/* mission statement */
+#mission_statement { padding-top: 30px; padding-bottom: 30px; font-size: 130%; }
+
+/* footer */
+#footer { margin-top: 40px; background: #666666; padding: 5px; font-size: 80%; font-family: sans-serif; color: white; padding-bottom: 20px; }
+#footer a { color: white; }
+#footer #footer_legal img { margin-top: 20px; margin-bottom: 20px; }
+#footer .col_wide_half { padding-top: 20px; }
+#footer #poweredby { margin-top: 65px; }
+
+
+
+.sidenav a { padding-top: 4px; padding-bottom: 4px; display:block; width: 275px; text-decoration:none; }
+.sidenav a:hover { background: #CC3399; color: white; } 
+
+
+
+#newsfeed h3 { margin-bottom: 5px; }
+#newsfeed li { margin-bottom: 50px; padding-bottom: 50px; border-bottom: 1px solid #ccc; }
+#newsfeed div.sub { float: left; }
+#newsfeed div.comments { float: right; }
+#newsfeed div.postcontent { float: none; clear:both; padding-top: 10px; margin-bottom: 20px;  }
+#newsfeed div.headlineimage { margin-bottom: 20px; }
+.categorylink { font-size: 150%; }
+
+
+.blogcategory.activities { background: #CC9933; }
+.blogcategory.fundraising { background: #CC6666; }
+
+
+
+
+
+
+
+
+#campaign_banner { margin-bottom: 20px; }

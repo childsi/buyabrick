@@ -1,33 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>Buy a Brick | <%=h @title %></title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'zero' %>
+    <%= stylesheet_link_tag 'structure' %>
+    <%= stylesheet_link_tag 'screen' %>
+    
     <%= yield :head %>
   </head>
   <body>
-    <div id="masthead">
-      <%= link_to(image_tag('banner.jpg', :alt => "Child's i Foundation: our home is the first step"), root_path, :title => "Child's i Foundation") %>
-    </div>
-    <ul id="navigation">
-      <li><%= link_to_unless_current("Home", root_path) %></li>
-      <li><%= link_to_unless_current("Our charity", { :controller => 'pages', :action => 'about' }) %></li>
-      <li><%= link_to_unless_current("Faqs", { :controller => 'pages', :action => 'faqs' }) %></li>
-      <li><%= link_to_unless_current("Contact", { :controller => 'pages', :action => 'contact' }) %></li>
-      <li id="donate"><%= link_to_unless_current("Donate", donate_path) %></li>
-    </ul>
-    <div id="content">
-      <%= yield %>
-    </div>
-    <div id="footer">
-      <ul>
-        <li>&copy; 2009 The Child's i Foundation</li>
-        <li><%= link_to "Privacy Policy", { :controller => 'pages', :action => 'privacy' }%></li>
-        <li><%= link_to "Contact us", { :controller => 'pages', :action => 'contact' }%></li>
-        <li><%= link_to "Colophon", { :controller => 'pages', :action => 'colophon' }%></li>
-      </ul>
-    </div>
+
+    	<div id="canvas">
+
+    			<div id="header" class="col_full">
+    				<h1>
+    					<a href="#"><span class="hide">Child's i Foundation - our home is the first step</span></a>
+    				</h1>
+
+    				<div id="nav" class="col_full vblock">
+    					<ul>
+    						<li><a href="#">Our<br>Mission</a></li>
+    						<li><a href="#">Current<br>Activities</a></li>
+    						<li><a href="#">Meet the<br>Community</a></li>
+    						<li><a href="#">Follow<br>the journey</a></li>
+    						<li id="givetab"><a href="#"><div>How you<br>can give</div></a></li>
+    					</ul>
+    					<div class="clear"></div>
+    				</div>
+
+
+    			</div>
+          
+          <div id="main">
+    			  <div id="content" class="col_wide">
+    			  <%= yield %>
+    			  </div>
+          </div>  
+    	</div>
+
+
+
+
+    			<div class="clear"></div>
+    			<div id="footer">
+    				<div class="col_util" id="footer_legal">
+    					<img src="/images/structure/childsifooter.gif">
+    					<p>
+    						Child's i Foundation is a charitable company limited by guarantee, registered in England and Wales with registered company number 6674427 and registered charity number 1126212.<br>
+    						<a href="#"> Site Terms and Conditions</a>
+    					</p>
+    				</div>
+
+
+    				<div class="col_wide_half">
+    					<h4>Want to get involved?</h4>
+    					<ul>
+    						<li><a href="#">Sign up!</a></li>
+    						<li><a href="#">Frequently Asked Questions</a></li>
+    						<li><a href="#">Upcoming Events</a></li>
+    						<li><a href="#">Subscribe to our Feeds</a></li>
+    					</ul>
+    				</div>
+
+    				<div class="col_wide_half">
+    					<h4>Already Involved?</h4>
+    					<ul>
+    						<li><a href="#">Visit the Wiki</a></li>
+    						<li><a href="#">Login to Basecamp</a></li><a href="#">
+    						</a><li><a href="#">Get Assets and Info</a></li>
+    					</ul>
+
+    					<p id="poweredby">
+    						Powered by WordPress and Love
+    					</p>
+    				</div>
+
+    				<div class="clear"></div>
+    			</div>
+
+    		</div>
+
+    
   </body>
 </html>
