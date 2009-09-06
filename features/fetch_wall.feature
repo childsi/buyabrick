@@ -5,9 +5,9 @@ Feature: Fetch wall
   
   Scenario: Fetch wall
     Given the following bricks:
-      |value|message|first_name|last_name|email|url|show_value|naughty|purchased_at|
-      |300|My naughty brick|Bob|Builder|bob@builders.com|http://www.builders.com|true|true|2009/01/01|
-      |300|My great brick|Bob|Builder|bob@builders.com|http://www.builders.com|true|false|2009/01/01|
+      |value|message|display_name|first_name|last_name|email|show_value|naughty|purchased_at|
+      |300|My naughty brick|bob|Bob|Builder|bob@builders.com|true|true|2009/01/01|
+      |300|My great brick|bob|Bob|Builder|bob@builders.com|true|false|2009/01/01|
     And I am on the wall xml feed
     Then the "total-bricks" element should contain "1"
     And the "total-pages" element should contain "1"
