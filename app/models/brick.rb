@@ -19,6 +19,10 @@ class Brick < ActiveRecord::Base
     self.icon_id ||= 1
   end
   
+  def self.random_colour
+    ('a'..'f').map { |c| "custom_#{c}"}.rand
+  end
+  
   # def before_save
   #   case value
   #     when 0..9_99 then self.colour = 'a'

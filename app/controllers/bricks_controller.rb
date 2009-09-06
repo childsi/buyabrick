@@ -37,7 +37,10 @@ class BricksController < ApplicationController
   # GET /bricks/new
   # GET /bricks/new.xml
   def new
-    @brick = Brick.new(:value_in_pounds => params[:value])
+    @brick = Brick.new(
+      :colour => Brick.random_colour,
+      :value_in_pounds => params[:value]
+    )
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @brick }
