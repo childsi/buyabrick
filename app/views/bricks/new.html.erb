@@ -38,7 +38,7 @@
       </div>
       
       <div>
-        <%= f.label :twitter, "Twitter username so #{ link_to('@buyabrick', "http://twitter.com/buyabrick") } can tweet about it" %>
+        <%= f.label :twitter, "Twitter username so #{ link_to('@buyabrick', "http://twitter.com/#{TWITTER_USERNAME}") } can tweet about it" %>
         <%= f.text_field :twitter %>
       </div>
     </fieldset>

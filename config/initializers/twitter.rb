@@ -11,3 +11,5 @@ unless File.exist?(FuKing::Twitter.config_file)
     end
   end
 end
+
+TWITTER_USERNAME = $1 if FuKing::Twitter.send(:configs)[:read_url] =~ %r[http://twitter.com/statuses/user_timeline/(\w+).xml]
