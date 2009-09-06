@@ -74,7 +74,8 @@ class Brick < ActiveRecord::Base
     hash = {
       :url_key => url_key,
       :first_name => first_name,
-      :last_name => last_name, 
+      :last_name => last_name,
+      # :display_name => display_name,
       :colour => colour,
       :icon_id => icon_id,
       :message => message,

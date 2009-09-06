@@ -14,16 +14,6 @@
         <p>Please write a message to display on our wall. Dedicate it to a fried, a loved one, to yourself or
           give Child's i Foundation some love!</p>
       </div>
-      
-      <div class="panel">
-        <%= brick_image_tag(@brick.value_in_pounds) %>
-        <div id="value">
-        <%= f.label :value_in_pounds, "£" %><%= @brick.value_in_pounds %>
-        <%= f.hidden_field :value_in_pounds %>
-        <%= f.error_message_on(:value_in_pounds) %>
-        </div>
-      </div>
-      <div class="clear"></div>
     </div>
   </div>
 
@@ -39,6 +29,8 @@
         <%= f.label :message, "Brick message (140 characters limit)" %>
         <%= f.text_area :message, :rows => 3 %>
       </div>
+      
+      
       <div>
         <%= f.label :show_value, "You've chosen to donate £#{@brick.value_in_pounds}, do you want to make this amount to be displayed on the brick?", :id => "brick_show_value" %>
         <%= f.check_box :show_value %>
@@ -65,11 +57,10 @@
       </ul>
     </fieldset>
           
-    <% if @brick.can_set_colour? %>
     <fieldset id="colour_picker">
-      <p>Choose colour:</p>
+      <p>Choose your Ugandan clay brick colour:</p>
       <ul>
-      <% for i in 'a'..'d' %>
+      <% for i in 'a'..'f' %>
         <li>
           <div class="<%= "custom_#{i}" %>">&nbsp;</div>
           <%= f.radio_button(:colour, "custom_#{i}") %>
@@ -77,7 +68,6 @@
       <% end %>
       </ul>
     </fieldset>
-    <% end %>
     
     <fieldset>
       <h4>Purchaser details</h4>
