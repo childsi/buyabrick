@@ -42,26 +42,4 @@ describe Brick do
   it "should set the default icon_id to 1" do
     @brick.icon_id.should == 1
   end
-  
-  describe "can set colour" do
-    it "should return true when the value is between 20 and 50 pounds" do
-      @brick.value = 25_00
-      @brick.should be_can_set_colour
-    end
-    
-    it "should return true when the value is 20 pounds" do
-      @brick.value = 20_00
-      @brick.should be_can_set_colour
-    end
-    
-    it "should return true when the value is under 20 pounds" do
-      @brick.value = 10_00
-      @brick.should_not be_can_set_colour
-    end
-    
-    it "should return true when the value is over 50 pounds" do
-      @brick.value = 55_00
-      @brick.should_not be_can_set_colour
-    end
-  end
 end

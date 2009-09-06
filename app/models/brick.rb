@@ -27,10 +27,6 @@ class Brick < ActiveRecord::Base
   #     when 50_00..500_00 then self.colour = 'd'
   #   end
   # end
-  # 
-  # def can_set_colour?
-  #   (value and value >= 20_00 and value < 49_99)
-  # end
   
   def name
     "#{first_name} #{last_name}"
