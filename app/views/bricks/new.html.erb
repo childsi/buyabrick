@@ -32,7 +32,8 @@
       
       <div>
         <p>You've chosen to donate £<%= f.text_field :value_in_pounds, :size=>5 %>, do you want to make this amount to be displayed on the brick?
-        <%= f.check_box :show_value %>  
+        <%= f.check_box :show_value %>
+        <%= f.error_message_on(:value_in_pounds) %>
         </p>
       </div>
       
