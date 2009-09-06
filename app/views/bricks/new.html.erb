@@ -30,12 +30,12 @@
         <%= f.text_area :message, :rows => 3 %>
       </div>
       
-      <%= f.hidden_field :value_in_pounds %>
-      
       <div>
-        <%= f.label :show_value, "You've chosen to donate £#{@brick.value_in_pounds}, do you want to make this amount to be displayed on the brick?", :id => "brick_show_value" %>
-        <%= f.check_box :show_value %>
+        <p>You've chosen to donate £<%= f.text_field :value_in_pounds, :size=>5 %>, do you want to make this amount to be displayed on the brick?
+        <%= f.check_box :show_value %>  
+        </p>
       </div>
+      
       <div>
         <%= f.label :twitter, "Twitter username so #{ link_to('@buyabrick', "http://twitter.com/buyabrick") } can tweet about it" %>
         <%= f.text_field :twitter %>
