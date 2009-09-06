@@ -21,10 +21,18 @@ class PaymentNotification < ActiveRecord::Base
     if status == 'OK'
       logger.info("Brick #{brick.url_key} purchased successfully")
       brick.update_attribute(:purchased_at, Time.now)
-      FuKing::Twitter.update("#{brick.twitter_message}: #{brick_url}")
+      
+      FuKing::Twitter.update(twitter_message)
     else
       logger.info("Brick #{brick.url_key} purchase unsuccessful: #{status}")
     end
+  end
+  
+  def twitter_message
+    message = brick.twitter_message
+    correct_size = 140-brick_url.size-1
+    message = "#{message[0,correct_size-3]}..." if message.size > correct_size 
+    "#{message} #{brick_url}"
   end
   
   def brick_url

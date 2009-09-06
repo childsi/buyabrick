@@ -42,9 +42,8 @@ class Brick < ActiveRecord::Base
   end
   
   def twitter_message
-    user = twitter.blank? ? name : "@#{twitter}"
-    
-    "#{} has just bought a brick"
+    user = twitter.blank? ? "name:" : "@#{twitter}"
+    "#{user} #{message}"
   end
   
   def value_in_pounds

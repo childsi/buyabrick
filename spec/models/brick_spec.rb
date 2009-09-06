@@ -18,7 +18,7 @@ describe Brick do
     it "should remove the @ from a username" do
       @brick.twitter = '@foo'
       @brick.twitter.should == 'foo'
-      @brick.twitter_message.should == '@foo has just bought a brick'
+      @brick.twitter_message.should == '@foo value for message'
     end
   end
   
@@ -27,6 +27,7 @@ describe Brick do
       :value => 250,
       :first_name => "first",
       :last_name => "last",
+      :display_name => 'display name',
       :email => "foo@bar.com",
       :url => "value for url",
       :message => "value for message"
