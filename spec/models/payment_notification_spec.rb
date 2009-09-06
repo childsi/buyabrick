@@ -7,13 +7,13 @@ describe PaymentNotification do
         :brick => Brick.new(
           :url_key => 'foo',
           :message => 'a message',
-          :display_name => 'name'
+          :display_name => 'jane'
         )
       )
     end
     
     it "should create the right twitter message for the brick" do
-      @payment_notification.send(:twitter_message).should == 'name: a message http://buyabrick.heroku.com/bricks/foo'
+      @payment_notification.send(:twitter_message).should == 'jane: a message http://buyabrick.heroku.com/bricks/foo'
     end
     
     it "should create the right twitter message when the brick has a twitter username" do
@@ -24,7 +24,7 @@ describe PaymentNotification do
     it "should create the right twitter message when there's a long message" do
       @payment_notification.brick.message = 'a'*140
       @payment_notification.send(:twitter_message).size.should == 140
-      @payment_notification.send(:twitter_message).should == 'name: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... http://buyabrick.heroku.com/bricks/foo'
+      @payment_notification.send(:twitter_message).should == 'jane: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... http://buyabrick.heroku.com/bricks/foo'
     end
     
   end

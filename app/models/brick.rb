@@ -38,7 +38,7 @@ class Brick < ActiveRecord::Base
   end
   
   def twitter_message
-    user = twitter.blank? ? "name:" : "@#{twitter}"
+    user = twitter.blank? ? "#{display_name}:" : "@#{twitter}"
     "#{user} #{message}"
   end
   
