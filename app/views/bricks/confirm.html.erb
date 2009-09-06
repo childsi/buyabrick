@@ -6,16 +6,20 @@
 <div id="sidebar" class="col_util">
   <%= render :partial => 'progress', :locals => { :step => 3 } %>
   <div class="vblock">
-    <h3 class="velement">Your Brick</h3>
-    <%= brick_image_tag(@brick.value_in_pounds) %>
+    <h3 class="velement">Preview the brick</h3>
+    <p>This is how the brick will be displayed on the Child's i Foundation wall.</p>
+    <p>If you would like to make any changes click back in your browser.</p>
   </div>
 </div>
+
+<% #FIXME: %>
 
 <div id="content" class="col_wide">
   <div class="panel">
     <p>
-      <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.first_name %> <%= @brick.last_name %></h3>
-      <% if @brick.show_value %> has donated £<%= @brick.value_in_pounds %> to the wall: <% end %>
+      <span>This brick belongs to</span>
+      <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.display_name %></h3>
+      <% if @brick.show_value %> Donation £<%= @brick.value_in_pounds %><% end %>
     </p>
     <p><%=h @brick.message %></p>
   </div>
@@ -39,9 +43,10 @@
         <%= hidden_field_tag key, value %>
       <% end %>
       <%= submit_tag('Go to payment') %>
+      
+      <p>Child's I Foundation (Registered Charity No. 1126212) wants to ensure that your donation is used most effectively and therefore your donation will be applied by the charity for its general charitable purposes.</p>
     <% end %>
     
-    <%= link_to 'Cancel', root_path %>
   </div>
   <% end %>
 </div>

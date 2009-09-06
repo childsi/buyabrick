@@ -8,7 +8,7 @@
   <div id="sidebar" class="col_util">
     <%= render :partial => 'bricks/progress', :locals => { :step => 2 } %>
     <div class="vblock">
-      <h3 class="velement">Customise the Brick</h3>
+      <h3 class="velement">Customise the brick</h3>
       
       <div>
         <p>Please write a message to display on our wall. Dedicate it to a fried, a loved one, to yourself or
@@ -30,6 +30,7 @@
         <%= f.text_area :message, :rows => 3 %>
       </div>
       
+      <%= f.hidden_field :value_in_pounds %>
       
       <div>
         <%= f.label :show_value, "You've chosen to donate £#{@brick.value_in_pounds}, do you want to make this amount to be displayed on the brick?", :id => "brick_show_value" %>
