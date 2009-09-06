@@ -73,9 +73,8 @@ class Brick < ActiveRecord::Base
     return {} if naughty?
     hash = {
       :url_key => url_key,
-      :first_name => first_name,
-      :last_name => last_name,
-      # :display_name => display_name,
+      :first_name => display_name, # FIXME: this should not expose the first name...
+      :display_name => display_name,
       :colour => colour,
       :icon_id => icon_id,
       :message => message,

@@ -3,7 +3,7 @@ class WallController < ApplicationController
     response.headers['Cache-Control'] = 'public, max-age=300'
     
     @bricks = Brick.find(:all,
-      :select => 'url_key,first_name,last_name,message,colour,icon_id,url,twitter,value,show_value,naughty',
+      :select => 'url_key,display_name,message,colour,icon_id,url,twitter,value,show_value,naughty',
       :order => 'purchased_at', 
       :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
     @wall = {
