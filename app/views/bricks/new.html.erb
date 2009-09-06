@@ -8,7 +8,7 @@
   <div id="sidebar" class="col_util">
     <%= render :partial => 'bricks/progress', :locals => { :step => 2 } %>
     <div class="vblock">
-      <h3 class="velement">Brick Details</h3>
+      <h3 class="velement">Customise the Brick</h3>
       
       <div>
         <p>Please write a message to display on our wall. Dedicate it to a fried, a loved one, to yourself or
@@ -28,34 +28,33 @@
   </div>
 
   <div id="content" class="col_wide">
-    <fieldset id="brick_name">
-      <div>
-        <%= f.label :first_name, 'Name' %>
-        <%= f.text_field :first_name %>
-      </div>
-      <div>
-        <%= f.label :last_name, 'Surname' %>
-        <%= f.text_field :last_name %>
-      </div>
-    </fieldset>
-      
     <fieldset id="brick_details">
+      <h4>Brick details</h4>
+      
       <div>
-        <%= f.label :message, "Add message here (140 characters limit)" %>
+        <%= f.label :display_name, "This brick belongs to" %>
+        <%= f.text_field :display_name %>
+      </div>
+      <div>
+        <%= f.label :message, "Brick message (140 characters limit)" %>
         <%= f.text_area :message, :rows => 3 %>
       </div>
       <div>
-        <%= f.label :url, "Website" %>
+        <%= f.label :show_value, "You've chosen to donate £#{@brick.value_in_pounds}, do you want to make this amount to be displayed on the brick?", :id => "brick_show_value" %>
+        <%= f.check_box :show_value %>
+      </div>
+      <div>
+        <%= f.label :url, "Link to a website from the brick" %>
         <%= f.text_field :url %>
       </div>
       <div>
-        <%= f.label :twitter, "Twitter username" %>
+        <%= f.label :twitter, "Twitter username so #{ link_to('@buyabrick', "http://twitter.com/buyabrick") } can tweet about it" %>
         <%= f.text_field :twitter %>
       </div>
     </fieldset>
           
     <fieldset id="icon_picker">
-      <p>Glam up your message with a pretty icon:</p>
+      <p>Glam up the brick with a pretty icon:</p>
       <ul>
       <% for i in 1..6 %>
         <li>
@@ -81,13 +80,21 @@
     <% end %>
     
     <fieldset>
+      <h4>Purchaser details</h4>
+      <fieldset id="brick_name">
+        <div>
+          <%= f.label :first_name, 'Name' %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div>
+          <%= f.label :last_name, 'Surname' %>
+          <%= f.text_field :last_name %>
+        </div>
+      </fieldset>
+      
       <div>
         <%= f.label :email, "Your email address (for payment confirmation)" %>
         <%= f.text_field :email %>
-      </div>
-      <div>
-        <%= f.label :show_value, "Make my donation public?", :id => "brick_show_value" %>
-        <%= f.check_box :show_value %>
       </div>
     </fieldset>
     

@@ -2,7 +2,7 @@ class Brick < ActiveRecord::Base
   has_random_key :url_key, :size => 4
   validates_uniqueness_of :url_key
   
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :display_name, :first_name, :last_name
   validate :valid_email?
   
   validate do |b|
@@ -42,7 +42,9 @@ class Brick < ActiveRecord::Base
   end
   
   def twitter_message
-    "#{twitter.blank? ? name : "@#{twitter}"} has just bought a brick"
+    user = twitter.blank? ? name : "@#{twitter}"
+    
+    "#{} has just bought a brick"
   end
   
   def value_in_pounds
