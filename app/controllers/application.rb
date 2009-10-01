@@ -38,6 +38,6 @@ class ApplicationController < ActionController::Base
   end
   
   def admin?
-    (session[:user] == 'foo' and session[:password] == 'bar')
+    (session[:user] == ADMIN_USERNAME and session[:password] == ADMIN_PASSWORD)
   end
 end
