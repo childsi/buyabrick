@@ -42,4 +42,12 @@ describe Brick do
   it "should set the default icon_id to 1" do
     @brick.icon_id.should == 1
   end
+  
+  ['foo', 'foo bar', 'foo@bar@'].each do |address|
+    it "should be invalid with a bad email address" do
+      @brick.email = address
+      @brick.should_not be_valid
+      @brick.errors.on(:email).should == 'is invalid'
+    end
+  end
 end

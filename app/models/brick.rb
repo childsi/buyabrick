@@ -23,15 +23,6 @@ class Brick < ActiveRecord::Base
     ('a'..'f').map { |c| "custom_#{c}"}.rand
   end
   
-  # def before_save
-  #   case value
-  #     when 0..9_99 then self.colour = 'a'
-  #     when 10_00..19_99 then self.colour = 'b'
-  #     when 20_00..49_99 then self.colour ||= ['c1', 'c2', 'c3', 'c4'].rand
-  #     when 50_00..500_00 then self.colour = 'd'
-  #   end
-  # end
-  
   def name
     "#{first_name} #{last_name}"
   end
@@ -56,9 +47,11 @@ class Brick < ActiveRecord::Base
   end
   
   def valid_email?
-    TMail::Address.parse(email) unless email.blank?
+    return if email.blank?
+    raise unless email.split('@').size == 2
+    TMail::Address.parse(email)
   rescue
-    errors.add_to_base("Must be a valid email")
+    errors.add(:email)
   end
   
   def to_param

@@ -14,15 +14,25 @@ Feature: Manage bricks
   
   Scenario: Buy a fixed-price brick
     Given I am on the new 5.00 brick page
-    And I fill in the following details:
-      |message|My great brick|
-      |first_name|Bob|
-      |last_name|Builder|
-      |email|bob@builders.com|
-      |url|http://www.builders.com|
-      |show_amount|true|
-    And I press "Continue"
+    And I fill in "brick_display_name" with "bob the builder"
+    And I fill in "brick_message" with "My great brick"
+    And I fill in "brick_first_name" with "Bob"
+    And I fill in "brick_last_name" with "Builder"
+    And I fill in "brick_email" with "bob@builder.co.uk"
+    And I check "brick_show_value"
+    When I press "Continue"
     Then the current brick should be saved
+  
+  Scenario: Buying a new brick but entering an invalid email address
+    Given I am on the new 5.00 brick page
+    And I fill in "brick_display_name" with "bob the builder"
+    And I fill in "brick_message" with "My great brick"
+    And I fill in "brick_first_name" with "Bob"
+    And I fill in "brick_last_name" with "Builder"
+    And I fill in "brick_email" with "bad email address"
+    And I check "brick_show_value"
+    And I press "Continue"
+    Then I should see "Customise the brick"
   
   Scenario: View the bricks
     Given the following bricks:
