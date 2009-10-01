@@ -24,6 +24,17 @@ Feature: Manage bricks
     And I press "Continue"
     Then the current brick should be saved
   
+  Scenario: View the bricks
+    Given the following bricks:
+      | url_key | value | message          | display_name | first_name | last_name | email       | show_value | naughty | purchased_at |
+      | aaa     | 500   | Purchased        | Bob          | Bob        | Jones     | foo@bar.com | true       | false   | 2009/10/01   |
+      | bbb     | 500   | Awaiting payment | Jane         | Bob        | Jones     | foo@bar.com | true       | false   |              |
+    When I am on the bricks page
+    Then I should see "Purchased" 
+    And I should see "Bob" 
+    And I should not see "Jane" 
+    And I should not see "Jones" 
+  
   Scenario: View a brick
     Given the following bricks:
       | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
