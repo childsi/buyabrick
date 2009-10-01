@@ -18,6 +18,8 @@ module NavigationHelpers
       brick_new_with_value_path($1)
     when /the "(.+)" brick page/i
       brick_path($1)
+    when /the edit "(.+)" brick page/i
+      edit_brick_path($1)
     when /the wall (.+) feed/i
       wall_path(:format => $1)
     

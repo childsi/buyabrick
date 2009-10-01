@@ -5,6 +5,13 @@ Given /^I am logged in as an admin$/ do
   click_button
 end
 
+Given /^I am not logged in as an admin$/ do
+  visit login_path
+  fill_in "user", :with => 'foo'
+  fill_in "password", :with => '***'
+  click_button
+end
+
 Given /I am on the new bricks page/ do
   visit "/bricks/new"
 end
