@@ -5,45 +5,50 @@
 
 <div>
   <% form_for(@brick) do |f| %>
-  <div id="sidebar" class="col_util">
-    <%= render :partial => 'bricks/progress', :locals => { :step => 2 } %>
+  <div id="sidebar" class="col col_rpad">
     <div class="vblock">
-      <h3 class="velement">Customise the brick</h3>
+      <img src="/images/assets/buyabrick.jpg" alt="buy a brick" class="velement" />
+      <%= render :partial => 'bricks/progress', :locals => { :step => 2 } %>
+      <h4>Personalize the brick</h4>
       
       <div>
         <p>Please write a message to display on our wall. Dedicate it to a friend, a loved one, to yourself or
           give Child's i Foundation some love!</p>
+        <p><a href="/">&larr; back to the wall</a></p>
       </div>
     </div>
   </div>
 
-  <div id="content" class="col_wide">
+  <div id="content" class="col_copy">
     <fieldset id="brick_details">
-      <h4>Brick details</h4>
+      <h4>Enter the brick&#8217;s details</h4>
       
-      <div>
+      <div class="vblock">
         <%= f.label :display_name, "This brick belongs to" %>
-        <%= f.text_field :display_name %>
+        <%= f.text_field :display_name %><%= f.error_message_on(:display_name, "This ") %>
       </div>
-      <div>
+      <div class="vblock">
         <%= f.label :message, "Brick message (140 characters limit)" %>
         <%= f.text_area :message, :rows => 3 %>
       </div>
       
-      <div>
-        <p>You've chosen to donate £<%= f.text_field :value_in_pounds, :size=>5 %>, do you want to make this amount to be displayed on the brick?
-        <%= f.check_box :show_value %>
-        <%= f.error_message_on(:value_in_pounds) %>
+      <div class="vblock">
+        <p>You've chosen to donate:</p>
+        <p><%= f.text_field :value_in_pounds, :size=>5 %><%= f.error_message_on(:value_in_pounds) %></p>
+        
+        <p><%= f.check_box :show_value %>Display the amount on the brick?</p>
+        <p>You&#8217;ll get the option to add Gift Aid on the payment screen</p>
+        
         </p>
       </div>
       
-      <div>
-        <%= f.label :twitter, "Twitter username so #{ link_to('@buyabrick', "http://twitter.com/#{TWITTER_USERNAME}") } can tweet about it" %>
+      <div class="vblock">
+        <%= f.label :twitter, "Enter your Twitter username so #{ link_to('@buyabrick', "http://twitter.com/#{TWITTER_USERNAME}") } can tweet about it" %>
         <%= f.text_field :twitter %>
       </div>
     </fieldset>
           
-    <fieldset id="icon_picker">
+    <fieldset id="icon_picker" class="vblock">
       <p>Glam up the brick with a pretty icon:</p>
       <ul>
       <% for i in 1..6 %>
@@ -55,7 +60,7 @@
       </ul>
     </fieldset>
           
-    <fieldset id="colour_picker">
+    <fieldset id="colour_picker" class="vblock">
       <p>Choose your Ugandan clay brick colour:</p>
       <ul>
       <% for i in 'a'..'f' %>
@@ -73,10 +78,12 @@
         <div>
           <%= f.label :first_name, 'Name' %>
           <%= f.text_field :first_name %>
+          <%= f.error_message_on(:first_name, 'This ') %>
         </div>
         <div>
           <%= f.label :last_name, 'Surname' %>
           <%= f.text_field :last_name %>
+          <%= f.error_message_on(:last_name, 'This ') %>
         </div>
       </fieldset>
       

@@ -1,5 +1,14 @@
 /* @override http://localhost:3000/stylesheets/bricks.css */
-@import url(/stylesheets/brick_colours.css);
+
+.a { background-color: #999965; }
+.b { background-color: #d46619; }
+.custom_a { background-color: #876043; }
+.custom_b { background-color: #CD661B; }
+.custom_c { background-color: #B76948; }
+.custom_d { background-color: #80402C; }
+.custom_e { background-color: #843903; }
+.custom_f { background-color: #391E09; }
+.d { background-color: #FFFF66; }
 
 label {
   display: block;
@@ -32,7 +41,8 @@ fieldset {
 #brick_name div {
   float: left;
 }
-label#brick_show_value {
+
+label #brick_show_value {
   display: inline;
 }
 
@@ -96,3 +106,6 @@ div.panel {
 h3 img {
   display: inline;
 }
+
+#brick_value_in_pounds { display:block; height: 50px; font-size: 300%; padding: 5px; padding-left: 40px; 	margin-top: 5px; margin-bottom: 5px; background-image:url(/images/pound.gif); background-repeat: no-repeat; background-position: 5px 10px; }
+label { margin-bottom: 5px; display:block; 

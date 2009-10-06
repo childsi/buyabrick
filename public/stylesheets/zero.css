@@ -27,7 +27,7 @@ img { display: block; border: 0; }
 body {
 	line-height: 1.2;
 }
-ol, ul {
+ul {
 	list-style: none;
 }
 blockquote, q {

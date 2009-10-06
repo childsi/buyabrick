@@ -26,6 +26,5 @@ describe PaymentNotification do
       @payment_notification.send(:twitter_message).size.should == 140
       @payment_notification.send(:twitter_message).should == 'jane: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... http://buyabrick.heroku.com/bricks/foo'
     end
-    
   end
 end
