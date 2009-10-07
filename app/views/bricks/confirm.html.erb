@@ -15,21 +15,7 @@
 </div>
 
 <div id="content" class="col col_copy">
-  
-  <div id="msgpreview">
-    <div id="bubble">
-      <div id="bubbletop"><img src="/images/bubbletop.png" alt="bubble top"/></div>
-      <div id="bubblemid">
-        <div id="icon"><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %></div>
-        <div id="bubheader">
-          <div id="name"><%=h @brick.display_name %></div>
-          <div id="donation">has donated <span id="amount">&pound;<%=h @brick.value_in_pounds %></span> to the wall:</div>
-        </div>
-        <div id="message"><%=h @brick.message %></div>
-      </div>
-      <div id="bubblebottom"><img src="/images/bubblebot.png" alt="bubble bottom"/></div>
-    </div>
-  </div>
+  <%= render(:partial => 'brick' ) %>
   
   <% if admin? %>
   <div id="personal_details">

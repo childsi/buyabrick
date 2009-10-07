@@ -69,6 +69,10 @@ class BricksController < ApplicationController
     return redirect_to(root_path) if current_brick.nil?
   end
   
+  def thanks
+    @brick = Brick.find_by_url_key!(params[:id])
+  end
+  
   # PUT /bricks/1
   # PUT /bricks/1.xml
   def update

@@ -1,0 +1,71 @@
+<% content_for :head do %>
+  <% @title = "Thanks!" %>
+  <%= stylesheet_link_tag 'bricks' %>
+  <%= javascript_include_tag 'swfobject' %> 
+  
+  <script type="text/javascript">
+  swfobject.embedSWF("http://childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml" });
+  </script>
+  
+  	<style>
+  #brick_select li {
+  	float: left;
+  	margin-right: 15px;
+  	list-style: none;
+  }
+  </style>
+<% end %>
+
+		<div id="content">
+			<ul id="page">
+				<li class="the_post" id="post-2196">
+	
+	<div class="postcontent">
+<div class="vblock">
+
+<div id="wall">
+  <%= render :partial => 'brick' %>
+</div>
+
+</div>
+<div id="sidebar" class="col col_rpad">
+  <div class="vblock">
+  	<p>Tell others about your brick and persuade them to support us too!</p>
+  </div>
+  <div class="vblock">
+  		We want to make it clear: these are not real bricks. We won&#8217;t actually be sending them to Uganda.<br/><br />
+  		But the money you donate will be used by us to fund our work. Find out more about how your money might be spent.<br/>
+  </div>
+</div>
+<div>
+<h3>Thank You!</h3>
+<p>Your donation is helping give orphans in Uganda a chance at a better life.</p>
+</div>
+<div class="clear"></div>
+<div class="col col_half col_rpad" style="margin-top: 40px;">
+<div class="vblock">
+<h4>Philip Glenister Nicks a Brick</h4>
+<div class="velement"><img src="/images/assets/pg.jpg" alt="Philip Glenister" /></div>
+<p>Leave it out, Marjorie. Philip Glenister, famous for playing Gene Huntley in Ashes to Ashes, has got the concept a little bit wrong. See how he thought he could support us in this exclusive video.</p>
+<p><a href="http://childsifoundation.org/give/buyabrick/pg.html">Watch the video.</a></p></div>
+</div>
+<div class="col col_half col_rpad" style="margin-top: 40px;">
+<div class="vblock">
+<h4>How the wall helps</h4>
+<div class="velement"><img src="/images/assets/freddy.jpg" alt="How it helps" /></div>
+<p>Lipsum cheesy donkey meat is tasty longtime on pizzas with a windy extra face on fortitude. Whether the second dash between fire trees is welcomed, or jovially helped, we shall doubt for time to come.</p>
+<p><a href="http://childsifoundation.org/give/buyabrick/explain.html">How the wall works</a></p>
+</div>
+</div>
+	</div>
+	
+</li>				
+			</ul>
+		</div>
+				
+		
+		
+		
+		<div class="clear"></div>
+		<!-- {$smarty.capture.subcontent} -->
+				
