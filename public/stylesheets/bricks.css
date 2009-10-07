@@ -98,14 +98,23 @@ div.panel {
 	clear: both;
 	border-top: solid 1px;
 }
-#personal_details div {
-	float: left;
-	width: 50%;
-}
+
 
 h3 img {
   display: inline;
 }
 
 #brick_value_in_pounds { display:block; height: 50px; font-size: 300%; padding: 5px; padding-left: 40px; 	margin-top: 5px; margin-bottom: 5px; background-image:url(/images/pound.gif); background-repeat: no-repeat; background-position: 5px 10px; }
-label { margin-bottom: 5px; display:block; 
+label { margin-bottom: 5px; display:block; }
+
+
+
+
+#msgpreview { display: block; width: 500px; height: 286px; background-image:url(/images/previewbg.gif);}
+#msgpreview #bubble { padding: 5px; margin: 0 auto; width: 400px; }
+#msgpreview #bubblemid { background-image:url(/images/bubblemid.png); padding-left: 20px; padding-right: 20px; margin: 0;}
+#msgpreview #icon { float: left; width: 55px; }
+#msgpreview #bubheader { float: left; width: 300px; margin-bottom: 20px; }
+#msgpreview #bubheader #name { font-size: 130%; font-weight: bold; }
+#msgpreview #bubheader #amount { color: #CF6517; font-weight: bold; }
+#msgpreview #message { float: none; clear: both; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding-top: 20px; padding-bottom: 20px; }

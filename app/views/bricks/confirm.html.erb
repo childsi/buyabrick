@@ -1,27 +1,34 @@
 <% content_for :head do %>
-  <% @title = "Confirm" %>
+  <% @title = "Preview the brick" %>
   <%= stylesheet_link_tag 'bricks' %>
 <% end %>
 
-<div id="sidebar" class="col_util">
+<div id="sidebar" class="col col_rpad">
+  <p><img src="/images/assets/buyabrick.jpg" alt="buy a brick" class="velement" /></p>
   <%= render :partial => 'progress', :locals => { :step => 3 } %>
   <div class="vblock">
-    <h3 class="velement">Preview the brick</h3>
+    <h4 class="velement">Preview the brick</h4>
     <p>This is how the brick will be displayed on the Child's i Foundation wall.</p>
     <p>If you would like to make any changes click back in your browser.</p>
+    <p><a href="javascript:history.back();">&larr; go back</a></p>
   </div>
 </div>
 
-<% #FIXME: %>
-
-<div id="content" class="col_wide">
-  <div class="panel">
-    <p>
-      <span>This brick belongs to</span>
-      <h3><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %><%= @brick.display_name %></h3>
-      <% if @brick.show_value %> Donation £<%= @brick.value_in_pounds %><% end %>
-    </p>
-    <p><%=h @brick.message %></p>
+<div id="content" class="col col_copy">
+  
+  <div id="msgpreview">
+    <div id="bubble">
+      <div id="bubbletop"><img src="/images/bubbletop.png" alt="bubble top"/></div>
+      <div id="bubblemid">
+        <div id="icon"><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %></div>
+        <div id="bubheader">
+          <div id="name"><%=h @brick.display_name %></div>
+          <div id="donation">has donated <span id="amount">&pound;<%=h @brick.value_in_pounds %></span> to the wall:</div>
+        </div>
+        <div id="message"><%=h @brick.message %></div>
+      </div>
+      <div id="bubblebottom"><img src="/images/bubblebot.png" alt="bubble bottom"/></div>
+    </div>
   </div>
   
   <% if admin? %>
@@ -37,16 +44,19 @@
   <% end %>
   </div>
   <% else %>
-  <div id="personal_details">
+  <div id="personal_details" class="vblock" style="margin-top: 20px; padding-top: 20px;">
+    <p>By clicking the button below you will be taken to a third party website (SagePay) to make your secure donation. This site is 100% safe to provide your card details.</p>
     <% form_tag GATEWAY.url do %>
+      <fieldset>
       <% GATEWAY.form_fields(@brick, success_payment_notifications_url, failed_payment_notifications_url).each do |key,value| %>
         <%= hidden_field_tag key, value %>
       <% end %>
-      <%= submit_tag('Go to payment') %>
-      
-      <p>Child's I Foundation (Registered Charity No. 1126212) wants to ensure that your donation is used most effectively and therefore your donation will be applied by the charity for its general charitable purposes.</p>
+      <%= submit_tag('Make your donation', :style => "font-size: 200%;") %>
+      </fieldset>
     <% end %>
-    
+  </div>
+  <div class="vblock">
+    <p>Child's I Foundation (Registered Charity No. 1126212) wants to ensure that your donation is used most effectively and therefore your donation will be applied by the charity for its general charitable purposes.</p>
   </div>
   <% end %>
 </div>
