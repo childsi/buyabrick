@@ -82,7 +82,7 @@ class Brick < ActiveRecord::Base
       'Amount' => value_in_pounds,
       'Currency' => 'GBP',
       'CustomerName' => name,
-      'Description' => "Buy-a-brick: #{message}",
+      'Description' => "Buy-a-brick: #{message}"[0,100],
       'BillingSurname' => (billing_surname || 'Surname'),
       'BillingFirstnames' => (billing_firstnames || 'Name'),
       'BillingAddress1' => (billing_address1 || 'Address'),

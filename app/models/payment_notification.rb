@@ -30,12 +30,14 @@ class PaymentNotification < ActiveRecord::Base
   
   def twitter_message
     message = brick.twitter_message
-    correct_size = 140-brick_url.size-1
-    message = "#{message[0,correct_size-3]}..." if message.size > correct_size 
-    "#{message} #{brick_url}"
+    url = brick_url
+    url = UrlShortener.shorten(brick_url) if message.size+brick_url.size+1 > 140
+    correct_size = 140-url.size-1
+    message = "#{message[0,correct_size-3]}..." if message.size > correct_size
+    "#{message} #{url}"
   end
   
   def brick_url
-    "http://buyabrick.heroku.com/bricks/#{brick.url_key}"
+    "http://buyabrick.childsifoundation.org/bricks/#{brick.url_key}"
   end
 end
