@@ -32,7 +32,7 @@ Feature: Manage bricks
     And I fill in "brick_email" with "bad email address"
     And I check "brick_show_value"
     And I press "Continue"
-    Then I should see "Customise the brick"
+    Then I should see "Personalize the brick"
   
   Scenario: View the bricks
     Given the following bricks:

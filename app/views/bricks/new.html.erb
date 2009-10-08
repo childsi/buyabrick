@@ -25,7 +25,7 @@
       
       <div class="vblock">
         <%= f.label :display_name, "This brick belongs to" %>
-        <%= f.text_field :display_name %><%= f.error_message_on(:display_name, "This ") %>
+        <%= f.text_field :display_name %><%= f.error_message_on(:display_name, :prepend_text => "This ") %>
       </div>
       <div class="vblock">
         <%= f.label :message, "Brick message (140 characters limit)" %>
@@ -78,12 +78,12 @@
         <div>
           <%= f.label :first_name, 'Name' %>
           <%= f.text_field :first_name %>
-          <%= f.error_message_on(:first_name, 'This ') %>
+          <%= f.error_message_on(:first_name, :prepend_text => 'This ') %>
         </div>
         <div>
           <%= f.label :last_name, 'Surname' %>
           <%= f.text_field :last_name %>
-          <%= f.error_message_on(:last_name, 'This ') %>
+          <%= f.error_message_on(:last_name, :prepend_text => 'This ') %>
         </div>
       </fieldset>
       
