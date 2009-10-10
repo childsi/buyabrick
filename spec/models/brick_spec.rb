@@ -22,6 +22,26 @@ describe Brick do
     end
   end
   
+  describe "displaying value" do
+    before(:each) do
+      @brick = Factory(:brick)
+    end
+    
+    it "should have a title" do
+      @brick.title.should == "Display name has donated £2.50 to the wall"
+    end
+  end
+  
+  describe "hiding value" do
+    before(:each) do
+      @brick = Factory(:brick, :show_value => false)
+    end
+    
+    it "should have a title" do
+      @brick.title.should == "Display name has donated to the wall"
+    end
+  end
+  
   describe "gold bricks" do
     it "should count 0 gold bricks" do
       Brick.count_gold_bricks.should == 0

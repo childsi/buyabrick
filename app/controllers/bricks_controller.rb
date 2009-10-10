@@ -8,10 +8,11 @@ class BricksController < ApplicationController
       :page => params[:page], 
       :order => 'purchased_at DESC', 
       :conditions => ["purchased_at IS NOT NULL and naughty=:naughty", { :naughty => false }])
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @bricks }
+      format.rss  { render :layout => false }
     end
   end
   

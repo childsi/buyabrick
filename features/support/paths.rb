@@ -12,6 +12,8 @@ module NavigationHelpers
       root_path
     when /the bricks page/i
       bricks_path
+    when /the bricks rss page/i
+      bricks_path(:format => 'rss')
     when /the naughty bricks page/i
       naughties_bricks_path
     when /the new (.+) brick page/i

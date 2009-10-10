@@ -45,6 +45,10 @@ class Brick < ActiveRecord::Base
     "#{user} #{message}"
   end
   
+  def title
+    "#{display_name} has donated #{ "£#{value_in_pounds} " if show_value? }to the wall"
+  end
+  
   def value_in_pounds
     value.nil? ? nil : format('%.2f', (value/100.0) || 0)
   end

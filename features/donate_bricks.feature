@@ -42,8 +42,12 @@ Feature: Manage bricks
     When I am on the bricks page
     Then I should see "Purchased" 
     And I should see "Bob" 
-    And I should not see "Jane" 
-    And I should not see "Jones" 
+    And I should not see "Jane"
+    And I should not see "Jones"
+    When I am on the bricks page
+    When I am on the bricks rss page
+    Then I should see "Bob has donated £5.00 to the wall"
+    And I should not see "Jane"
   
   Scenario: View a brick
     Given the following bricks:
