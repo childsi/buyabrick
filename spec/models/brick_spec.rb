@@ -22,6 +22,46 @@ describe Brick do
     end
   end
   
+  describe "gold bricks" do
+    it "should count 0 gold bricks" do
+      Brick.count_gold_bricks.should == 0
+    end
+    
+    describe "when a gold brick is created" do
+      before(:each) do
+        @brick = Factory(:brick, :value => 200_00)
+      end
+      
+      it "should be valid" do
+        @brick.should be_valid
+      end
+      
+      it "should have the colour gold" do
+        @brick.colour.should == 'gold'
+      end
+      
+      it "there should be 0 gold bricks" do
+        Brick.count_gold_bricks.should == 0
+      end
+      
+      describe "and then purchased" do
+        before(:each) do
+          @brick.purchased_at = Time.now
+          @brick.save
+        end
+        
+        it "should still have the colour gold" do
+          @brick.colour.should == 'gold'
+        end
+
+        it "there should be 1 gold bricks" do
+          Brick.count_gold_bricks.should == 1
+        end
+        
+      end
+    end
+  end
+  
   before(:each) do
     @valid_attributes = {
       :value => 250,
