@@ -4,6 +4,8 @@ class BricksController < ApplicationController
   # GET /bricks
   # GET /bricks.xml
   def index
+    response.headers['Cache-Control'] = 'public, max-age=300'
+    
     @bricks = Brick.paginate(
       :page => params[:page], 
       :order => 'purchased_at DESC', 

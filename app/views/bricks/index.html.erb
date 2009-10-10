@@ -1,11 +1,8 @@
 <% content_for :head do %>
   <% @title = "All Bricks" %>
+  <%= auto_discovery_link_tag(:rss, bricks_path(:format => :rss)) %>
 <% end %>
 <h1><%= @title %></h1>
 
 <%= render(:partial => 'bricks')%>
 <br />
-
-<% if admin? %>
-  <%= link_to 'New brick', new_brick_path %>
-<% end %>

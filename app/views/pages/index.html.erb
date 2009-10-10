@@ -2,6 +2,8 @@
   <% @title = "Child's i Foundation" %>
   <%= javascript_include_tag 'swfobject' %> 
   
+  <%= auto_discovery_link_tag(:rss, bricks_path(:format => :rss)) %>
+  
   <script type="text/javascript">
   swfobject.embedSWF("http://childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml" });
   </script>
