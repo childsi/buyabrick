@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <paths>
+    <bricks>/childsi/xml/bricks.xml</bricks>
+    <donate>/donate</donate>
+    <findOut>/findout</findOut>
+  </paths>
+  <text>
+    <brickDefault>Default brick message</brickDefault>
+    <whereMoney>find out where your money is going</whereMoney>
+  </text>
+  <bricks>
+    <brick1>5</brick1>
+    <brick2>10</brick2>
+    <brick3>20</brick3>
+    <brick4>50</brick4>
+  </bricks>
+</config>
