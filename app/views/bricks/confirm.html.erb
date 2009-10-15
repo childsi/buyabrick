@@ -24,6 +24,7 @@
     <%= f.hidden_field :brick_id %>
     
     <p><%= f.label :notes %><br />
+    <% #FIXME: params should be set up as a hash... %>
     <%= f.text_field :params %>
 
     <%= submit_tag('Confirm brick') %>

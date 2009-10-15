@@ -12,11 +12,6 @@
     <td><%= link_to h(brick.display_name), brick %></td>
     <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
     <td><%=h brick.message %></td>
-    
-    <% if admin? %>
-      <td><%= link_to 'Edit', edit_brick_path(brick) %></td>
-      <td><%= link_to 'Destroy', brick, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
   </tr>
 <% end %>
 </table>
