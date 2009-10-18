@@ -5,7 +5,7 @@
   <%= auto_discovery_link_tag(:rss, formatted_bricks_path(:format => 'rss')) %>
   
   <script type="text/javascript">
-  swfobject.embedSWF("http://www.childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml" });
+  swfobject.embedSWF("http://www.childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml", config: "xml/config.xml" });
   </script>
   
   	<style>

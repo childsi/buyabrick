@@ -1,29 +1,41 @@
 <% content_for :head do %>
   <% @title = "#{@brick.display_name}'s brick" %>
+  <%= stylesheet_link_tag 'bricks' %>
+  <%= javascript_include_tag 'swfobject' %> 
+  
+  <script type="text/javascript">
+  swfobject.embedSWF("http://www.childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml", config: "xml/config.xml", linkBrick: "<%= @brick.url_key %>", isThanks: false  });
+  </script>
+  
+  	<style>
+  #brick_select li {
+  	float: left;
+  	margin-right: 15px;
+  	list-style: none;
+  }
+  </style>
 <% end %>
 
-<h1><%=h @brick.display_name %>'s brick</h1>
+		<div id="content">
+			<ul id="page">
+				<li class="the_post" id="post-2196">
+	
+	<div class="postcontent">
+<div class="vblock">
 
-<% if @brick.show_value? %>
-<p>
-  <b>Value:</b>
-  £<%=h @brick.value_in_pounds %>
-</p>
-<% end %>
+<div id="wall">
+  <%= render :partial => 'brick' %>
+</div>
 
-<% unless @brick.url.blank? %>
-<p>
-  <b>Homepage:</b>
-  <%= link_to(@brick.url, @brick.url) %>
-</p>
-<% end %>
+</div>
 
-<p>
-  <b>Message:</b>
-  <%=h @brick.message %>
-</p>
-
-<% if admin? %>
-  <%= link_to 'Edit', edit_brick_path(@brick) %> |
-<% end %>
-<%= link_to 'Back', root_path %>
+</li>				
+			</ul>
+		</div>
+				
+		
+		
+		
+		<div class="clear"></div>
+		<!-- {$smarty.capture.subcontent} -->
+				
