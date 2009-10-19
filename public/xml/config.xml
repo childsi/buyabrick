@@ -4,10 +4,12 @@
     <bricks>/wall.xml</bricks>
     <donate>/donate</donate>
     <findOut>/findout</findOut>
+    <deepLinkURL>http://buyabrick.childsifoundation.org/bricks/</deepLinkURL>
   </paths>
   <text>
     <brickDefault>Default brick message</brickDefault>
     <whereMoney>find out where your money is going</whereMoney>
+    <thanksMessage>Thanks for donating to the wall</thanksMessage>
   </text>
   <bricks>
     <brick1>5</brick1>
