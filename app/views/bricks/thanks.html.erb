@@ -3,9 +3,7 @@
   <%= stylesheet_link_tag 'bricks' %>
   <%= javascript_include_tag 'swfobject' %> 
   
-  <script type="text/javascript">
-  swfobject.embedSWF("http://www.childsifoundation.org/files/buyabrick/wall.swf", "wall", "800", "444", "9.0.0", "", { path: "/wall.xml", config: "http://www.childsifoundation.org/files/buyabrick/xml/config.xml", linkBrick: "<%= @brick.url_key %>", isThanks: true }, {allowscriptaccess:"always"});
-  </script>
+  <%= embed_wall_swf_tag(@brick, true) %>
   
   	<style>
   #brick_select li {
