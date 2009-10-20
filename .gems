@@ -1,1 +1,1 @@
-newrelic_rpm
+newrelic_rpm --version 2.9.5
