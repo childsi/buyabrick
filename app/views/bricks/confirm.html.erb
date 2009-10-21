@@ -38,6 +38,9 @@
       <% GATEWAY.form_fields(@brick, success_payment_notifications_url, failed_payment_notifications_url).each do |key,value| %>
         <%= hidden_field_tag key, value %>
       <% end %>
+      
+      <!-- <%= GATEWAY.send(:decrypt_from_protx, GATEWAY.form_fields(@brick, success_payment_notifications_url, failed_payment_notifications_url)['Crypt']).inspect %> -->
+      
       <%= submit_tag('Make your donation', :style => "font-size: 200%;") %>
       </fieldset>
     <% end %>
