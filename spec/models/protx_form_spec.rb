@@ -26,6 +26,18 @@ describe ProtxForm do
       }
       perform_encrypt_decrypt(hash).should == hash
     end
+    
+    it "should work on a real Protx hash with a long string" do
+      string = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      hash = {
+        "Status"=>"OK", "VPSTxId"=>"{D89F4C3B-6FA8-4DC1-BB2E-8653AA3FACB6}", 
+        "VendorTxCode"=>"livro.lan-bricks-14", "StatusDetail"=>"Successfully Authorised Transaction", 
+        "GiftAid"=>"0", "AVSCV2"=>"ALL MATCH", "Amount"=>"10", "TxAuthNo"=>"7349", 
+        "CAVV"=>"MN3K9KDW22ENJLARAGIXDK", "3DSecureStatus"=>"OK", "CV2Result"=>"MATCHED", 
+        "PostCodeResult"=>"MATCHED",  "AddressResult"=>"MATCHED", "foo" => string
+      }
+      perform_encrypt_decrypt(hash).should == hash
+    end
   end
   
   describe "object details for a brick" do
