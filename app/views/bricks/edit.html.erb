@@ -4,8 +4,12 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+    <%= f.label :value_in_pounds %><br />
+    <%= f.text_field :value_in_pounds %>
+  </p>
+  <p>
+    <%= f.label :display_name %><br />
+    <%= f.text_field :display_name %>
   </p>
   <p>
     <%= f.label :first_name %><br />
@@ -18,6 +22,10 @@
   <p>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :subscribe %><br />
+    <%= f.check_box :subscribe %>
   </p>
   <p>
     <%= f.label :url %><br />
