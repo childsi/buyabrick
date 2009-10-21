@@ -13,17 +13,9 @@ class Brick < ActiveRecord::Base
   attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, 
     :billing_city, :billing_post_code, :billing_country
   
-  def self.count_gold_bricks
-    Brick.count(:conditions => "purchased_at is not null and colour='gold'")
-  end
-  
   def initialize(attributes = nil)
     super
     self.icon_id ||= 1
-  end
-  
-  before_create do |brick|
-    brick.colour = 'gold' if (brick.value >= 200_00 and Brick.count_gold_bricks < 100)
   end
   
   def self.random_colour
