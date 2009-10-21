@@ -4,11 +4,8 @@
 			<img src="http://childsifoundation.org/img/categories/buyabrick.jpg" alt="buy a brick" class="velement" />
 		
 			<div id="progress"> 
-				<span>Step 2 of 4</span> 
+				<span>Payment Error</span> 
 			</div> 
-			<h4>Personalise your brick</h4>
-				
-			<p>Please write a message to display on our wall. Dedicate it to a friend, a loved one, to yourself or give Child's i Foundation some love!</p>
 			
 			<p><a href="http://childsifoundation.org/give/buyabrick">&larr; back to the wall</a></p>
 		</div> 
@@ -16,8 +13,8 @@
 	</div> 
 	
 	<div id="content" class="col_copy">
-			<h3>Oh dear!</h3>
-			<p style="color:red;font-weight: bold;">
+			<h2>Oh dear!</h2>
+			<div class="vstandout statement">
 				<% if @notification.technical_error? %>
 					<p>A technical error has occurred processing your payment.</p>
 				<% elsif @notification.payment_error? %>
@@ -25,7 +22,7 @@
 				<% elsif @notification.aborted? %>
 					<p>Your payment has been cancelled.</p>
 				<% end %>
-			</p>
+			</div>
 			
 			<p>
 				We're sorry that your payment didn't complete. If you're having difficulty purchasing a brick, do <a href="mailto:buyabrick@childsifoundation.org">contact us by email</a> and we'll do everything we can to help out.
