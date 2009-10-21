@@ -1,10 +1,38 @@
-<% if @notification.technical_error? %>
-<p>A technical error has occurred processing your payment.</p>
-<% elsif @notification.payment_error? %>
-<p>Your payment has been refused.</p>
-<% elsif @notification.aborted? %>
-<p>Your payment has been cancelled.</p>
-<% end %>
-
-<p>Please contact us here ... if you require technical assistance.</p>
-<p>another test</p>
+	<div id="sidebar" class="col col_rpad"> 
+		
+		<div class="vblock">
+			<img src="http://childsifoundation.org/img/categories/buyabrick.jpg" alt="buy a brick" class="velement" />
+		
+			<div id="progress"> 
+				<span>Step 2 of 4</span> 
+			</div> 
+			<h4>Personalise your brick</h4>
+				
+			<p>Please write a message to display on our wall. Dedicate it to a friend, a loved one, to yourself or give Child's i Foundation some love!</p>
+			
+			<p><a href="http://childsifoundation.org/give/buyabrick">&larr; back to the wall</a></p>
+		</div> 
+		 
+	</div> 
+	
+	<div id="content" class="col_copy">
+			<h3>Oh dear!</h3>
+			<p style="color:red;font-weight: bold;">
+				<% if @notification.technical_error? %>
+					<p>A technical error has occurred processing your payment.</p>
+				<% elsif @notification.payment_error? %>
+					<p>Your payment has been refused.</p>
+				<% elsif @notification.aborted? %>
+					<p>Your payment has been cancelled.</p>
+				<% end %>
+			</p>
+			
+			<p>
+				We're sorry that your payment didn't complete. If you're having difficulty purchasing a brick, do <a href="mailto:buyabrick@childsifoundation.org">contact us by email</a> and we'll do everything we can to help out.
+			</p>
+			<p>
+				If you cancelled your payment, please return to the wall and start the brick process again.
+			</p>
+			
+			<div class="vstandout statement"><a href="/">Return to the Wall</a></div>
+	</div> 
