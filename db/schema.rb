@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090906141309) do
+ActiveRecord::Schema.define(:version => 20091021224751) do
 
   create_table "bricks", :force => true do |t|
     t.string   "url_key",                         :null => false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20090906141309) do
     t.string   "postcode"
     t.integer  "icon_id"
     t.string   "display_name"
+    t.boolean  "subscribe",    :default => true
   end
 
   create_table "payment_notifications", :force => true do |t|
