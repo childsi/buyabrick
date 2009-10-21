@@ -95,13 +95,13 @@ class BricksController < ApplicationController
 
   # DELETE /bricks/1
   # DELETE /bricks/1.xml
-  def destroy
-    @brick = Brick.find_by_url_key!(params[:id])
-    @brick.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(bricks_url) }
-      format.xml  { head :ok }
-    end
-  end
+  # def destroy
+  #   @brick = Brick.find_by_url_key!(params[:id])
+  #   @brick.destroy
+  # 
+  #   respond_to do |format|
+  #     format.html { redirect_to(bricks_url) }
+  #     format.xml  { head :ok }
+  #   end
+  # end
 end
