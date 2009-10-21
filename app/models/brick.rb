@@ -2,7 +2,7 @@ class Brick < ActiveRecord::Base
   has_random_key :url_key, :size => 4
   validates_uniqueness_of :url_key
   
-  validates_presence_of :display_name, :first_name, :last_name
+  validates_presence_of :display_name, :first_name, :last_name, :email
   validate :valid_email?
   
   validate do |b|
@@ -12,7 +12,6 @@ class Brick < ActiveRecord::Base
   
   attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, 
     :billing_city, :billing_post_code, :billing_country
-  # validates_presence_of :billing_surname, :billing_firstname, :billing_address1, :billing_city, :billing_post_code, :on => :create
   
   def self.count_gold_bricks
     Brick.count(:conditions => "purchased_at is not null and colour='gold'")
@@ -95,8 +94,8 @@ class Brick < ActiveRecord::Base
       'Currency' => 'GBP',
       'CustomerName' => name,
       'Description' => "Buy-a-brick: #{message}"[0,100],
-      'BillingSurname' => (billing_surname || 'Surname'),
-      'BillingFirstnames' => (billing_firstnames || 'Name'),
+      'BillingSurname' => (last_name || 'Surname'),
+      'BillingFirstnames' => (first_name || 'Name'),
       'BillingAddress1' => (billing_address1 || 'Address'),
       'BillingAddress2' => (billing_address2 || nil),
       'BillingCity' => (billing_city || 'City'),
