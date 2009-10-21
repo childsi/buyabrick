@@ -14,8 +14,7 @@ class ProtxForm
       'TXType' => 'PAYMENT',
       'VPSProtocol' => protocol,
       'Vendor' => vendor,
-      'Crypt' => encrypt_for_protx(object_details(object, success_url, failure_url)),
-	  'Currency' => 'GBP'
+      'Crypt' => encrypt_for_protx(object_details(object, success_url, failure_url))
     }
   end
   
