@@ -41,7 +41,7 @@ class ProtxForm
   end
   
   def decrypt_from_protx(crypt)
-    string = Base64.decode64(crypt) ^ encryption_key
+    string = Base64.decode64(crypt.gsub(' ', '+')) ^ encryption_key
     hash = CGI.parse(string)
     hash.each { |k,v| hash[k] = v.first if v.size==1 }
     hash
