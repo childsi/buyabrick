@@ -5,7 +5,7 @@
       <div id="icon"><%= image_tag("/images/bricks/icons/#{@brick.icon_id}.jpg") %></div>
       <div id="bubheader">
         <div id="name"><%=h @brick.display_name %></div>
-        <div id="donation">has donated <span id="amount">&pound;<%=h @brick.value_in_pounds %></span> to the wall:</div>
+        <div id="donation">has donated <% if @brick.show_value? %><span id="amount">&pound;<%=h @brick.value_in_pounds %></span><% end %> to the wall:</div>
       </div>
       <div id="message"><%=h @brick.message %></div>
     </div>
