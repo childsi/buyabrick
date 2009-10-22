@@ -29,7 +29,7 @@
       </div>
       <div class="vblock">
         <%= f.label :message, "Brick message (140 characters limit)" %>
-        <%= f.text_area :message, :rows => 3 %>
+        <%= f.text_area :message, :rows => 3, :maxlength => 140 %>
       </div>
       
       <div class="vblock">
