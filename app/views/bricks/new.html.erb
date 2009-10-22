@@ -28,8 +28,9 @@
         <%= f.text_field :display_name %><%= f.error_message_on(:display_name, :prepend_text => "This ") %>
       </div>
       <div class="vblock">
-        <%= f.label :message, "Brick message (140 characters remaining)" %>
-        <%= f.text_area :message, :rows => 3, :maxlength => 140 %>
+        <%= f.label :message, "Brick message" %>
+        <%= f.text_area :message, :rows => 3, :maxlength => 140, :showremain => "msglimit" %>
+		<div><span id="msglimit">140</span> characters remaining</div>
       </div>
       
       <div class="vblock">
