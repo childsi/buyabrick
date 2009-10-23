@@ -22,7 +22,11 @@ class PaymentNotification < ActiveRecord::Base
       logger.info("Brick #{brick.url_key} purchased successfully")
       brick.update_attribute(:purchased_at, Time.now)
       
-      FuKing::Twitter.update(twitter_message)
+      begin
+        FuKing::Twitter.update(twitter_message)
+      rescue => e
+        logger.warn("Error tweeting brick #{brick.url_key}: #{e.message}")
+      end
     else
       logger.info("Brick #{brick.url_key} purchase unsuccessful: #{status}")
     end
