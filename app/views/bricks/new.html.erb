@@ -91,12 +91,16 @@
       </fieldset>
       
       <div>
+        <%= f.label :telephone, "Your telephone number" %>
+        <%= f.text_field :telephone %>
+      </div>
+      
+      <div>
         <%= f.label :email, "Your email address (for payment confirmation)" %>
         <%= f.text_field :email %>
         
-		<%= f.check_box :subscribe %>
+        <%= f.check_box :subscribe %>
         <%= f.label :subscribe, "I'm happy to receive further email communication from Child's i Foundation" %>
-        
       </div>
     </fieldset>
     

@@ -19,6 +19,7 @@ Feature: Manage bricks
     And I fill in "brick_first_name" with "Bob"
     And I fill in "brick_last_name" with "Builder"
     And I fill in "brick_email" with "bob@builder.co.uk"
+    And I fill in "brick_telephone" with "01234567"
     And I check "brick_show_value"
     When I press "Continue"
     Then the current brick should be saved
