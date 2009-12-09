@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Message</th>
+    <th>Email</th>
+    <th>Telephone</th>
+  </tr>
+
+<% for brick in @bricks %>
+  <tr>
+    <td>£<%=h brick.value_in_pounds %></td>
+    <td><%= link_to h(brick.display_name), brick %></td>
+    <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
+    <td><%=h brick.message %></td>
+    <td><%=h brick.email %></td>
+    <td><%=h brick.telephone %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @bricks %>

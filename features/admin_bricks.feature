@@ -44,5 +44,3 @@ Feature: Admin bricks
     # When I go to the destroy "abcd" brick page
     # Then I should be on the home page
     # And I should see "My great brick"
-
-  

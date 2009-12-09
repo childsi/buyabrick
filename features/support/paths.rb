@@ -24,6 +24,11 @@ module NavigationHelpers
       edit_brick_path($1)
     when /the wall (.+) feed/i
       wall_path(:format => $1)
+      
+    when /the reports page/
+      reports_path
+    when /the "(.+)" report page/
+      report_path($1)
     
     # Add more mappings here.
     # Here is a more fancy example:
