@@ -54,7 +54,7 @@
     <fieldset id="icon_picker" class="vblock">
       <p>Glam up the brick with a pretty icon:</p>
       <ul>
-      <% for i in 1..6 %>
+      <% for i in 7..12 %>
         <li>
           <div><%= image_tag("/images/bricks/icons/#{i}.jpg") %></div>
           <%= f.radio_button(:icon_id, i) %>
@@ -64,9 +64,9 @@
     </fieldset>
           
     <fieldset id="colour_picker" class="vblock">
-      <p>Choose your Ugandan clay brick colour:</p>
+      <p>Choose your Christmas brick colour:</p>
       <ul>
-      <% for i in 'a'..'f' %>
+      <% for i in 'g'..'l' %>
         <li>
           <div class="<%= "custom_#{i}" %>">&nbsp;</div>
           <%= f.radio_button(:colour, "custom_#{i}") %>
