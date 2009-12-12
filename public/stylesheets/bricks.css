@@ -99,6 +99,9 @@ div.panel {
 	border-top: solid 1px;
 }
 
+#brick_subscribe {
+	float: right;
+}
 
 h3 img {
   display: inline;

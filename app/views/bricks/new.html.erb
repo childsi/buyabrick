@@ -99,8 +99,10 @@
         <%= f.label :email, "Your email address (for payment confirmation)" %>
         <%= f.text_field :email %>
         
-        <%= f.check_box :subscribe %>
-        <%= f.label :subscribe, "I'm happy to receive further email communication from Child's i Foundation" %>
+        <p>
+          <%= f.check_box :subscribe %>
+          <%= f.label :subscribe, "Please check box if you are happy to receive further marketing communications for Child's i Foundation. We will not pass your details onto other third parties." %>
+        </p>
       </div>
     </fieldset>
     

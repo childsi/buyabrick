@@ -42,7 +42,8 @@ class BricksController < ApplicationController
   def new
     @brick = Brick.new(
       :colour => Brick.random_colour,
-      :value_in_pounds => params[:value]
+      :value_in_pounds => params[:value],
+      :subscribe => false
     )
     respond_to do |format|
       format.html # new.html.erb
