@@ -9,7 +9,7 @@ class PaymentNotificationsController < ApplicationController
   
   def success
     if params[:crypt]
-      protx_params = GATEWAY.parse_response(CGI.escape(params[:crypt]))
+      protx_params = GATEWAY.parse_response(params[:crypt])
       @notification = PaymentNotification.create!(protx_params)
       raise if @notification.status =~ /\n/
       redirect_to thanks_brick_path(@notification.brick)
@@ -20,7 +20,7 @@ class PaymentNotificationsController < ApplicationController
   
   def failed
     if params[:crypt]
-      protx_params = GATEWAY.parse_response(CGI.escape(params[:crypt]))
+      protx_params = GATEWAY.parse_response(params[:crypt])
       @notification = PaymentNotification.create!(protx_params)
     else
       redirect_to root_path
