@@ -15,11 +15,11 @@ class Brick < ActiveRecord::Base
   
   def initialize(attributes = nil)
     super
-    self.icon_id ||= 7
+    self.icon_id ||= 1
   end
   
   def self.random_colour
-    ('g'..'l').map { |c| "custom_#{c}"}.rand
+    ('a'..'f').map { |c| "custom_#{c}"}.rand
   end
   
   def name
