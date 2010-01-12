@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
       :order => 'purchased_at', 
       :conditions => ["purchased_at IS NOT NULL"]
     )
+    render :layout => false
   end
   
   def generous_bricks
