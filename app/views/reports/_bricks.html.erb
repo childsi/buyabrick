@@ -1,23 +1,29 @@
 <table>
   <tr>
+    <th>ID</th>
     <th>Value</th>
     <th>Name</th>
-    <th>Url</th>
     <th>Message</th>
     <th>Email</th>
     <th>Telephone</th>
+    <th>Subscribe?</th>
+    <th>Generous?</th>
+    <th>Seasonal?</th>
   </tr>
 
 <% for brick in @bricks %>
   <tr>
+    <td><%= brick.id %></td>
     <td>£<%=h brick.value_in_pounds %></td>
     <td><%= link_to h(brick.display_name), brick %></td>
-    <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
     <td><%=h brick.message %></td>
     <td><%=h brick.email %></td>
     <td><%=h brick.telephone %></td>
+    <td><%=h brick.subscribe %></td>
+    <td><%=h brick.value > 100_00 %></td>
+    <td><%=h brick.icon_id>6 %></td>
   </tr>
 <% end %>
 </table>
 
-<%= will_paginate @bricks %>
+<%= will_paginate @bricks if @bricks.respond_to? :total_pages %>
