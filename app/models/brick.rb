@@ -13,6 +13,10 @@ class Brick < ActiveRecord::Base
   attr_accessor :billing_surname, :billing_firstnames, :billing_address1, :billing_address2, 
     :billing_city, :billing_post_code, :billing_country
   
+  def export_columns(format = nil)
+    %w[id value_in_pounds display_name message first_name last_name email telephone subscribe generous? seasonal?]
+  end
+  
   def initialize(attributes = nil)
     super
     self.icon_id ||= 1
@@ -47,6 +51,14 @@ class Brick < ActiveRecord::Base
     return if a.nil?
     a = a.to_f if a.kind_of? String
     self.value=(a*100).to_i
+  end
+  
+  def generous?
+    value >= 100_00
+  end
+  
+  def seasonal?
+    icon_id > 6
   end
   
   def valid_email?

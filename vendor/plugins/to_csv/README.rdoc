@@ -1,0 +1,62 @@
+= Export Rails ActiveRecords to CSV
+
+For a recent "enterprisey" project I'm working on, we had to offer a variety 
+of CSV exports for many of the models in our system. Ruby's FasterCSV library 
+is great for raw parsing and generation of CSV data, so I used that as the 
+basis for a quick and dirty system to easily provide customizable exports.
+
+== Features
+
+* Transform an array of exportable records into a whole CSV file. (By default, 
+  FasterCSV transforms arrays into a single CSV row.)
+* Export a whole table my calling .to_csv on the ActiveRecord subclass.
+* By default, export all of an ActiveRecord's columns except for created_at 
+  and updated_at.
+* Allow simple customization of exportable columns by overriding the 
+  export_columns method in your ActiveRecord class.
+* Allow multiple CSV formats by conditionally branching inside the 
+  export_columns method depending on the format parameter.
+* Allow complete customization of the export by overriding the to_row method. 
+  (I haven't actually needed this much customization yet.)
+
+== Examples
+
+The simplest example:
+
+  Address.to_csv
+
+Customizing the columns included in the CSV:
+
+  class Address < ActiveRecord::Base
+    def export_columns(format = nil)
+      %w[city state postal_code]
+    end
+  end
+  
+Multiple output formats:
+
+  class Address < ActiveRecord::Base
+    def export_columns(format = nil)
+      case format
+      when :local
+        %w[street1 street2 city state postal_code]
+      else
+        %w[city state postal_code]
+      end
+    end
+  end
+
+== Installation
+
+Install the plugin in your Rails project like so...
+
+  $ script/plugin install http://github.com/scottbarr/to_csv
+
+== Original Author
+
+This code for this plugin was written by Bryan Helmkamp. The original post
+can be found at http://www.brynary.com/2007/4/28/export-activerecords-to-csv
+
+Bryan informed me that there is a later version of this code at 
+http://www.mobilecommons.com/developers/open-source/exportable/ but it did not
+work for me. I'll try to see what the problem is when I have a chance.

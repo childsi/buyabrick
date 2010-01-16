@@ -10,7 +10,11 @@ class ReportsController < ApplicationController
       :order => 'purchased_at', 
       :conditions => ["purchased_at IS NOT NULL"]
     )
-    render :layout => false
+    
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.csv { send_data @bricks.to_csv }
+    end
   end
   
   def generous_bricks

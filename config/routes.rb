@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.reports 'reports', :controller => 'reports'
   map.report 'reports/:action', :controller => 'reports'
+  map.formatted_report 'reports/:action.:format', :controller => 'reports'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

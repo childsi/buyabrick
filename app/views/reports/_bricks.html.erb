@@ -2,8 +2,10 @@
   <tr>
     <th>ID</th>
     <th>Value</th>
-    <th>Name</th>
+    <th>Display Name</th>
     <th>Message</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Email</th>
     <th>Telephone</th>
     <th>Subscribe?</th>
@@ -17,11 +19,13 @@
     <td>£<%=h brick.value_in_pounds %></td>
     <td><%= link_to h(brick.display_name), brick %></td>
     <td><%=h brick.message %></td>
+    <td><%=h brick.first_name %></td>
+    <td><%=h brick.last_name %></td>
     <td><%=h brick.email %></td>
     <td><%=h brick.telephone %></td>
     <td><%=h brick.subscribe %></td>
-    <td><%=h brick.value > 100_00 %></td>
-    <td><%=h brick.icon_id>6 %></td>
+    <td><%=h brick.generous? %></td>
+    <td><%=h brick.seasonal? %></td>
   </tr>
 <% end %>
 </table>
