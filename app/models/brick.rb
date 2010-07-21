@@ -14,7 +14,7 @@ class Brick < ActiveRecord::Base
     :billing_city, :billing_post_code, :billing_country
   
   def export_columns(format = nil)
-    %w[id value_in_pounds display_name message first_name last_name email telephone subscribe generous? seasonal?]
+    %w[id value_in_pounds purchased_at display_name message first_name last_name email telephone subscribe generous? seasonal?]
   end
   
   def initialize(attributes = nil)

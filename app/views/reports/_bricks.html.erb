@@ -2,6 +2,7 @@
   <tr>
     <th>ID</th>
     <th>Value</th>
+    <th>Purchased at</th>
     <th>Display Name</th>
     <th>Message</th>
     <th>First Name</th>
@@ -17,6 +18,7 @@
   <tr>
     <td><%= brick.id %></td>
     <td>£<%=h brick.value_in_pounds %></td>
+    <td><%= brick.purchased_at %></td>
     <td><%= link_to h(brick.display_name), brick %></td>
     <td><%=h brick.message %></td>
     <td><%=h brick.first_name %></td>
