@@ -12,3 +12,11 @@ ADMIN_PASSWORD = buyabrick_options[:admin_password]
 
 raise unless (ADMIN_USERNAME and ADMIN_PASSWORD)
 raise if (ADMIN_USERNAME == ADMIN_PASSWORD)
+
+charity_id_path = File.join(RAILS_ROOT, 'config', 'charity_id.yml')
+if File.exists?(charity_id_path)
+	charity_id = YAML.load_file(charity_id_path)
+  CHARITY_ID = charity_id['id']
+else
+  CHARITY_ID = 0000000
+end
