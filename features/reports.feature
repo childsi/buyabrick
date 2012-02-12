@@ -16,15 +16,22 @@ Feature: Report bricks
   Scenario: Viewing naughty bricks
     Given I am logged in as an admin
     And the following bricks:
-      |value|message|display_name|first_name|last_name|email|show_value|purchased_at|
-      |100_00|My generous brick 1|bob|Bob|Builder|bob@builders.com|true|2009/01/01|
-      |200_00|My generous brick 2|bob|Bob|Builder|bob@builders.com|true|2009/01/01|
-      |300|My not so generous brick|bob|Bob|Builder|bob@builders.com|true|2009/01/01|
-      |200_00|My unpaid for brick|bob|Bob|Builder|bob@builders.com|true||
+      | value  | message                  | display_name | first_name | last_name | email            | show_value | purchased_at |
+      | 100_00 | My generous brick 1      | bob          | Bob        | Builder   | bob@builders.com | true       | 2009/01/01   |
+      | 200_00 | My generous brick 2      | bob          | Bob        | Builder   | bob@builders.com | true       | 2009/01/01   |
+      | 300    | My not so generous brick | bob          | Bob        | Builder   | bob@builders.com | true       | 2009/01/01   |
+      | 200_00 | My unpaid for brick      | bob          | Bob        | Builder   | bob@builders.com | true       |              |
     When I go to the "generous_bricks" report page
     Then I should see "My generous brick 1"
     And I should see "My generous brick 2"
     And I should not see "My not so generous brick"
     And I should not see "My unpaid for brick"
 
-  
+  Scenario: Downloading the bricks report
+    Given I am logged in as an admin
+    And the following bricks:
+      | value | message | display_name | first_name | last_name | email            | show_value | purchased_at |
+      | 10_00 | A brick | bob          | Bob        | Builder   | bob@builders.com | true       | 2009/01/01   |
+    When I go to the "bricks.csv" report page
+    Then I should see "id,value_in_pounds,purchased_at,display_name,message,first_name,last_name,email,telephone,subscribe,generous?,seasonal?"
+    And I should see "1,10.00,2009-01-01 00:00:00 UTC,bob,A brick,Bob,Builder,bob@builders.com,,true,false,false"

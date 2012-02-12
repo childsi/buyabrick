@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <% @title = "All Bricks" %>
-  <%= auto_discovery_link_tag(:rss, formatted_bricks_path(:format => 'rss')) %>
+  <%= auto_discovery_link_tag(:rss, bricks_path(:format => 'rss')) %>
 <% end %>
 <h1><%= @title %></h1>
 
