@@ -69,7 +69,7 @@ class BricksController < ApplicationController
   
   def confirm
     @brick = current_brick
-    #@payment_notification = PaymentNotification.new(:status => 'OK', :brick => @brick) if admin?
+    @payment_notification = PaymentNotification.new(:status => 'OK', :brick => @brick) if admin?
     return redirect_to(root_path) if current_brick.nil?
   end
   

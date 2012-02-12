@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :bricks, :collection => { :confirm => :get, :naughties => :get }, :member => { :thanks => :get } do |brick|
     brick.new_with_value '/bricks/new/:value', :controller => 'bricks', :action => 'new', 
       :path_prefix => nil, :requirements => { :value => /[\d\.]+/ }
-    brick.new_with_value '/bricks/thanks/:value', :controller => 'bricks', :action => 'thanks'
+    brick.thanks '/bricks/thanks/:value', :controller => 'bricks', :action => 'thanks'
   end
   map.resource :wall, :controller => 'wall'
   

@@ -17,35 +17,33 @@
 <div id="content" class="col col_copy">
   <%= render(:partial => 'brick' ) %>
   
-  <% unless admin? %>
-  <div id="personal_details">
-  <% form_for(@payment_notification) do |f| %>
-    <%= f.hidden_field :status %>
-    <%= f.hidden_field :brick_id %>
+  <% if admin? %>
+    <div id="personal_details">
+      <% form_for(@payment_notification) do |f| %>
+        <%= f.hidden_field :status %>
+        <%= f.hidden_field :brick_id %>
     
-    <p><%= f.label :notes %><br />
-    <% #FIXME: params should be set up as a hash... %>
-    <%= f.text_field :params %>
+        <p><%= f.label :notes %><br />
+        <% #FIXME: params should be set up as a hash... %>
+        <%= f.text_field :params %>
 
-    <%= submit_tag('Confirm brick') %>
-  <% end %>
-  </div>
+        <%= submit_tag('Confirm brick') %>
+      <% end %>
+    </div>
   <% else %>
-  <div id="personal_details" class="vblock" style="margin-top: 20px; padding-top: 20px;">
-    <p>By clicking the button below you will be taken to a third party website (JustGiving) to make your secure donation. This site is 100% safe to provide your card details.</p>
-    <a href="<%= justgiving_link(@brick) %>">Submit</a>
+    <div id="personal_details" class="vblock" style="margin-top: 20px; padding-top: 20px;">
+      <p>By clicking the button below you will be taken to a third party website (JustGiving) to make your secure donation. This site is 100% safe to provide your card details.</p>
+      <a href="<%= justgiving_link(@brick) %>">Submit</a>
     
-
-	
-	<p style="margin-top: 20px;"><img src="/images/assets/giftaid.gif" alt="giftaid"></p>
-	<p><strong>Increase the value of your 'Buy a brick' gift to us by 28%!</strong></p>
-	<p>If you are a UK taxpayer, the value of your gift can be increased by 28% under the Gift Aid scheme at no extra cost to you!</p>
-	<p><strong>Make sure you tick the 'Gift Aid' option when you reach the payment screen!</strong></p>
-		
-	
-  </div>
-  <div class="vblock">
-    <p>Child's i Foundation (Registered Charity No. 1126212) wants to ensure that your donation is used most effectively and therefore your donation will be applied by the charity for its general charitable purposes.</p>
-  </div>
+    <p style="margin-top: 20px;"><img src="/images/assets/giftaid.gif" alt="giftaid"></p>
+    <p><strong>Increase the value of your 'Buy a brick' gift to us by 28%!</strong></p>
+    <p>If you are a UK taxpayer, the value of your gift can be increased by 28% under the Gift Aid scheme at no extra cost to you!</p>
+    <p><strong>Make sure you tick the 'Gift Aid' option when you reach the payment screen!</strong></p>
+    
+  
+    </div>
+    <div class="vblock">
+      <p>Child's i Foundation (Registered Charity No. 1126212) wants to ensure that your donation is used most effectively and therefore your donation will be applied by the charity for its general charitable purposes.</p>
+    </div>
   <% end %>
 </div>
