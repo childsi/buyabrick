@@ -1,4 +1,4 @@
-require "smtp_tls"
+# require "smtp_tls"
 
 config_path = File.join(RAILS_ROOT, 'config', 'mailer.yml')
 if File.exists?(config_path)

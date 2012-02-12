@@ -1,3 +1,5 @@
+require 'will_paginate'
+
 config_path = File.join(RAILS_ROOT, 'config', 'buyabrick.yml')
 if File.exists?(config_path)
   buyabrick_options = YAML.load_file(config_path)

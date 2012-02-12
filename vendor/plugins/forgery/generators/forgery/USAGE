@@ -1,6 +1,0 @@
-
-./script/generate forgery
-
-Creates the Forgery directories in RAILS_ROOT/lib.  The contents of these
-directories can be used to extend Forgery, adding new forgeries and overriding
-dictionaries and formats.
