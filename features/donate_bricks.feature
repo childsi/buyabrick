@@ -60,13 +60,10 @@ Feature: Manage bricks
     Then I should see "Display Name" 
     And I should not see "First"
     And I should not see "Last"
-
-  Scenario: Receive an empty successful callback from Protx
-    Given the following successful callback is returned:
-    Then I should be on the home page
-  
-  Scenario: Receive an empty failed callback from Protx
-    Given the following successful callback is returned:
-    Then I should be on the home page
-  
     
+  Scenario: Receive users back from Just Giving
+    Given the following bricks:
+      | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
+      | aaa     | 500   | Message | Display Name | First      | Last      | foo@bar.com | true       | false   |
+    Given I am on the "aaa" brick thanks page for donationId "123"
+    Then I should see "Thanks"
