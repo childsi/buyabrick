@@ -7,7 +7,9 @@ describe BricksHelper do
     end
     
     it "should generate the url for the brick" do
-      # @brick.value.should == 0
+      url = 'http://v3-sandbox.justgiving.com/donation/direct/charity/185222?' +
+        "amount=2.5&frequency=Single&exitUrl=http%3A%2F%2Ftest.host%2Fbricks%2F#{@brick.url_key}%2Fthanks"
+      helper.justgiving_link(@brick).should == url
     end
   end
 end
