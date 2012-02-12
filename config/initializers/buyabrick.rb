@@ -10,5 +10,5 @@ end
 ADMIN_USERNAME = buyabrick_options[:admin_username]
 ADMIN_PASSWORD = buyabrick_options[:admin_password]
 
-raise unless (ADMIN_USERNAME and ADMIN_PASSWORD)
-raise if (ADMIN_USERNAME == ADMIN_PASSWORD)
+raise 'No admin username/password set' unless (ADMIN_USERNAME and ADMIN_PASSWORD)
+raise 'Invalid username/password set' if (ADMIN_USERNAME == ADMIN_PASSWORD)
