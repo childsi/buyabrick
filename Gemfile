@@ -1,4 +1,4 @@
-# using ruby 1.8.6, rubygems 1.3.5 and bundler 0.9.1
+# using ruby 1.8.6, rubygems 1.8.10 and bundler 1.0.22
 source 'http://rubygems.org'
 
 gem 'rails', '=2.3.14'
@@ -19,12 +19,11 @@ gem 'i18n'
 
 group :development, :test do
   gem 'rake', '=0.8.7'
-  gem 'rspec', '=1.3.2'
-  gem 'rspec-rails', '=1.3.4'
+  gem 'rspec-rails', '=1.3.3'
   gem 'factory_girl', '=1.3.3'
   gem 'cucumber', '=0.5.3'
   gem 'cucumber-rails', '=0.2.2'
-  gem 'rcov', '=0.9.7'
+  gem 'rcov'
   gem 'test-unit'
   gem 'webrat'
   gem 'database_cleaner'
