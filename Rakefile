@@ -9,3 +9,5 @@ require 'rake/rdoctask'
 # require 'rcov/rcovtask'
 
 require 'tasks/rails'
+
+task :default => [:spec, :cucumber]
