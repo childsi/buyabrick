@@ -18,19 +18,19 @@ blockquote .attribution { font-size: 80%; font-family: sans-serif; }
 
 /* header */
 #header { margin-top: 20px; }
-#header h1 a {	display:block; width: 265px; height: 55px; margin-bottom: 20px;
-				background:url(../images/structure/childsi.gif); background-repeat:no-repeat; 
-			}
-			
+#header h1 a {  display:block; width: 265px; height: 55px; margin-bottom: 20px;
+        background:url(../images/structure/childsi.png); background-repeat:no-repeat; 
+      }
+      
 /* nav */
 #nav li { float: left; display: block;}
-#nav li a { float: left; width: 119px; height: 40px; border-right: 1px solid #999999; 
-		 font-size: 120%; text-decoration:none; padding: 8px; }
+#nav li a { float: left; width: 90px; height: 40px; border-right: 1px solid #999999; 
+     font-size: 120%; text-decoration:none; padding: 8px; }
 #nav li a:hover, #nav a.selected { font-weight:bold; }
 #nav #givetab a { float: right; display:block; width: 240px; height: 160px; margin-top: -100px;
-				  background-image: url(../images/structure/givingtag.jpg); background-repeat:no-repeat;  background-position: top right;
-				  border: 0; text-decoration: none;
-				}
+          background-image: url(../images/structure/givingtag.jpg); background-repeat:no-repeat;  background-position: top right;
+          border: 0; text-decoration: none;
+        }
 #nav #givetab a:hover { font-weight: bold; background:white; background-image: url(../images/structure/givingtag.jpg); background-repeat:no-repeat;  background-position: top right; }
 #nav #givetab a span { display:block; padding-top: 105px; font-size: 120%; color: #CC6600; }
 

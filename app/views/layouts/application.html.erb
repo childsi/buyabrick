@@ -2,102 +2,77 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Child's i Foundation - Buy a Brick - <%= @title %></title>
-	<script type="text/javascript" src="/javascripts/behaviour.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Child's i Foundation - Buy a Brick - <%= @title %></title>
+  <script type="text/javascript" src="/javascripts/behaviour.js"></script>
     <script type="text/javascript" src="/javascripts/textarea_maxlen.js"></script>
-	<script type="text/javascript" src="/javascripts/maxlen.js"></script>
-	
-	
+  <script type="text/javascript" src="/javascripts/maxlen.js"></script>
+  
+  
   <%= stylesheet_link_tag 'zero' %>
   <%= stylesheet_link_tag 'structure' %>
   <%= stylesheet_link_tag 'screen' %>
   
   <%= javascript_include_tag 'jquery-1.3.2.min' %>
-	<%= yield :head %>
+  <%= yield :head %>
 </head>
-
 <body>
-
-	<div id="canvas">
-	
-			<div id="header" class="col_full">
-				<h1>
-					<a href="http://childsifoundation.org/"><span class="hide">Child's i Foundation - our home is the first step</span></a>
-				</h1>
-		
-				<div id="nav" class="vblock">
-					<ul>
-						<li><a href="http://childsifoundation.org/our-mission" >Our<br/>Mission</a></li>
-						<li><a href="http://childsifoundation.org/activity" >Fundraising<br/>Activities</a></li>
-						<li><a href="http://childsifoundation.org/community" >Get<br/>Involved</a></li>
-						<li><a href="http://childsifoundation.org/blog" >Follow<br/>the journey</a></li>
-						
-					</ul>
-					<div id="givetab"><a href="http://childsifoundation.org/give" class="selected"><span>How you<br/>can give</span></a></div>
-					<div class="clear"></div>
-				</div>
-				
-				
-			</div>
-
-          
-          <div id="main">
-    			  <%= yield %>
-          </div>
-          
-          			<div class="clear"></div>
-          			<br/>
-          			<div id="footer">
-
-
-          				<div id="footerlogo"><img src="/images/structure/childsifooter.gif" alt="footer" /></div>
-
-          				<div class="col col_rpad" id="footer_legal">
-          					<p>
-          						Child's i Foundation is a charitable company limited by guarantee, registered in England 
-          						and Wales with registered company number 6674427 and registered charity number <a href="http://www.charity-commission.gov.uk/ShowCharity/RegisterOfCharities/CharityFramework.aspx?RegisteredCharityNumber=1126212&SubsidiaryNumber=0">1126212</a>.<br/>
-          						<a href="http://www.childsifoundation.org/contact/terms-of-use-and-disclaimer/">Site Terms and Conditions</a><br/>
-          						<a href="http://www.childsifoundation.org/contact/">Contact Details</a>
-
-          					</p>
-          				</div>
-
-
-          				<div class="col">
-          					<h4>Quick Links</h4>
-          					<ul>
-          						<li><a href="http://www.childsifoundation.org/contact/newsletter">Sign up to the newsletter!</a></li>
-          						<li><a href="http://www.childsifoundation.org/activity/events">Upcoming Events</a></li>
-          						<li><a href="http://www.childsifoundation.org/feed">Subscribe to our Feeds</a></li>
-                                        <li><a href="http://www.childsifoundation.org/community/supporters/">With thanks to...</a></li>
-          					</ul>
-          				</div>
-
-          				<div class="col">          
-
-          					
-          				</div>
-
-          				<div class="clear"></div>
-          			</div>
-
-          		</div>
-
-
-
-          	</div>
-
-
-
-          	<script type="text/javascript"> 
-          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script> 
-          <script type="text/javascript"> 
-          try {
-          var pageTracker = _gat._getTracker("UA-8377911-1");
-          pageTracker._trackPageview();
-          } catch(err) {}</script> 
+  <div id="canvas">
+    <div id="header" class="col_full">
+      <h1>
+        <a href="http://childsifoundation.org/"><span class="hide">Child's i Foundation - our home is the first step</span></a>
+      </h1>
+      <div id="nav" class="vblock">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/our-mission">Our<br>mission</a></li>
+          <li><a href="/our-projects"> Our <br>projects</a></li>
+          <li><a href="/blog">Follow<br>the journey</a></li>
+          <li><a href="/community">Get<br>involved</a></li>
+        </ul>
+        <div id="givetab"><a href="/give" class="selected"><span>How you<br>can give</span></a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+    <div class="clear"></div>
+    <br/>
+    <div id="footer">
+      <div id="footerlogo"><img src="/images/structure/childsifooter.gif" alt="footer" /></div>
+      <div class="col col_rpad" id="footer_legal">
+        <p>
+          Child's i Foundation is a charitable company limited by guarantee, registered in England 
+          and Wales with registered company number 6674427 and registered charity number <a href="http://www.charity-commission.gov.uk/ShowCharity/RegisterOfCharities/CharityFramework.aspx?RegisteredCharityNumber=1126212&SubsidiaryNumber=0">1126212</a>.<br/>
+          <a href="http://www.childsifoundation.org/contact/terms-of-use-and-disclaimer/">Site Terms and Conditions</a><br/>
+          <a href="http://www.childsifoundation.org/contact/">Contact Details</a>
+        </p>
+      </div>
+      <div class="col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="http://www.childsifoundation.org/contact/newsletter">Sign up to the newsletter!</a></li>
+          <li><a href="http://www.childsifoundation.org/activity/events">Upcoming Events</a></li>
+          <li><a href="http://www.childsifoundation.org/feed">Subscribe to our Feeds</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <p><a href="http://www.childsifoundation.org/community/supporters/">With thanks to...</a></p>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> 
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script> 
+  <script type="text/javascript"> 
+  try {
+  var pageTracker = _gat._getTracker("UA-8377911-1");
+  pageTracker._trackPageview();
+  } catch(err) {}
+</script> 
 </body>
 </html>
