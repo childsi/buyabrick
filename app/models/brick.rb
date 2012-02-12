@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Brick < ActiveRecord::Base
   has_random_key :url_key, :size => 4
   validates_uniqueness_of :url_key
