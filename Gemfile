@@ -19,11 +19,11 @@ group :development, :test do
   gem 'rake', '=0.8.7'
   gem 'rspec', '=1.3.2'
   gem 'rspec-rails', '=1.3.4'
-  gem 'test-unit'
-  gem 'factory_girl'
+  gem 'factory_girl', '=1.3.3'
   gem 'cucumber', '=0.5.3'
   gem 'cucumber-rails', '=0.2.2'
   gem 'rcov', '=0.9.7'
+  gem 'test-unit'
   gem 'webrat'
   gem 'database_cleaner'
 end
