@@ -1,11 +1,13 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec_helper'
 
 describe BricksHelper do
-  
-  #Delete this example and add some real ones or delete this file
-  it "should be included in the object returned by #helper" do
-    included_modules = (class << helper; self; end).send :included_modules
-    included_modules.should include(BricksHelper)
+  describe "#justgiving_link" do
+    before(:each) do
+      @brick = Factory(:brick)
+    end
+    
+    it "should generate the url for the brick" do
+      # @brick.value.should == 0
+    end
   end
-  
 end
