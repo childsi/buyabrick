@@ -21,8 +21,10 @@ Feature: Manage bricks
     And I fill in "brick_email" with "bob@builder.co.uk"
     And I fill in "brick_telephone" with "01234567"
     And I check "brick_show_value"
-    # When I press "Continue"
-    # Then the current brick should be saved
+    When I press "Continue"
+    Then the current brick should be saved
+    And I should see "bob the builder"
+    And I should see "has donated £5.00 to the wall"
   
   Scenario: Buying a new brick but entering an invalid email address
     Given I am on the new 5.00 brick page
