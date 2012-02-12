@@ -21,7 +21,7 @@ gem 'nokogiri'
 gem 'i18n'
 
 group :development, :test do
-  gem 'rake', '=0.8.7'
+  gem 'rake'
   gem 'rspec-rails', '=1.3.3'
   gem 'factory_girl', '=1.3.3'
   gem 'cucumber', '=0.5.3'
