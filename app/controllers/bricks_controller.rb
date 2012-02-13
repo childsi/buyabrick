@@ -75,8 +75,6 @@ class BricksController < ApplicationController
   
   def thanks
     @brick = Brick.find_by_url_key!(params[:id])
-    @brick.purchased_at = Time.now
-    @brick.save
   end
   
   # PUT /bricks/1

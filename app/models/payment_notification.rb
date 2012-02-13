@@ -3,6 +3,11 @@ class PaymentNotification < ActiveRecord::Base
   serialize :params
   after_create :mark_brick_as_purchased
   
+  def self.create_by_brick_and_justgiving(brick, params)
+    status = (params[:status] == 'Accepted' or params[:status] == 'Pending') ? 'OK' : params[:status]
+    PaymentNotification.create(:brick => brick, :status => status, :params => params)
+  end
+  
   def technical_error?
     (status == 'ERROR' or status == 'MALFORMED' or status == 'INVALID')
   end
