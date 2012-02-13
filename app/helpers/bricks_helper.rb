@@ -6,7 +6,7 @@ module BricksHelper
       justgiving_path = "http://v3-sandbox.justgiving.com/donation/direct/charity/185222"
     end
     amount = brick.value/100.0
-    exit_url = thanks_brick_url(brick) + "?donationId=JUSTGIVING-DONATION-ID"
+    exit_url = return_payment_notification_url(brick) + "?donationId=JUSTGIVING-DONATION-ID"
     return "#{justgiving_path}?amount=#{amount}&frequency=Single&exitUrl=#{CGI.escape(exit_url)}"
   end
 end
