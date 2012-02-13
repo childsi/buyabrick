@@ -17,7 +17,7 @@
 <div id="content" class="col col_copy">
   <%= render(:partial => 'brick' ) %>
   
-  <% if admin? %>
+  <% unless admin? %>
     <div id="personal_details">
       <% form_for(@payment_notification) do |f| %>
         <%= f.hidden_field :status %>
