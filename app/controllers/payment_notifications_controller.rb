@@ -11,8 +11,8 @@ class PaymentNotificationsController < ApplicationController
     if params[:donationId]
       @brick = Brick.find_by_url_key!(params[:id])
       # save the donation id in case you need to further probe any details
-      @brick.donation_id = params[:donationId]
-      @brick.save
+      donation_id = params[:donationId]
+      @brick.update_attribute(:donation_id, donation_id)
       @donation = JustGiving::Donation.new(params[:donationId])
       @notification = PaymentNotification.create_by_brick_and_justgiving(@brick, @donation.details)
       # TODO what if the payment failed or was cancelled?
