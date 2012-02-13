@@ -1,0 +1,13 @@
+---
+:development:
+  :app_id: 'a6c422f5'
+  :charity_id: 185222
+  :environment: :sandbox
+:test:
+  :app_id: 'a6c422f5'
+  :charity_id: 185222
+  :environment: :sandbox
+:cucumber:
+  :app_id: 'a6c422f5'
+  :charity_id: 185222
+  :environment: :sandbox
