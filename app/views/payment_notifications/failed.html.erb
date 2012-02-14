@@ -15,8 +15,10 @@
 	<div id="content" class="col_copy">
 			<h2>Oh dear!</h2>
 			<div class="vstandout statement">
-				<% if @notification.technical_error? %>
-					<p>A technical error has occurred processing your payment.</p>
+				<% if @notification.refunded? %>
+					<p>Your payment has been refunded.</p>
+				<%# if @notification.technical_error? %>
+					<!--<p>A technical error has occurred processing your payment.</p>-->
 				<% elsif @notification.payment_error? %>
 					<p>Your payment has been refused.</p>
 				<% elsif @notification.aborted? %>
