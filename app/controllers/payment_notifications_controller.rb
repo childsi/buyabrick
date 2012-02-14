@@ -26,21 +26,20 @@ class PaymentNotificationsController < ApplicationController
     end
   end
   
-  def success
-    if params[:crypt]
-      protx_params = GATEWAY.parse_response(params[:crypt])
-      @notification = PaymentNotification.create!(protx_params)
-      raise if @notification.status =~ /\n/
-      redirect_to thanks_brick_path(@notification.brick)
-    else
-      redirect_to root_path
-    end
-  end
+  # def success
+  #   if params[:crypt]
+  #     protx_params = GATEWAY.parse_response(params[:crypt])
+  #     @notification = PaymentNotification.create!(protx_params)
+  #     raise if @notification.status =~ /\n/
+  #     redirect_to thanks_brick_path(@notification.brick)
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
   
   def failed
-    if params[:crypt]
-      protx_params = GATEWAY.parse_response(params[:crypt])
-      @notification = PaymentNotification.create!(protx_params)
+    if params[:notification]
+      @notification = PaymentNotification.find(params[:id])
     else
       redirect_to root_path
     end
