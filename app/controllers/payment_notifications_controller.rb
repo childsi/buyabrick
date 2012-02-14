@@ -16,7 +16,11 @@ class PaymentNotificationsController < ApplicationController
       @donation = JustGiving::Donation.new(params[:donationId])
       @notification = PaymentNotification.create_by_brick_and_justgiving(@brick, @donation.details)
       # TODO what if the payment failed or was cancelled?
-      redirect_to thanks_brick_path(@notification.brick)
+      if @donation.details['status'] == 'Accepted' or @donation.details['status'] == 'Pending'
+        redirect_to thanks_brick_path(@notification.brick)
+      else 
+        redirect_to failed_payment_notifications(@notification)
+      end
     else
       redirect_to root_path
     end
