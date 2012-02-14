@@ -19,7 +19,7 @@ class PaymentNotificationsController < ApplicationController
       if @donation.details['status'] == 'Accepted' or @donation.details['status'] == 'Pending'
         redirect_to thanks_brick_path(@notification.brick)
       else 
-        redirect_to failed_payment_notifications(@notification)
+        redirect_to failed_payment_notifications_path(@notification)
       end
     else
       redirect_to root_path
