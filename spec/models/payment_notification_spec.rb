@@ -9,7 +9,7 @@ describe PaymentNotification do
     ['Accepted', 'Pending'].each do |status|
       describe "for a #{status} transaction" do
         before(:each) do
-          @payment_notification = PaymentNotification.create_by_brick_and_justgiving @brick, { :status => status }
+          @payment_notification = PaymentNotification.create_by_brick_and_justgiving @brick, { 'status' => status }
         end
       
         it "should be valid" do
@@ -21,7 +21,7 @@ describe PaymentNotification do
         end
         
         it "should have some JG params" do
-          @payment_notification.params.should == { :status => status }
+          @payment_notification.params.should == { 'status' => status }
         end
         
         it "should have set the purchased at date on the brick" do
@@ -33,7 +33,7 @@ describe PaymentNotification do
     ['Rejected', 'Cancelled', 'Refunded'].each do |status|
       describe "for a #{status} transaction" do
         before(:each) do
-          @payment_notification = PaymentNotification.create_by_brick_and_justgiving @brick, { :status => status }
+          @payment_notification = PaymentNotification.create_by_brick_and_justgiving @brick, { 'status' => status }
         end
       
         it "should be valid" do
@@ -45,7 +45,7 @@ describe PaymentNotification do
         end
         
         it "should have some JG params" do
-          @payment_notification.params.should == { :status => status }
+          @payment_notification.params.should == { 'status' => status }
         end
         
         it "should not have set the purchased at date on the brick" do
