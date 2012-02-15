@@ -8,16 +8,20 @@ class PaymentNotification < ActiveRecord::Base
     PaymentNotification.create(:brick => brick, :status => status, :params => params)
   end
   
-  def technical_error?
-    (status == 'ERROR' or status == 'MALFORMED' or status == 'INVALID')
-  end
+  # def technical_error?
+  #   (status == 'ERROR' or status == 'MALFORMED' or status == 'INVALID')
+  # end
   
   def payment_error?
-    (status == 'NOTAUTHED' or status == 'REJECTED')
+    status == 'Rejected'
   end
   
   def aborted?
-    status == 'ABORT'
+    status == 'Cancelled'
+  end
+
+  def refunded?
+    status == 'Refunded'
   end
   
   private
