@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resource :wall, :controller => 'wall'
   
-  map.resources :payment_notifications, :collection => { :success => :get, :failed => :get }, :member => { :return => :get }
+  map.resources :payment_notifications, :collection => { :success => :get }, :member => { :return => :get, :failed => :get }
   
   map.root :controller => 'pages'
   map.donate '/donate', :controller => 'pages', :action => 'donate'

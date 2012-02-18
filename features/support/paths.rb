@@ -22,8 +22,14 @@ module NavigationHelpers
       brick_path($1)
     when /the edit "(.+)" brick page/i
       edit_brick_path($1)
-    when /the "(.+)" brick thanks page for donationId "(\d+)"/i
-      thanks_brick_path($1) + "?donationId=#{$2}"
+    when /the "(.+)" brick thanks page/i
+      thanks_brick_path($1)
+    when /the "(.+)" payment notification return page for donationId "(\d+)"/i
+      return_payment_notification_path($1) + "?donationId=#{$2}"
+    when /the "(.+)" payment notification return page/i
+      return_payment_notification_path($1)
+    when /the "(.+)" payment notification failed page/i
+      failed_payment_notification_path($1)
     when /the wall (.+) feed/i
       wall_path(:format => $1)
       

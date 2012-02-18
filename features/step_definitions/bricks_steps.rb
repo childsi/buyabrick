@@ -47,6 +47,10 @@ Then /^I should see the following bricks:$/ do |bricks|
   end
 end
 
+Then /^the brick "([^"]*)" should be marked as purchased$/ do |url_key|
+  Brick.find_by_url_key(url_key).purchased_at.should_not be_nil
+end
+
 Given /^the following successful callback is returned:$/ do
   visit success_payment_notifications_path
 end

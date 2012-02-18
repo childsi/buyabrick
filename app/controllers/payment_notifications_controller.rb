@@ -8,18 +8,16 @@ class PaymentNotificationsController < ApplicationController
   end
   
   def return
-    if params[:donationId]
+    unless params[:donationId].blank?
       @brick = Brick.find_by_url_key!(params[:id])
       # save the donation id in case you need to further probe any details
-      donation_id = params[:donationId]
-      @brick.update_attribute(:donation_id, donation_id)
       @donation = JustGiving::Donation.new(params[:donationId])
       @notification = PaymentNotification.create_by_brick_and_justgiving(@brick, @donation.details)
       # TODO what if the payment failed or was cancelled?
-      if @donation.details['status'] == 'Accepted' or @donation.details['status'] == 'Pending'
+      if @notification.status == 'OK'
         redirect_to thanks_brick_path(@notification.brick)
-      else 
-        redirect_to failed_payment_notifications_path(@notification)
+      else
+        redirect_to failed_payment_notification_path(@notification)
       end
     else
       redirect_to root_path
@@ -38,10 +36,6 @@ class PaymentNotificationsController < ApplicationController
   # end
   
   def failed
-    if params[:notification]
-      @notification = PaymentNotification.find(params[:id])
-    else
-      redirect_to root_path
-    end
+    @notification = PaymentNotification.find(params[:id])
   end
 end

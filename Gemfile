@@ -26,4 +26,5 @@ group :development, :test do
   gem 'test-unit', '=1.2.3'
   gem 'webrat'
   gem 'database_cleaner'
+  gem 'mocha'
 end

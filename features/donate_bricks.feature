@@ -60,10 +60,44 @@ Feature: Manage bricks
     Then I should see "Display Name" 
     And I should not see "First"
     And I should not see "Last"
-    
-  Scenario: Receive users back from Just Giving
+  
+  Scenario: Handle users hitting the Just Giving return URL without a donation key
     Given the following bricks:
       | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
       | aaa     | 500   | Message | Display Name | First      | Last      | foo@bar.com | true       | false   |
-    Given I am on the "aaa" brick thanks page for donationId "123"
-    Then I should see "Thanks"
+    When I am on the "aaa" payment notification return page
+    Then I should be on the home page
+  
+  Scenario: Receive a users back from Just Giving after a pending purchase
+    Given the following bricks:
+      | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
+      | aaa     | 500   | Message | Display Name | First      | Last      | foo@bar.com | true       | false   |
+    And given that Just Giving has the following donation:
+      | id  | status  |
+      | 123 | Pending |
+    When I am on the "aaa" payment notification return page for donationId "123"
+    Then I should be on the "aaa" brick thanks page
+    And I should see "Thanks"
+    And the brick "aaa" should be marked as purchased
+
+  Scenario: Receive a users back from Just Giving after a successful purchase
+    Given the following bricks:
+      | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
+      | aaa     | 500   | Message | Display Name | First      | Last      | foo@bar.com | true       | false   |
+    And given that Just Giving has the following donation:
+      | id  | status  |
+      | 123 | Accepted |
+    When I am on the "aaa" payment notification return page for donationId "123"
+    Then I should be on the "aaa" brick thanks page
+    And I should see "Thanks"
+    And the brick "aaa" should be marked as purchased
+
+  Scenario: Receive a users back from Just Giving after a cancelled purchase
+    Given the following bricks:
+      | url_key | value | message | display_name | first_name | last_name | email       | show_value | naughty |
+      | aaa     | 500   | Message | Display Name | First      | Last      | foo@bar.com | true       | false   |
+    And given that Just Giving has the following donation:
+      | id  | status  |
+      | 123 | Cancelled |
+    When I am on the "aaa" payment notification return page for donationId "123"
+    Then I should see "Your payment has been cancelled"
