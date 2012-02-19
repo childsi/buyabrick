@@ -15,6 +15,7 @@ gem 'xml-simple'
 gem 'tzinfo'
 gem 'tmail'
 gem 'nokogiri'
+gem 'test-unit'
 
 gem 'i18n'
 
@@ -26,5 +27,4 @@ group :development, :test do
   gem 'webrat'
   gem 'database_cleaner'
   gem 'mocha'
-  gem 'test-unit', '=1.2.3'
 end
