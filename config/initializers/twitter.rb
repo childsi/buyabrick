@@ -1,16 +1,22 @@
-# 
-# unless File.exist?(FuKing::Twitter.config_file)
-#   FuKing::Twitter.instance_eval do
-#     def configs 
-#       { :read_url => ENV['TWITTER_READ_URL'],
-#         :write_url => ENV['TWITTER_WRITE_URL'],
-#         :development_uri => ENV['TWITTER_DEVELOPMENT_URI'],
-#         :test_uri => ENV['TWITTER_TEST_URI'],
-#         :production_uri => ENV['TWITTER_PRODUCTION_URI']
-#       }
-#     end
-#   end
-# end
-# 
-# TWITTER_USERNAME = $1 if FuKing::Twitter.send(:configs)[:read_url] =~ %r[http://twitter.com/statuses/user_timeline/(\w+).xml]
-TWITTER_USERNAME = 'buyabrick'
+require 'twitter'
+
+config_path = File.join(RAILS_ROOT, 'config', 'twitter.yml')
+if File.exists?(config_path)
+  twitter_options = YAML.load_file(config_path)
+else
+  twitter_options = {
+    :username           => ENV['TWITTER_USERNAME'],
+    :consumer_key       => ENV['TWITTER_CONSUMER_KEY'],
+    :consumer_secret    => ENV['TWITTER_CONSUMER_SECRET'],
+    :oauth_token        => ENV['TWITTER_OAUTH_TOKEN'],
+    :oauth_token_secret => ENV['TWITTER_OAUTH_TOKEN_SECRET']
+  }
+end
+
+TWITTER_USERNAME = twitter_options[:username]
+Twitter.configure do |config|
+  config.consumer_key = twitter_options[:consumer_key]
+  config.consumer_secret = twitter_options[:consumer_secret]
+  config.oauth_token = twitter_options[:oauth_token]
+  config.oauth_token_secret = twitter_options[:oauth_token_secret]
+end

@@ -15,6 +15,7 @@ gem 'xml-simple'
 gem 'tzinfo'
 gem 'tmail'
 gem 'nokogiri'
+gem 'twitter'
 
 gem 'i18n'
 
@@ -27,4 +28,5 @@ group :development, :test do
   gem 'webrat'
   gem 'database_cleaner'
   gem 'mocha'
+  gem 'fakeweb'
 end

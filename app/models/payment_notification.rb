@@ -32,7 +32,7 @@ class PaymentNotification < ActiveRecord::Base
       @brick.update_attribute(:purchased_at, Time.now)
       
       begin
-        FuKing::Twitter.update(twitter_message)
+        Twitter.update(twitter_message)
       rescue => e
         logger.warn("Error tweeting brick #{@brick.url_key}: #{e.message}")
       end
