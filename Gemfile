@@ -5,7 +5,6 @@ gem 'rails', '=2.3.14'
 gem 'builder', '=2.1.2'
 gem 'exception_notification', '=2.3.3.0'
 gem 'will_paginate', '=2.3.16'
-gem 'test-unit', '=1.2.3'
 
 gem 'just_giving'
 gem 'fastercsv'
@@ -27,4 +26,5 @@ group :development, :test do
   gem 'webrat'
   gem 'database_cleaner'
   gem 'mocha'
+  gem 'test-unit', '=1.2.3'
 end
