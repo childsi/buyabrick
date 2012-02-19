@@ -9,7 +9,7 @@ if File.exists?(config_path)
 else
   justgiving_options = {
     :app_id => ENV['JG_APPID'],
-    :environment => ENV['JG_ENVIRONMENT']
+    :environment => ENV['JG_ENVIRONMENT'].to_sym
   }
 end
 
