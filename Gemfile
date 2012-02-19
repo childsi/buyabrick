@@ -13,7 +13,6 @@ gem 'sqlite3'
 gem 'blankslate'
 gem 'xml-simple'
 gem 'tzinfo'
-gem 'tmail'
 gem 'nokogiri'
 
 gem 'i18n'
