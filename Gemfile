@@ -6,7 +6,7 @@ gem 'builder', '=2.1.2'
 gem 'exception_notification', '=2.3.3.0'
 gem 'will_paginate', '=2.3.16'
 
-gem 'just_giving', :git => 'git://github.com/metade/just_giving.git'
+gem 'just_giving'
 gem 'fastercsv'
 gem 'newrelic_rpm'
 gem 'sqlite3'
