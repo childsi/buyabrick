@@ -7,6 +7,8 @@ require 'spec/rails'
 
 require 'factory_girl'
 require 'factories'
+require 'fakeweb'
+FakeWeb.allow_net_connect = false
 
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
