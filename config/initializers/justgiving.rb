@@ -1,4 +1,7 @@
-require 'just_giving'
+begin
+  require 'just_giving'
+rescue NameError => e
+end
 
 config_path = File.join(RAILS_ROOT, 'config', 'justgiving.yml')
 if File.exists?(config_path)
