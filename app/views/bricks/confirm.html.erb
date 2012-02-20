@@ -17,7 +17,7 @@
 <div id="content" class="col col_copy">
   <%= render(:partial => 'brick' ) %>
   
-  <% if admin? %>
+  <% unless admin? %>
     <div id="personal_details">
       <% form_for(@payment_notification) do |f| %>
         <%= f.hidden_field :status %>
@@ -33,7 +33,7 @@
   <% else %>
     <div id="personal_details" class="vblock" style="margin-top: 20px; padding-top: 20px;">
       <p>By clicking the button below you will be taken to a third party website (JustGiving) to make your secure donation. This site is 100% safe to provide your card details.</p>
-      <a href="<%= justgiving_link(@brick) %>">Submit</a>
+      <a href="<%= justgiving_link(@brick) %>"><img src="/images/donate_button.gif" alt="Donate using JustGiving" /></a>
     
     <p style="margin-top: 20px;"><img src="/images/assets/giftaid.gif" alt="giftaid"></p>
     <p><strong>Increase the value of your 'Buy a brick' gift to us by 28%!</strong></p>
