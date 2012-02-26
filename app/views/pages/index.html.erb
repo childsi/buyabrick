@@ -6,58 +6,56 @@
   
   <%= embed_wall_swf_tag %>
   
-  	<style>
+    <style>
   #brick_select li {
-  	float: left;
-  	margin-right: 15px;
-  	list-style: none;
+    float: left;
+    margin-right: 15px;
+    list-style: none;
   }
   </style>
 <% end %>
 
-		<div id="content">
-			<ul id="page">
-				<li class="the_post" id="post-2196">
-	
-					<div class="postcontent">
-						<div class="vblock">
+    <div id="content">
+      <ul id="page">
+        <li class="the_post" id="post-2196">
+  
+          <div class="postcontent">
+            <div class="vblock">
 
-							<%= render :partial => '/shared/wall', :locals => { :wall => @wall } %>
+              <%= render :partial => '/shared/wall', :locals => { :wall => @wall } %>
 
 
-						</div>
-						<div id="sidebar" class="col col_rpad">
-							<div class="vblock">
-									Grab a quick brick for £5, £10, £20 or £50<br/><br />
-									Or decide how much you want to pay from £2.50 to £50,000 &#8211; we don&#8217;t mind at all.
-							</div>
-							<div class="vblock">
-									We want to make it clear: these are not real bricks. We won&#8217;t actually be sending them to Uganda.<br/><br />
-									But the money you donate will be used by us to fund our work. <a href="http://www.childsifoundation.org/our-mission/">Find out where your donation goes</a>.<br/>
-							</div>
-						</div>
+            </div>
+            <div id="sidebar" class="col col_rpad">
+              <div class="vblock">
+                  Grab a quick brick for &pound;5, &pound;10, &pound;20 or &pound;50<br/><br />
+                  Or decide how much you want to pay from &pound;2.50 to &pound;50,000 &#8211; we don&#8217;t mind at all.
+              </div>
+              <div class="vblock">
+                  We want to make it clear: these are not real bricks. We won&#8217;t actually be sending them to Uganda.<br/><br />
+                  But the money you donate will be used by us to fund our work. <a href="http://www.childsifoundation.org/our-mission/">Find out where your donation goes</a>.<br/>
+              </div>
+            </div>
 
-						<div>
-							<h4>Choose how much you want to give</h4>
-							<ul id="brick_select">
-							<li><a href="/bricks/new/5.00"><img alt="£5" src="/images/bricks/5.jpg" /></a></li>
-							<li><a href="/bricks/new/10.00"><img alt="£10" src="/images/bricks/10.jpg" /></a></li>
-							<li><a href="/bricks/new/20.00"><img alt="£20" src="/images/bricks/20.jpg" /></a></li>
-							<li><a href="/bricks/new/50.00"><img alt="£50" src="/images/bricks/50.jpg" /></a></li>
-							<li><a href="/bricks/new"><img alt="£any" src="/images/bricks/any.jpg" /></a></li>
-							</ul>
-							<div class="clear"></div>
-						</div>
+            <div>
+              <h4>Choose how much you want to give</h4>
+              <ul id="brick_select">
+              <li><a href="/bricks/new/5.00"><img alt="&pound;5" src="/images/bricks/5.jpg" /></a></li>
+              <li><a href="/bricks/new/10.00"><img alt="&pound;10" src="/images/bricks/10.jpg" /></a></li>
+              <li><a href="/bricks/new/20.00"><img alt="&pound;20" src="/images/bricks/20.jpg" /></a></li>
+              <li><a href="/bricks/new/50.00"><img alt="&pound;50" src="/images/bricks/50.jpg" /></a></li>
+              <li><a href="/bricks/new"><img alt="&pound;any" src="/images/bricks/any.jpg" /></a></li>
+              </ul>
+              <div class="clear"></div>
+            </div>
 
-					</div>
-					
-				</li>				
-			</ul>
-		</div>
-				
-		
-		
-		
-		<div class="clear"></div>
-		<!-- {$smarty.capture.subcontent} -->
-				
+          </div>
+          
+        </li>       
+      </ul>
+    </div>
+        
+    
+    
+    
+    <div class="clear"></div>
