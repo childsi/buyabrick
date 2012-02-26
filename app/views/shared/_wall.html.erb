@@ -8,7 +8,7 @@
       <%- row.each do |brick| -%>
       <li>
       <%- if brick -%>
-        <%= link_to content_tag(:span, brick.display_name), brick, :class => ['brick', brick.colour].join(' ') %>
+        <%= link_to content_tag(:span, h(brick.display_name)), brick, :class => ['brick', brick.colour].join(' ') %>
       <%- else -%>
         <span class="brick">&nbsp;</span>
       <%- end -%>
