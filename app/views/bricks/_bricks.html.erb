@@ -8,7 +8,7 @@
 
 <% for brick in @bricks %>
   <tr>
-    <td><% if brick.show_value? %>£<%=h brick.value_in_pounds %><% end %></td>
+    <td><% if brick.show_value? %>&pound;<%=h brick.value_in_pounds %><% end %></td>
     <td><%= link_to h(brick.display_name), brick %></td>
     <td><%= link_to brick.url, brick.url unless brick.url.blank? %></td>
     <td><%=h brick.message %></td>

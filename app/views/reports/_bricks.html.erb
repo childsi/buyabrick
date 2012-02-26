@@ -17,7 +17,7 @@
 <% for brick in @bricks %>
   <tr>
     <td><%= brick.id %></td>
-    <td>£<%=h brick.value_in_pounds %></td>
+    <td>&pound;<%=h brick.value_in_pounds %></td>
     <td><%= brick.purchased_at %></td>
     <td><%= link_to h(brick.display_name), brick %></td>
     <td><%=h brick.message %></td>
