@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="506" 
+	initialize="this.init();"
+	xmlns:ui="childsifoundation.ui.*"
+	currentState="{this.model.applicationState}"
+	verticalScrollPolicy="off" 
+	horizontalScrollPolicy="off" >
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.effects.easing.Cubic;
+			//
+			import childsifoundation.vo.ApplicationState;
+			import childsifoundation.model.ChildsFoundationModel;
+			//
+			[Bindable]
+			private var model : ChildsFoundationModel;
+			private function init() : void
+			{
+				model = ChildsFoundationModel.getInstance();
+			}
+		]]>
+	</mx:Script>
+
+	<!-- Graphics -->
+	<mx:Canvas id="background" alpha="0"><ui:SkyUI y="0" x="0" /></mx:Canvas>
+    <mx:Canvas y="-443" id="sun"><ui:SunUI y="0" x="0" /></mx:Canvas>
+	<mx:Canvas y="500" id="ground"><ui:LandUI y="336" x="0" /></mx:Canvas>
+	
+	<!-- Transitions -->
+	<mx:transitions>
+			<mx:Transition fromState="{ApplicationState.PRELOADING}" toState="{ApplicationState.INTRO}">
+				<mx:Parallel>
+						<mx:Fade id="bck_intro" duration="4000" alphaFrom="0" alphaTo="1" easingFunction="Cubic.easeOut" target="{background}" />
+						<mx:Move id="bck_sun_intro" duration="1500" yFrom="-443" yTo="0" easingFunction="Cubic.easeOut" target="{sun}" />
+						<mx:Move id="bck_ground_intro" duration="2500" yFrom="500" yTo="0" easingFunction="Cubic.easeOut" target="{ground}" />
+				</mx:Parallel>
+			</mx:Transition>
+	</mx:transitions>			
+	
+	<!-- States -->
+	<mx:states>
+		<mx:State name="{ApplicationState.PRELOADING}" />
+		<mx:State name="{ApplicationState.INTRO}" />
+		<mx:State name="{ApplicationState.WALL}" />
+		<mx:State name="{ApplicationState.BASE}" />
+	</mx:states>
+	
+</mx:Canvas>
