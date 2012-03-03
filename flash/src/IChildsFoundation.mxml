@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	frameRate="60"
+	backgroundGradientColors="[#638fcf, #638fcf]"
+	initialize="this.init();"
+	applicationComplete="this.createApplication()"
+	addedToStage="this.addedToStageHandler(event);"
+	layout="absolute"
+	width="100%"
+	height="443"
+	xmlns:views="modules.*">
+	
+	<mx:Script>
+	    <![CDATA[
+	    	import flash.external.ExternalInterface;
+	    	import childsifoundation.business.BrickDataDelegate;
+	    	import mx.events.PropertyChangeEvent;
+	    	import mx.logging.*;
+	    	import mx.binding.utils.ChangeWatcher;
+	    	//
+	    	import childsifoundation.model.ChildsFoundationModel;
+	    	import childsifoundation.control.ChildsFoundationController;
+	    	import childsifoundation.event.IntroEvent;
+	    	//
+	    	import org.nonpology.application.events.ApplicationEvent;
+	    	import org.nonpology.control.ApplicationEventDispatcher;
+			//
+			private var model : ChildsFoundationModel;
+			private var controller : ChildsFoundationController;
+			private var dispatcher : ApplicationEventDispatcher;
+			//
+			private var logger : ILogger;
+			//
+			private function addedToStageHandler( event:Event) : void
+			{			
+				stage.addEventListener( Event.RESIZE, _handleResize );
+				this.validateNow();
+			}
+			//
+			private function _handleResize( event:Event ) : void
+			{
+				this.validateNow();
+			} 		
+			//
+			private function init() : void 
+			{				
+				this.model = ChildsFoundationModel.getInstance();
+				this.controller = new ChildsFoundationController();
+				this.dispatcher = ApplicationEventDispatcher.getInstance();
+				//
+				initListeners();
+				initParams();
+				this.model.loadConfig();
+			}  
+			//
+			private function initParams() : void 
+			{
+				var applicationParams : Dictionary = new Dictionary( ) ;
+				if(!this.model.applicationParams) this.model.applicationParams = new Dictionary();
+				for ( var prop : String in this.parameters ) {
+					applicationParams[ prop ] = this.parameters[ prop ] ;
+					this.model.applicationParams[ prop ] = this.parameters[ prop ] ;
+				}
+			}			
+			private function initListeners ( ) : void 
+			{
+				ChangeWatcher.watch ( this.model , "applicationState" , this.onApplicationStateChange ) ;
+			}
+			private function onApplicationStateChange( e:PropertyChangeEvent ) : void
+			{
+				trace( "onApplicationStateChange() " + e.oldValue + " = " + e.newValue );
+			}
+			//
+			private function createApplication() : void
+			{
+				trace( " createApplication() " );
+				_loadBricks();				
+			}   
+			private function _loadBricks() : void
+			{
+				var bricks : BrickDataDelegate = new BrickDataDelegate();
+				bricks.addEventListener( Event.COMPLETE, _handleBricksLoaded );				
+				bricks.getBricks( this.model.applicationParams["path"] );
+			}  
+			private function _handleBricksLoaded( e:Event ) : void
+			{
+				this.dispatcher.dispatchEvent( new IntroEvent( IntroEvent.ON_INTRO_START ) );
+			}  
+	    ]]>
+    </mx:Script>
+	<mx:Canvas verticalScrollPolicy="off" horizontalScrollPolicy="off" id="mainCanvas" width="100%" height="100%">
+		<views:Background id="background" x="0" y="0" />
+		<views:Wall id="wall" x="0" y="0" />
+		<views:Foreground id="foreground" x="0" y="0" buttonMode="false" mouseChildren="false" mouseEnabled="false" />
+		<views:Header id="header" x="0" y="0" />
+	</mx:Canvas>
+</mx:Application>

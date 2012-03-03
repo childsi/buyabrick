@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AS2Classpath>
+    <AS2Classpath generateProblems="true" type="source" useAsSharedCode="false">src</AS2Classpath>
+    <AS2Classpath generateProblems="false" type="lib" useAsSharedCode="false">libs/ChildsAssets.swc</AS2Classpath>
+</AS2Classpath>

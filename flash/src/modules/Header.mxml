@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="506" 
+	initialize="this.init();"
+	xmlns:ui="childsifoundation.ui.*"
+	currentState="{this.model.applicationState}"
+	verticalScrollPolicy="off" 
+	horizontalScrollPolicy="off" >
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.binding.utils.ChangeWatcher;
+			import mx.events.PropertyChangeEvent;
+			import mx.events.ScrollEvent;
+			import childsifoundation.event.IntroEvent;
+			import org.nonpology.control.ApplicationEventDispatcher;
+			import mx.effects.easing.Cubic;
+			import flash.events.Event;
+			//
+			import childsifoundation.vo.ApplicationState;
+			import childsifoundation.model.ChildsFoundationModel;
+			//
+			[Bindable]
+			private var model : ChildsFoundationModel;
+			[Bindable]
+			private var tagsX : int = 310;
+			[Bindable]
+			private var startTagX : int = 145;
+			
+			private function init() : void
+			{
+				model = ChildsFoundationModel.getInstance();
+				
+				this.addEventListener(Event.ADDED_TO_STAGE, setPositions);
+				//
+				ChangeWatcher.watch ( this.model , "wallScrollingNeeded" , this.onWallScrollNeededChange ) ;
+			}	
+			//
+			private function setPositions(e : Event) : void
+			{
+				tagsX = this.stage.stageWidth - 200;
+				startTagX = this.stage.stageWidth - 500;
+			}
+			//
+			private function _handleTagRollOver( e:MouseEvent ) : void
+			{
+				rollOverEffect.stop();
+				rollOverEffect.play( [tags] );
+			}
+			private function _handleTagRollOut( e:MouseEvent ) : void
+			{
+				rollOutEffect.stop();
+				rollOutEffect.play( [tags] );
+			}	
+			private function _handleScrollRollOver( e:MouseEvent ) : void
+			{
+				sliderAsset.setOverState();
+				rollOverScrollEffect.stop();
+				rollOverScrollEffect.play( [slider] );
+			}
+			private function _handleScrollRollOut( e:MouseEvent ) : void
+			{
+				sliderAsset.setOutState();
+				rollOutScrollEffect.stop();
+				rollOutScrollEffect.play( [slider] );
+			}
+			private function _handleStartTagRollOver( e:MouseEvent ) : void
+			{
+				startTagRollOverEffect.stop();
+				startTagRollOverEffect.play( [startTag] );
+			}
+			private function _handleStartTagRollOut( e:MouseEvent ) : void
+			{
+				startTagRollOutEffect.stop();
+				startTagRollOutEffect.play( [startTag] );
+			}	
+			private function _handleStartTagClick( e:MouseEvent ) : void
+			{
+				hideStartTagEffect.stop();
+				hideStartTagEffect.play( [startTag] );
+			}			
+			private function onWallScrollNeededChange( e:PropertyChangeEvent ) : void
+			{
+				slider.visible = e.newValue;
+				slider.alpha = .2;
+			}		
+			private function _onStartStartTween() : void
+			{
+				if( model.applicationParams["linkBrick"] ) { 
+					//hideStartTagEffect.play( [startTag] );
+					//sliderAsset.x = ( stage.stageWidth-115 ) * (model.wallStartPercentage/100)
+				}
+			}					
+		]]>
+	</mx:Script>
+	
+	<!-- Graphics -->
+	<mx:Canvas y="-500" x="{startTagX}" id="startTag">
+		<ui:StartTagUI click="{_handleStartTagClick(event)}"  rollOver="{_handleStartTagRollOver(event)}" rollOut="{_handleStartTagRollOut(event)}"/>
+	</mx:Canvas>	
+	
+	<mx:Canvas y="-200" x="{tagsX}" id="tags">
+		<ui:TagUI x="0" rollOver="{_handleTagRollOver(event)}" rollOut="{_handleTagRollOut(event)}" />
+	</mx:Canvas>
+
+	<mx:Canvas y="-302" x="5" id="slider">
+		<ui:SliderBgUI />
+		<ui:SliderUI id="sliderAsset"
+					mouseDown="{sliderAsset.setClickState()}" 
+					mouseOut="{sliderAsset.setReleaseState()}" 
+					mouseUp="{sliderAsset.setReleaseState()}" 
+					rollOver="{_handleScrollRollOver(event)}" 
+					rollOut="{_handleScrollRollOut(event)}" />
+	</mx:Canvas>	
+	
+    <!-- Animations -->
+	<mx:Move id="rollOverEffect" duration="500" yTo="0" easingFunction="Cubic.easeOut" />
+	<mx:Move id="rollOutEffect" duration="500" yTo="-124" easingFunction="Cubic.easeOut" />
+
+	<mx:Move id="rollOverScrollEffect" duration="500" yTo="16" easingFunction="Cubic.easeOut" />
+	<mx:Move id="rollOutScrollEffect" duration="500" yTo="0" easingFunction="Cubic.easeOut" />
+	
+	<mx:Move id="hideStartTagEffect" duration="500" yTo="-214" easingFunction="Cubic.easeOut" />	
+	<mx:Move id="startTagRollOverEffect" duration="500" yTo="0" easingFunction="Cubic.easeOut" />
+	<mx:Move id="startTagRollOutEffect" duration="500" yTo="-214" easingFunction="Cubic.easeOut" />
+
+	<!-- Transitions -->
+	<mx:transitions>
+			<mx:Transition fromState="{ApplicationState.INTRO}" toState="{ApplicationState.WALL}">
+				<mx:Sequence>
+						<mx:Move duration="500" yTo="-124" easingFunction="Cubic.easeOut" target="{tags}"/>
+						<mx:Move duration="500" yTo="-214" easingFunction="Cubic.easeOut"  target="{startTag}" tweenStart="{_onStartStartTween()}" />
+						<mx:Move duration="500" yTo="0" easingFunction="Cubic.easeOut" target="{slider}"/>
+				</mx:Sequence>
+			</mx:Transition>			
+	</mx:transitions>
+
+   	<!-- States -->
+	<mx:states>
+		<mx:State name="{ApplicationState.PRELOADING}" />
+		<mx:State name="{ApplicationState.INTRO}" />
+		<mx:State name="{ApplicationState.WALL}" />
+		<mx:State name="{ApplicationState.BASE}" />
+	</mx:states> 
+    
+</mx:Canvas>

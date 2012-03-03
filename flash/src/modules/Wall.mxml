@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="506" 
+	initialize="this.init();"
+	xmlns:ui="childsifoundation.ui.*"
+	currentState="{this.model.applicationState}" 
+	verticalScrollPolicy="off" 
+	horizontalScrollPolicy="off" >
+	
+	<mx:Script>
+		<![CDATA[
+			import org.nonpology.utils.MathX;
+			import mx.binding.utils.ChangeWatcher;
+			import mx.events.PropertyChangeEvent;
+			import childsifoundation.event.IntroEvent;
+			import org.nonpology.control.ApplicationEventDispatcher;
+			import mx.effects.easing.Cubic;
+			//
+			import childsifoundation.vo.ApplicationState;
+			import childsifoundation.model.ChildsFoundationModel;
+			//
+			[Bindable]
+			private var model : ChildsFoundationModel;
+			//
+			private var wallScrolled : Boolean = false;
+			private var wallTargetX : Number = 0;
+			//
+			private function init() : void
+			{
+				this.model = ChildsFoundationModel.getInstance();
+				//
+				ChangeWatcher.watch ( this.model , "scrollPercentage" , this.onScrollPercentageChange ) ;
+			}
+			//
+			private function onScrollPercentageChange( event:PropertyChangeEvent ) : void 
+			{
+				wallTargetX =- ( (wallAsset.width - (stage.stageWidth-20)) * ( Number(event.newValue)/100 ) );
+				//
+				if( !wallScrolled ) {
+					wallScrolled = true;
+					this.addEventListener( Event.ENTER_FRAME, _handleWallAnimation );
+				}
+				//wall.x = (wallTargetX + 10);
+				//_setWallPosition();
+			}
+			//
+			private function _handleWallAnimation( event:Event ) : void 
+			{
+				wall.x += ((wallTargetX + 10) - wall.x)*.01;
+				wall.x = Math.round( wall.x );
+			}
+			private function _setWallPosition() : void
+			{
+				if( model.applicationParams["linkBrick"] && wallAsset.getDeeplinkBrick() != null ) {
+					trace( "Need to render to : " + wallAsset.getDeeplinkBrick().x );
+					wallTargetX = (( stage.stageWidth-20 ) - ( wallAsset.getDeeplinkBrick().x + 100 ));
+					wallTargetX = MathX.constrain( wallTargetX, ((stage.stageWidth-20) - wallAsset.width), 0 );
+					wallAsset.showDeeplinkBrick();
+					//
+					trace( MathX.percentage( Math.abs(wallTargetX), wallAsset.width ) );
+					//
+					model.wallStartPercentage = (100 - MathX.percentage( Math.abs(wallTargetX), wallAsset.width ));
+				} else {
+					wallTargetX = ((stage.stageWidth-20) - wallAsset.width);					
+				}
+				wall.x = wallTargetX;	
+			}		
+			//
+			private function onIntroTransitionComplete( event:Event ) : void 
+			{
+				ApplicationEventDispatcher.getInstance().dispatchEvent( new IntroEvent( IntroEvent.ON_INTRO_COMPLETE ) ) ;
+			}					
+		]]>
+	</mx:Script>
+	
+	<!-- Graphics -->
+	<mx:Canvas y="0" x="10" id="wall">
+		<ui:WallUI x="0" y="500" id="wallAsset"  />
+	</mx:Canvas>
+    
+	<!-- Transitions -->
+	<mx:transitions>
+			<mx:Transition fromState="{ApplicationState.PRELOADING}" toState="{ApplicationState.INTRO}">
+				<mx:Parallel>
+						<mx:Move duration="2000" yFrom="500" yTo="191" startDelay="3000" easingFunction="Cubic.easeOut" target="{wallAsset}" tweenStart="{_setWallPosition()}" tweenEnd="{this.onIntroTransitionComplete(event)}" />
+				</mx:Parallel>
+			</mx:Transition>			
+	</mx:transitions>
+
+   	<!-- States -->
+	<mx:states>
+		<mx:State name="{ApplicationState.PRELOADING}" />
+		<mx:State name="{ApplicationState.INTRO}" />
+		<mx:State name="{ApplicationState.WALL}" />
+		<mx:State name="{ApplicationState.BASE}" />
+	</mx:states> 
+    
+</mx:Canvas>
