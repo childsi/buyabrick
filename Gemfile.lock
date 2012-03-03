@@ -43,9 +43,9 @@ GEM
     i18n (0.6.0)
     json (1.6.5)
     json_pure (1.6.5)
-    just_giving (0.2.0)
+    just_giving (0.3.0)
       faraday
-      faraday_middleware
+      faraday_middleware (~> 0.7)
       hashie
       multi_json (~> 1.0.1)
       yajl-ruby

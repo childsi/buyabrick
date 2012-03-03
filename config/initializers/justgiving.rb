@@ -1,21 +1,4 @@
-begin
-  require 'just_giving'
-rescue NameError => e
-end
-
-module JustGiving
-  class Configuration
-    ## The API endpoint
-    def self.api_endpoint
-      raise JustGiving::InvalidApplicationId.new if !application_id
-      case environment
-        when :sandbox then "https://api-sandbox.justgiving.com/#{application_id}"
-        when :staging then "https://api-staging.justgiving.com/#{application_id}"
-        else "https://api.justgiving.com/#{application_id}"
-      end
-    end
-  end
-end
+require 'just_giving'
 
 config_path = File.join(RAILS_ROOT, 'config', 'justgiving.yml')
 if File.exists?(config_path)
