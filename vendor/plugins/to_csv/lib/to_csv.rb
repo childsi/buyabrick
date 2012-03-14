@@ -1,4 +1,4 @@
-require 'fastercsv'
+require 'csv'
 
 class ActiveRecord::Base
   def self.to_csv(*args)
@@ -21,7 +21,7 @@ class Array
       content_rows = map { |e| e.to_row(options[:format]) }.map(&:to_csv)
       ([header_row] + content_rows).join
     else
-      FasterCSV.generate_line(self, options)
+      CSV.generate_line(self, options)
     end
   end
 end
