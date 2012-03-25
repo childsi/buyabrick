@@ -1,5 +1,6 @@
 # encoding: utf-8
 class Brick < ActiveRecord::Base
+  has_many :payment_notifications
   has_random_key :url_key, :size => 4
   validates_uniqueness_of :url_key
   
@@ -15,7 +16,7 @@ class Brick < ActiveRecord::Base
     :billing_city, :billing_post_code, :billing_country
   
   def export_columns(format = nil)
-    %w[id value_in_pounds purchased_at display_name message first_name last_name email telephone subscribe generous? seasonal?]
+    %w[id value_in_pounds purchased_at display_name message first_name last_name email telephone subscribe generous? seasonal? justgiving_id]
   end
   
   def initialize(attributes = nil)
@@ -25,6 +26,11 @@ class Brick < ActiveRecord::Base
   
   def self.random_colour
     ('a'..'f').map { |c| "custom_#{c}"}.rand
+  end
+  
+  def justgiving_id
+    pn = payment_notifications.detect { |pn| pn.params and pn.params['donationRef'] }
+    pn.params['donationRef'] if pn
   end
   
   def name

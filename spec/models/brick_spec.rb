@@ -44,6 +44,22 @@ describe Brick do
     end
   end
   
+  describe "justgiving id" do
+    it "should be nil for a brand new brick" do
+      @brick.justgiving_id.should be_nil
+    end
+    
+    it "should be nil with a non-JG payment notification" do
+      @brick.payment_notifications.build 
+      @brick.justgiving_id.should be_nil
+    end
+    
+    it "should be nil with a JG payment notification" do
+      @brick.payment_notifications.build(:params => { 'donationRef' => '123' })
+      @brick.justgiving_id.should == '123'
+    end
+  end
+  
   before(:each) do
     @valid_attributes = {
       :value => 250,

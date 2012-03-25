@@ -12,6 +12,7 @@
     <th>Subscribe?</th>
     <th>Generous?</th>
     <th>Seasonal?</th>
+    <th>JG ID</th>
   </tr>
 
 <% for brick in @bricks %>
@@ -27,7 +28,7 @@
     <td><%=h brick.telephone %></td>
     <td><%=h brick.subscribe %></td>
     <td><%=h brick.generous? %></td>
-    <td><%=h brick.seasonal? %></td>
+    <td><%=h brick.justgiving_id %></td>
   </tr>
 <% end %>
 </table>

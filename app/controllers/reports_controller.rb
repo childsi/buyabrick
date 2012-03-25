@@ -7,7 +7,8 @@ class ReportsController < ApplicationController
   def bricks
     response.headers['Cache-Control'] = 'public, max-age=30'
     @bricks = Brick.all(
-      :order => 'purchased_at', 
+      :order => 'purchased_at',
+      :include => [:payment_notifications],
       :conditions => ["purchased_at IS NOT NULL"]
     )
     
