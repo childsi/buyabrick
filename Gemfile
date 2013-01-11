@@ -1,7 +1,7 @@
 # using ruby 1.8.6, rubygems 1.8.10 and bundler 1.0.22
 source 'http://rubygems.org'
 
-gem 'rails', '=2.3.14'
+gem 'rails', '=2.3.15'
 gem 'builder', '=2.1.2'
 gem 'exception_notification', '=2.3.3.0'
 gem 'will_paginate', '=2.3.16'
