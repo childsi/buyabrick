@@ -12,7 +12,7 @@ gem 'blankslate', '~>2.1.2'
 gem 'xml-simple', '~>1.1.1'
 gem 'tzinfo', '~>0.3.31'
 gem 'nokogiri', '~>1.5.0'
-gem 'twitter', '~>2.1.0'
+gem 'twitter', '~>4.4.4'
 
 gem 'i18n', '~>0.6.0'
 
