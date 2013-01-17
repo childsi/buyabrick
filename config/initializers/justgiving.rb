@@ -1,7 +1,6 @@
 # adding aliases to Faraday JSON modules that have moved to FaradayMiddleware
 require 'faraday_middleware'
-Faraday::Response::JSON = FaradayMiddleware::ParseJson
-Faraday::Request::EncodeJson = FaradayMiddleware::EncodeJson
+Faraday::Request::JSON = FaradayMiddleware::ParseJson
 
 require 'just_giving'
 
