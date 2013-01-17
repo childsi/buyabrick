@@ -16,6 +16,8 @@ gem 'twitter', '~>4.4.4'
 
 gem 'i18n', '~>0.6.0'
 
+gem "faraday_middleware", "~> 0.9.0"
+
 group :development, :test do
   gem 'rake', '~>0.9.2'
   gem 'rspec-rails', '=1.3.3'

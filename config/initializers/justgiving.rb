@@ -12,3 +12,7 @@ end
 
 JustGiving::Configuration.application_id = justgiving_options[:app_id]
 JustGiving::Configuration.environment = justgiving_options[:environment]
+
+# adding aliases to Faraday JSON modules that have moved to FaradayMiddleware
+Faraday::Response::JSON = FaradayMiddleware::ParseJson
+Faraday::Request::EncodeJson = FaradayMiddleware::EncodeJson
