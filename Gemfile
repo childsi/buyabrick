@@ -1,9 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '=2.3.16'
+gem 'rails', '=2.3.17'
 gem 'builder', '=2.1.2'
 gem 'exception_notification', '=2.3.3.0'
 gem 'will_paginate', '=2.3.16'
+
+gem "json", "~> 1.7.7"
 
 gem 'just_giving', '~>0.3.0'
 gem 'newrelic_rpm', '~>3.3.1'
