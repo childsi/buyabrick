@@ -21,7 +21,7 @@ gem 'i18n', '~>0.6.0'
 gem "faraday_middleware", "~> 0.9.0"
 
 group :development, :test do
-  gem 'rake', '~>0.9.2'
+  gem 'rake', '~>12.3.3'
   gem 'rspec-rails', '=1.3.3'
   gem 'factory_girl', '=1.3.3'
   gem 'cucumber-rails', '=0.3.2'
