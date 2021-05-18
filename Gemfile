@@ -13,7 +13,7 @@ gem 'sqlite3', '~>1.3.5'
 gem 'blankslate', '~>2.1.2'
 gem 'xml-simple', '~>1.1.1'
 gem 'tzinfo', '~>0.3.31'
-gem 'nokogiri', '~>1.5.0'
+gem 'nokogiri', '~>1.11.4'
 gem 'twitter', '~>4.4.4'
 
 gem 'i18n', '~>0.6.0'
