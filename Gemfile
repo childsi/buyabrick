@@ -16,7 +16,7 @@ gem 'tzinfo', '~>0.3.31'
 gem 'nokogiri', '~>1.5.0'
 gem 'twitter', '~>4.4.4'
 
-gem 'i18n', '~>0.6.0'
+gem 'i18n', '~>0.8.0'
 
 gem "faraday_middleware", "~> 0.9.0"
 
