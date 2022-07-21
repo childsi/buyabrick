@@ -12,7 +12,7 @@ gem 'newrelic_rpm', '~>3.3.1'
 gem 'sqlite3', '~>1.3.5'
 gem 'blankslate', '~>2.1.2'
 gem 'xml-simple', '~>1.1.1'
-gem 'tzinfo', '~>0.3.31'
+gem 'tzinfo', '~>0.3.61'
 gem 'nokogiri', '~>1.5.0'
 gem 'twitter', '~>4.4.4'
 
